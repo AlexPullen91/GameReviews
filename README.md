@@ -1,39 +1,124 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# GameReviews 
 
-Welcome USER_NAME,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
 
-## Gitpod Reminders
+---
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# Contents
+1. [UX / Project Goals](#ux)
+2. [User Goals](#user-Goals)
+3. [User Stories](#user-stories)
+4. [Site Owner Goals](#site-owner-goals)
+5. [Design Choices](#design-choices)
+6. [Wireframes](#wireframes)
+7. [Features & Potential Future features](#features)
+8. [Technologies used](#languages)
+9. [Testing](#testing)
+10. [Issues and resolutions](#issues-and-resolutions)
+11. [Deployment](#deployment)
+12. [Credits](#credits)
+---
 
-`python3 -m http.server`
+## UX
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
+### Project Goals
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
+#### User goals
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+#### User stories
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#### Site Owner Goals
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
 
-Happy coding!
+---
+
+## Design Choices
+
+
+
+---
+
+### Wireframes
+
+
+
+---
+
+### Features
+
+
+
+#### Potential Future features
+
+
+---
+
+## Technologies Used
+
+### Languages
+
+
+
+---
+
+### Libraries
+
+
+
+---
+
+### Tools
+
+
+---
+
+## Testing
+
+
+
+## Manual Testing
+
+
+
+### Issues and Resolutions
+
+
+
+### Known Issues
+
+
+
+---
+
+## Deployment
+
+
+---
+
+---
+
+## Credits
+
+
+### Content
+
+
+
+### Code
+
+
+### Acknowledgements
+
+
+
+### Disclaimer
+
+*This site is intended for educational purposes only.*
