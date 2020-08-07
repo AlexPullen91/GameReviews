@@ -1,6 +1,6 @@
 # GameReviews 
 
-"Your home of video game reviews"
+*"Your home of video game reviews"*
 
 GameReviews is a site for and based around users who want to read and write reviews for their favourite video games and store them all in one place. Use the search function to find and read game reviews or create an account to begin contributing your own.
 
@@ -34,24 +34,34 @@ The goal of this project is to provide users a place where they can:
 
 #### User stories
 
-*“As a gamer I want to be able to read other people’s reviews on games that I'm interested in or that I might play”*
-*“As a gamer I want somewhere to review video games that I’ve played”*
-*“As a user I want to be able edit or delete my reviews incase I make a mistake or my opinion changes“*
-*“As a user I want to login and have a saved collection of my own reviews”*
-*“As a user I want to be able to use a search function to find reviews submitted by other users”*
-*“As a user I want to be able to use this app across various devices e.g desktop/laptop/tablet/mobile”*
-*"As a user I would like the review submission process to be simple and intuitive"*
-*"As a user I want to be able to quickly navigate through the app with ease"*
+* *“As a gamer I want to be able to read other people’s reviews on games that I'm interested in or that I might play”*
+* *“As a gamer I want somewhere to review video games that I’ve played”*
+* *“As a user I want to be able edit or delete my reviews incase I make a mistake or my opinion changes“*
+* *“As a user I want to login and have a saved collection of my own reviews”*
+* *“As a user I want to be able to use a search function to find reviews submitted by other users”*
+* *“As a user I want to be able to use this app across various devices e.g desktop/laptop/tablet/mobile”*
+* *"As a user I would like the review submission process to be simple and intuitive"*
+* *"As a user I want to be able to quickly navigate through the app with ease"*
 
 #### Site Owner Goals
 
-
+To provide a platform used across various devices for users who want to read and submit video game reviews.
 
 ---
 
 ## Design Choices
 
+I've opted to use detailed straight lineal colour style icons that are representative of gaming culture throughout the site which act as focal points in the layout and also helps to contextualize what the site is about and who it is aimed at. Shades of white for the background color gives the colourful icons more pop.
 
+* Simple user friendly interface
+* Fixed Navbar featuring app name and flagship logo, nav links and search function
+* Muted neutral colours in the layout to compliment the use of detailed straight lineal colour style icons
+* Shades of white for the backgrounds #FFFFFF #FAFAFA #F5F5F5
+* #333333 Jet for font colours
+* For button colours in keeping with the gamepad button colours: French Pink #EF6C8F Dark Orchard #9038A8 Light Sea Green #20BDAD
+* Forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
+* Information and search results occupy left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
+* Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
 
 ---
 
@@ -63,10 +73,22 @@ The goal of this project is to provide users a place where they can:
 
 ### Features
 
+This site is designed to provide users a simple and intuitive experience where within just a matter of clicks they are signed up and then writing their review.
+
+This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database. This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating out of 5 and write out their review.
+
+Once users create an account they are are able to submit multiple reviews, edit reviews and delete reviews.
+
+Users are able to search for and read reviews without creating an account and are prompted to create one if they wish to submit reviews.
 
 
 #### Potential Future features
 
+* Options to purchase games from the review page
+* Upvoting / downvoting system or a likes system to indicate quality of or approval of reviews
+* More site members features such as forums and messaging
+* Customizable user profiles
+* Dark mode
 
 ---
 
