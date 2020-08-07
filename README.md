@@ -53,21 +53,24 @@ To provide a platform used across various devices for users who want to read and
 
 I've opted to use detailed straight lineal colour style icons that are representative of gaming culture throughout the site which act as focal points in the layout and also helps to contextualize what the site is about and who it is aimed at. Shades of white for the background color gives the colourful icons more pop.
 
-* Simple user friendly interface
-* Fixed Navbar featuring app name and flagship logo, nav links and search function
+* Simple user friendly interface.
+* Fixed Navbar featuring app name and flagship logo. Nav links and search function enable easy navigation of the app.
 * Muted neutral colours in the layout to compliment the use of detailed straight lineal colour style icons
 * Shades of white for the backgrounds #FFFFFF #FAFAFA #F5F5F5
-* #333333 Jet for font colours
+* Jet for font colours #333333 
 * For button colours in keeping with the gamepad button colours: French Pink #EF6C8F Dark Orchard #9038A8 Light Sea Green #20BDAD
 * Forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
 * Information and search results occupy left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
 * Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
+* The sans-serif [Roboto](https://fonts.google.com/specimen/Roboto?category=Sans+Serif,Monospace#standard-styles) is the font of choice
 
 ---
 
 ### Wireframes
 
+I used [Balsamiq](https://balsamiq.com/) to create wireframes for **mobile, tablet and desktop.**
 
+You can find my wireframes [here](https://github.com/AlexPullen91/GameReviews/tree/master/wireframes).
 
 ---
 
@@ -75,7 +78,9 @@ I've opted to use detailed straight lineal colour style icons that are represent
 
 This site is designed to provide users a simple and intuitive experience where within just a matter of clicks they are signed up and then writing their review.
 
-This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database. This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating out of 5 and write out their review.
+This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database. 
+
+This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating out of 5 and write out their review.
 
 Once users create an account they are are able to submit multiple reviews, edit reviews and delete reviews.
 
