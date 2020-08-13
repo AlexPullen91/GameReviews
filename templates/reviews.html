@@ -1,40 +1,48 @@
 {% extends 'base.html' %} {% block content %}
 
-
 <div class="container">
-{% for review in reviews %}
-    <div class="row">
-        <div class="col-md-6">
-            <img src="..." class="img-fluid" alt="Responsive image">
-        </div>
-        <div class="col-md-6">
-            <p>Game Title: <span>{{review.game_title}}</span></p>
-            <p>Genres: <span>{{review.genres}}</span></p>
-            <p>Platforms: <span>{{review.platforms}}</span></p>
-            <p>Release Date: <span>{{review.release_date}}</span></p>
-        </div>
+  {% for review in reviews %}
+  <div class="row">
+    <div class="col-md-6">
+      <img
+        src="https://images.igdb.com/igdb/image/upload/t_cover_big/co22a9.jpg"
+        class="img-fluid"
+        alt="Responsive image"
+      />
     </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <p>{{review.review}}</p>
-        </div>
+    <div class="col-md-6">
+      <p>Game Title: <span>{{review.game_title}}</span></p>
+      <p>Genres: <span>{{review.genres}}</span></p>
+      <p>Platforms: <span>{{review.platforms}}</span></p>
+      <p>Release Date: <span>{{review.release_date}}</span></p>
     </div>
-    <div class="row">
-        <div class="col-sm-4">
-            <p>reviewed by: <span>{{review.reviewed_by}}</span></p>
-        </div>
-        {% endfor %}
-        <div class="col-sm-4">
-            <button class="btn btn-light">
-                Click here
-            </button>
-        </div>
-        <div class="col-sm-4">
-            <button class="btn">
-                Search
-            </button>
-        </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <p>{{review.review}}</p>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <p>reviewed by: <span>{{review.reviewed_by}}</span></p>
+    </div>
+    {% endfor %}
+    <div class="col-sm-4">
+      <button class="btn btn-light">
+        Click here
+      </button>
+    </div>
+    <div class="col-sm-4">
+      <form class="form-inline my-2 my-lg-0">
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+      </form>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
