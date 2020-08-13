@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Reviews</title>
+</head>
+<body>
+    {% for review in reviews %}
+        {{review.game_title}}
+        {{review.genres}}
+        {{review.platforms}}
+        {{review.release_date}}
+        {{review.review}}
+    {% endfor %}
+</body>
+</html>
