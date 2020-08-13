@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <title>Reviews</title>
-</head>
-<body>
+{% extends 'base.html' %} {% block content %}
+
     {% for review in reviews %}
         {{review.game_title}}
         {{review.genres}}
@@ -12,5 +7,5 @@
         {{review.release_date}}
         {{review.review}}
     {% endfor %}
-</body>
-</html>
+
+{% endblock %}
