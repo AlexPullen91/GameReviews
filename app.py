@@ -16,7 +16,19 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_reviews')
 def get_reviews():
-    return render_template("reviews.html", reviews=mongo.db.reviews.find())
+    return render_template(
+        'reviews.html', reviews=mongo.db.reviews.find())
+
+
+@app.route('/add_review')
+def add_review():
+    return render_template(
+        'addreview.html', reviews=mongo.db.reviews.find())
+
+
+@app.route('/insert_review', methods=['POST'])
+def insert_review():
+
 
 
 if __name__ == '__main__':
