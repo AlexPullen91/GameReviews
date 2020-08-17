@@ -2,26 +2,63 @@
 
 <div class="container">
   {% for review in reviews %}
-  <div class="row">
-    <div class="col-md-6">
-      <img
-        src="https://images.igdb.com/igdb/image/upload/t_cover_big/co22a9.jpg"
-        class="img-fluid"
-        alt="Responsive image"
-      />
+  <form>
+    <div class="row">
+      <!-- game image section -->
+      <div class="col-md-6">
+        <img src="" class="img-fluid" alt="Responsive image" />
+      </div>
+      <!-- end of game image section -->
+
+      <!-- game details input section -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="game_title">Game Title</label>
+          <input
+            class="form-control"
+            id="game_title"
+            name="game_title"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="genres">Genres</label>
+          <input class="form-control" id="genres" name="genres" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="platforms">Platforms</label>
+          <input
+            class="form-control"
+            id="platforms"
+            name="platforms"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="release_date">Release Date</label>
+          <input
+            class="form-control"
+            id="release_date"
+            name="release_date"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <select class="form-control" id="rating" name="rating">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+      </div>
+      <!-- end of game details input section -->
     </div>
-    <div class="col-md-6">
-      <p>Game Title: <span>{{review.game_title}}</span></p>
-      <p>Genres: <span>{{review.genres}}</span></p>
-      <p>Platforms: <span>{{review.platforms}}</span></p>
-      <p>Release Date: <span>{{review.release_date}}</span></p>
-      <p>Rating:</p>
-    </div>
-  </div>
-  {% endfor %}
-  <div class="row">
-    <div class="col-lg-12">
-      <form action="" method="POST">
+    <div class="row">
+      <!-- game review input section -->
+      <div class="col-lg-12">
         <div class="form-group">
           <textarea
             class="form-control"
@@ -30,12 +67,14 @@
             rows="6"
             placeholder="Write your review here"
           ></textarea>
-          <button class="btn btn-dark" type="submit" name="action">Submit</button>
+          <button class="btn btn-dark" type="submit" name="action">
+            Submit
+          </button>
           <button class="btn btn-dark">Cancel</button>
         </div>
-      </form>
+      </div>
+      <!-- end of game review input section -->
     </div>
-  </div>
+  </form>
 </div>
-
-{% endblock %}
+{% endfor %} {% endblock %}
