@@ -46,11 +46,12 @@
         <div class="form-group">
           <label for="rating">Rating</label>
           <select class="form-control" id="rating" name="rating">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            <option disabled selected>How was it?</option>
+            <option>Awful</option>
+            <option>Meh</option>
+            <option>Decent</option>
+            <option>Good</option>
+            <option>Amazing!</option>
           </select>
         </div>
       </div>
@@ -65,7 +66,8 @@
             name="review"
             id="review"
             rows="6"
-            placeholder="Write your review here"
+            maxlength="5000"
+            placeholder="Write your review here... (5000 characters max)"
           ></textarea>
           <button class="btn btn-dark" type="submit" name="action">
             Submit
