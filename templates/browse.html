@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="list-group">
+        {% for review in reviews %}
+        <a href="#" class="list-group-item list-group-item-action">
+          "{{review.game_title}}" - Reviewed by: {{review.reviewed_by}}
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card py-2">
+        <div class="card-body text-center">
+          Search for a game to read user-submitted reviews or submit your own
+        </div>
+        <form class="text-center form-inline my-2 mx-auto my-lg-0">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="search games"
+            aria-label="Search"
+          />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

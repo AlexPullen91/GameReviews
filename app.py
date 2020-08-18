@@ -30,7 +30,13 @@ def add_review():
 def insert_review():
     reviews = mongo.db.reviews
     reviews.insert_one(request.form.to_dict())
-    return redirect(url_for('get_reviews'))
+    return redirect(url_for('browse_reviews'))
+
+
+@app.route('/browse_reviews')
+def browse_reviews():
+    return render_template(
+        'browse.html', reviews=mongo.db.reviews.find())
 
 
 if __name__ == '__main__':
