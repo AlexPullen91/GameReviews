@@ -4,6 +4,20 @@
   <div class="row pt-5">
     <!-- Review list section -->
     <div class="col-lg-6">
+      <!-- <img src="static/images/droid.png" class="img-fluid w-25 mx-auto d-block" alt="Responsive image" />
+    <h3></h3> -->
+
+      <div class="media">
+        <img
+          src="static/images/droid.png"
+          class="img-fluid w-25 mr-3"
+          alt="droid"
+        />
+        <div class="media-body">
+          <h5 class="mt-0">Browse recently added user submitted reviews</h5>
+        </div>
+      </div>
+
       {% for review in reviews %}
       <div class="list-group">
         <a href="#" class="list-group-item list-group-item-action">
@@ -23,12 +37,14 @@
     <!-- Search game section  -->
     <div class="col-lg-6">
       <div class="card py-2">
-        <div class="card-body">
-          <img src="static/images/droid.png" class="img-fluid w-25 mx-auto d-block" alt="Responsive image" />
-        </div>
         <div class="card-body text-center">
           Search for a game to read user-submitted reviews or submit your own
         </div>
+        <img
+          src="static/images/gamepads.png"
+          class="img-fluid w-25 mx-auto d-block"
+          alt="Gamepads"
+        />
         <form class="text-center form-inline my-2 mx-auto my-lg-0">
           <input
             class="form-control"
