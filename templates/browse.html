@@ -1,16 +1,26 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="container">
-  <div class="row">
+<div class="container pt-5">
+  <div class="row pt-5">
+    <!-- Review list section -->
     <div class="col-lg-6">
+      {% for review in reviews %}
       <div class="list-group">
-        {% for review in reviews %}
         <a href="#" class="list-group-item list-group-item-action">
-          "{{review.game_title}}" - Reviewed by: {{review.reviewed_by}}
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">"{{review.game_title}}"</h5>
+          </div>
+          <p class="mb-1">
+            {{review.rating}}
+          </p>
+          <small>Reviewed by: {{review.reviewed_by}}</small>
         </a>
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
+    <!-- End of review list section -->
+
+    <!-- Search game section  -->
     <div class="col-lg-6">
       <div class="card py-2">
         <div class="card-body text-center">
@@ -26,6 +36,7 @@
         </form>
       </div>
     </div>
+    <!-- End of search game section -->
   </div>
 </div>
 
