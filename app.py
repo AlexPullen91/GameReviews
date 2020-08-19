@@ -39,6 +39,12 @@ def browse_reviews():
         'browse.html', reviews=mongo.db.reviews.find())
 
 
+@app.route('/manage_reviews')
+def manage_reviews():
+    return render_template(
+        'manage.html', reviews=mongo.db.reviews.find())
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

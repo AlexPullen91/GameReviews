@@ -14,7 +14,7 @@
           alt="droid"
         />
         <div class="media-body">
-          <h5 class="mt-0">Browse recently added user submitted reviews</h5>
+          <h5 class="mt-0">Manage your reviews</h5>
         </div>
       </div>
 
@@ -24,10 +24,8 @@
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">"{{review.game_title}}"</h5>
           </div>
-          <p class="mb-1">
-            {{review.rating}}
-          </p>
-          <small>Reviewed by: {{review.reviewed_by}}</small>
+          <div class="btn btn-dark">Edit</div>
+          <div class="btn btn-dark">Delete</div>
         </a>
       </div>
       {% endfor %}
