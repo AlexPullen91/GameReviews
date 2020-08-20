@@ -18,11 +18,12 @@
             id="game_title"
             name="game_title"
             type="text"
+            value="{{review.game_title}}"
           />
         </div>
         <div class="form-group">
           <label for="genres">Genres</label>
-          <input class="form-control" id="genres" name="genres" type="text" />
+          <input class="form-control" id="genres" name="genres" type="text" value="{{review.genres}}"/>
         </div>
         <div class="form-group">
           <label for="platforms">Platforms</label>
@@ -31,6 +32,7 @@
             id="platforms"
             name="platforms"
             type="text"
+            value="{{review.platforms}}"
           />
         </div>
         <div class="form-group">
@@ -40,12 +42,13 @@
             id="release_date"
             name="release_date"
             type="text"
+            value="{{review.release_date}}"
           />
         </div>
         <div class="form-group">
           <label for="rating">Rating</label>
           <select class="form-control" id="rating" name="rating">
-            <option disabled selected>How was it?</option>
+            <option disabled selected>"{{review.rating}}"</option>
             <option value="Awful">Awful</option>
             <option value="Meh">Meh</option>
             <option value="Decent">Decent</option>
@@ -60,6 +63,7 @@
             id="reviewed_by"
             name="reviewed_by"
             type="text"
+            value="{{review.reviewed_by}}"
           />
         </div>
       </div>
@@ -76,7 +80,7 @@
             rows="6"
             maxlength="5000"
             placeholder="Write your review here... (5000 characters max)"
-          ></textarea>
+          >{{review.review}}</textarea>
           <button class="btn btn-dark" type="submit" name="action">
             Submit
           </button>
