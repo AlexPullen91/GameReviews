@@ -20,13 +20,13 @@
 
       {% for review in reviews %}
       <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action">
+        <div class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1">"{{review.game_title}}"</h5>
           </div>
-          <div class="btn btn-dark">Edit</div>
-          <div class="btn btn-dark">Delete</div>
-        </a>
+          <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn btn-dark">Edit</a>
+          <a class="btn btn-dark">Delete</a>
+        </div>
       </div>
       {% endfor %}
     </div>

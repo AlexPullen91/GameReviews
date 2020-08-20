@@ -1,0 +1,90 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <form action="{{ url_for('insert_review') }}" method="POST">
+    <div class="row">
+      <!-- game image section -->
+      <div class="col-md-6">
+        <img src="" class="img-fluid" alt="Responsive image" />
+      </div>
+      <!-- end of game image section -->
+
+      <!-- game details input section -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="game_title">Game Title</label>
+          <input
+            class="form-control"
+            id="game_title"
+            name="game_title"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="genres">Genres</label>
+          <input class="form-control" id="genres" name="genres" type="text" />
+        </div>
+        <div class="form-group">
+          <label for="platforms">Platforms</label>
+          <input
+            class="form-control"
+            id="platforms"
+            name="platforms"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="release_date">Release Date</label>
+          <input
+            class="form-control"
+            id="release_date"
+            name="release_date"
+            type="text"
+          />
+        </div>
+        <div class="form-group">
+          <label for="rating">Rating</label>
+          <select class="form-control" id="rating" name="rating">
+            <option disabled selected>How was it?</option>
+            <option value="Awful">Awful</option>
+            <option value="Meh">Meh</option>
+            <option value="Decent">Decent</option>
+            <option value="Good">Good</option>
+            <option value="Amazing!">Amazing!</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="reviewed_by">Reviewed by</label>
+          <input
+            class="form-control"
+            id="reviewed_by"
+            name="reviewed_by"
+            type="text"
+          />
+        </div>
+      </div>
+      <!-- end of game details input section -->
+    </div>
+    <div class="row">
+      <!-- game review input section -->
+      <div class="col-lg-12">
+        <div class="form-group">
+          <textarea
+            class="form-control"
+            name="review"
+            id="review"
+            rows="6"
+            maxlength="5000"
+            placeholder="Write your review here... (5000 characters max)"
+          ></textarea>
+          <button class="btn btn-dark" type="submit" name="action">
+            Submit
+          </button>
+          <button class="btn btn-dark">Cancel</button>
+        </div>
+      </div>
+      <!-- end of game review input section -->
+    </div>
+  </form>
+</div>
+{% endblock %}
