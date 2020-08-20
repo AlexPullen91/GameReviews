@@ -25,7 +25,7 @@
             <h5 class="mb-1">"{{review.game_title}}"</h5>
           </div>
           <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn btn-dark">Edit</a>
-          <a class="btn btn-dark">Delete</a>
+          <a href="{{url_for('delete_review', review_id=review._id)}}" class="btn btn-dark">Delete</a>
         </div>
       </div>
       {% endfor %}
