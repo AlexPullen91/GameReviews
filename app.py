@@ -47,8 +47,18 @@ def manage_reviews():
 
 @app.route('/edit_review/<review_id>')
 def edit_review(review_id):
-    the_review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    the_review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
     return render_template('editreview.html', review=the_review)
+
+
+@app.route('/update_review/<review_id>', methods=['POST'])
+def update_review(review_id):
+    reviews = mongo.db.reviews
+    reviews.update({'_id': ObjectId(review_id)}, {
+        'rating': request.form.get('rating'),
+        'review': request.form.get('review')
+    })
+    return redirect(url_for('manage_reviews'))
 
 
 if __name__ == '__main__':
