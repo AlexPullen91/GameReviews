@@ -1,0 +1,49 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+  <div class="row">
+
+  <!-- Start of login / sign up section -->
+    <div class="col-lg-6 text-center">
+      <div class="jumbotron">
+        <h1 class="landing-heading">GameReviews</h1>
+        <p class="lead">
+          Your home of video game reviews
+        </p>
+        <div class="btn-positioning py-4">
+        <a class="btn btn-dark btn-lg" href="#" role="button">Login</a>
+        </div>
+        <p class="text-muted">Don't have an account?</p>
+        <div class="btn-positioning">
+        <a class="btn btn-warning btn-lg" href="#" role="button">Sign Up</a>
+        </div>
+      </div>
+    </div>
+    <!-- End of login / sign up section -->
+
+    <!-- Start of search section -->
+    <div class="col-lg-6 pt-5">
+      <div class="card py-2">
+        <div class="card-body text-center">
+          Search for a game to read user-submitted reviews or submit your own
+        </div>
+        <img
+          src="static/images/gamepads.png"
+          class="img-fluid w-25 mx-auto d-block"
+          alt="Gamepads"
+        />
+        <form class="text-center form-inline my-2 mx-auto my-lg-0">
+          <input
+            class="form-control"
+            type="search"
+            placeholder="search games"
+            aria-label="Search"
+          />
+        </form>
+      </div>
+    </div>
+    <!-- End of search section -->
+  </div>
+</div>
+
+{% endblock %}

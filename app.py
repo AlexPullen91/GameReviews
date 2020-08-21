@@ -19,6 +19,11 @@ mongo = PyMongo(app)
 #     return render_template(
 #         'reviews.html', reviews=mongo.db.reviews.find())
 
+@app.route('/')
+@app.route('/landing_page')
+def landing_page():
+    return render_template('landingpage.html')
+
 
 @app.route('/get_review/<review_id>')
 def get_review(review_id):
