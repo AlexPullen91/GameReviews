@@ -55,6 +55,11 @@ def edit_review(review_id):
 def update_review(review_id):
     reviews = mongo.db.reviews
     reviews.update({'_id': ObjectId(review_id)}, {
+        'game_title': request.form.get('game_title'),
+        'genres': request.form.get('genres'),
+        'platforms': request.form.get('platforms'),
+        'release_date': request.form.get('release_date'),
+        'reviewed_by': request.form.get('reviewed_by'),
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
