@@ -13,11 +13,17 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 mongo = PyMongo(app)
 
 
-@app.route('/')
-@app.route('/get_reviews')
-def get_reviews():
-    return render_template(
-        'reviews.html', reviews=mongo.db.reviews.find())
+# @app.route('/')
+# @app.route('/get_reviews')
+# def get_reviews():
+#     return render_template(
+#         'reviews.html', reviews=mongo.db.reviews.find())
+
+
+@app.route('/get_review/<review_id>')
+def get_review(review_id):
+    the_review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    return render_template('getreview.html', review=the_review)
 
 
 @app.route('/add_review')
