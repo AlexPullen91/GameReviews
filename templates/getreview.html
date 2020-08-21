@@ -1,20 +1,50 @@
 {% extends 'base.html' %} {% block content %}
 <!-- single review page -->
 <div class="container">
-  <div class="row">
-    <div class="col-md-6">
+  <div class="row pt-5">
+    <div class="col-md-6 m-auto pb-4 text-center">
       <img
         src="{{review.image_url}}"
         class="img-fluid"
         alt="Responsive image"
       />
     </div>
-    <div class="col-md-6">
+    <!-- <div class="col-md-6">
       <p>Game Title: <span>{{review.game_title}}</span></p>
       <p>Genres: <span>{{review.genres}}</span></p>
       <p>Platforms: <span>{{review.platforms}}</span></p>
       <p>Release Date: <span>{{review.release_date}}</span></p>
       <p>Rating: <span>{{review.rating}}</span></p>
+    </div> -->
+    <div class="col-md-6">
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Game Title:</th>
+            <td>{{review.game_title}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Genres:</th>
+            <td>{{review.genres}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Platforms:</th>
+            <td>{{review.platforms}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Release Date:</th>
+            <td>{{review.release_date}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Rating:</th>
+            <td>{{review.rating}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Reviewed by:</th>
+            <td>{{review.reviewed_by}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="row">
@@ -23,15 +53,10 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
-      <p>Reviewed by: <span>{{review.reviewed_by}}</span></p>
-    </div>
-    <div class="col-sm-4">
-      <button class="btn btn-light">
+    <div class="col-sm-12">
+      <button class="btn btn-dark">
         Click here
       </button>
-    </div>
-    <div class="col-sm-4">
       <form class="form-inline my-2 my-lg-0">
         <input
           class="form-control mr-sm-2"
