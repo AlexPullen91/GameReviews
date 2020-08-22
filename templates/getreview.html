@@ -5,8 +5,8 @@
     <div class="col-md-6 m-auto pb-4 text-center">
       <img
         src="{{review.image_url}}"
-        class="img-fluid"
-        alt="Responsive image"
+        class="img-fluid img-style"
+        alt="image of video game"
       />
     </div>
     <!-- <div class="col-md-6">
@@ -48,20 +48,23 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-12">
-      <p>{{review.review}}</p>
+    <div class="col-lg-12  pb-5">
+      <textarea class="form-control m-auto" disabled>{{review.review}}</textarea>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-6 text-center">
+      <p class="text-muted">Want to submit your own review?</p>
       <button class="btn btn-dark">
         Click here
       </button>
+    </div>
+    <div class="col-sm-6">
       <form class="form-inline my-2 my-lg-0">
         <input
-          class="form-control mr-sm-2"
+          class="form-control searchbar-style m-auto w-auto"
           type="search"
-          placeholder="Search"
+          placeholder="Search games"
           aria-label="Search"
         />
       </form>
