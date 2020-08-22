@@ -5,7 +5,11 @@
     <div class="row">
       <!-- game image section -->
       <div class="col-md-6 m-auto text-center">
-        <img src="{{url_for('static', filename='images/map.png')}}" class="img-fluid" alt="map as placeholder image" />
+        <img
+          src="{{url_for('static', filename='images/map.png')}}"
+          class="img-fluid"
+          alt="map as placeholder image"
+        />
       </div>
       <!-- end of game image section -->
 
@@ -89,7 +93,7 @@
           <button class="btn btn-dark" type="submit" name="action">
             Submit
           </button>
-          <button class="btn btn-dark">Cancel</button>
+          <a href="{{url_for('browse_reviews')}}" class="btn btn-dark">Cancel</a>
         </div>
       </div>
       <!-- end of game review input section -->
