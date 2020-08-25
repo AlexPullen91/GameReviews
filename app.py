@@ -83,6 +83,11 @@ def delete_review(review_id):
     return redirect(url_for('manage_reviews'))
 
 
+@app.route('/login_page')
+def login_page():
+    return render_template('login.html')
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
