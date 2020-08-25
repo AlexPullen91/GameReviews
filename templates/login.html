@@ -1,25 +1,50 @@
 {% extends 'base.html' %} {% block content %}
 <div class="container">
-  <div class="col-lg-6">
-    <h1>Login</h1>
-    <form>
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input
-          type="text"
-          class="form-control"
-          id="username"
-          aria-describedby="username"
+  <div class="row">
+    <!-- Start of login form section  -->
+    <div class="col-lg-6 text-center py-5">
+      <h1 class="py-2">Login</h1>
+      <form>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            aria-describedby="username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-dark">Login</button>
+      </form>
+      <p class="py-3">Don't have an account yet?</p>
+      <a href="" class="btn btn-warning">Sign Up</a>
+    </div>
+    <!-- End of login form section -->
+
+    <!-- Start of image section -->
+    <div class="col-lg-6">
+      <div class="card search-box-style pt-5 pb-2">
+        <img
+          src="static/images/key.png"
+          class="img-medium mx-auto d-block pb-2"
+          alt="Gamepads"
+        />
+        <img
+          src="static/images/handheld-game.png"
+          class="img-medium mx-auto d-block pb-2"
+          alt="Gamepads"
         />
       </div>
-      <div class="form-group">
-        <label for="password-input">Password</label>
-        <input type="password" class="form-control" id="password" />
-      </div>
-      <button type="submit" class="btn btn-dark">Submit</button>
-    </form>
-    <p>Don't have an account yet?</p>
-    <a href="" class="btn btn-warning">Sign Up</a>
+    </div>
+    <!-- End of image section -->
   </div>
 </div>
 
