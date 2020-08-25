@@ -83,6 +83,11 @@ def delete_review(review_id):
     return redirect(url_for('manage_reviews'))
 
 
+@app.route('/signup_page')
+def signup_page():
+    return render_template('signup.html')
+
+
 @app.route('/login_page')
 def login_page():
     return render_template('login.html')

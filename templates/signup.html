@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <!-- Start of sign up form section  -->
+    <div class="col-lg-6 text-center py-5">
+      <h1 class="py-2">Create an Account</h1>
+      <form>
+        <div class="form-group">
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            placeholder="Username"
+            aria-describedby="username"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            class="form-control"
+            id="confirmPassword"
+            placeholder="Confirm Password"
+          />
+        </div>
+        <button type="submit" class="btn btn-dark">Sign Up</button>
+      </form>
+    </div>
+    <!-- End of sign up form section -->
+
+    <!-- Start of image section -->
+    <div class="col-lg-6">
+      <div class="card search-box-style pt-5 pb-2">
+        <img
+          src="static/images/key.png"
+          class="img-medium mx-auto d-block pb-2"
+          alt="Gamepads"
+        />
+        <img
+          src="static/images/handheld-game.png"
+          class="img-medium mx-auto d-block pb-2"
+          alt="Gamepads"
+        />
+      </div>
+    </div>
+    <!-- End of image section -->
+  </div>
+</div>
+
+{% endblock %}
