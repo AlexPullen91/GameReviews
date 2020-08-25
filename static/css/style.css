@@ -20,6 +20,10 @@ body {
     border-radius: 0.5rem;
 }
 
+.img-medium {
+    width: 40%;
+}
+
 /* Navbar */
 
 .navbar-brand {
@@ -27,9 +31,18 @@ body {
     font-size: 1.5rem;
 }
 
+/* Sign up Login Buttons */
+
 .btn-positioning {
     display: flex;
     flex-direction: column;
     width: 40%;
     margin: 0 auto;
+}
+
+/* Search box section */
+
+.search-box-style {
+    border: none;
+    background-color:#fafafa;
 }
