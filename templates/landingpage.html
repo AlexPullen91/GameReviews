@@ -2,8 +2,7 @@
 
 <div class="container">
   <div class="row">
-
-  <!-- Start of login / sign up section -->
+    <!-- Login / sign up section -->
     <div class="col-lg-6 pt-5 text-center">
       <div class="jumbotron">
         <h1 class="landing-heading pb-2">GameReviews</h1>
@@ -11,17 +10,27 @@
           Your home of video game reviews
         </p>
         <div class="btn-positioning py-4">
-        <a class="btn btn-dark btn-lg" href="{{url_for('login_page')}}" role="button">Login</a>
+          <a
+            class="btn btn-dark btn-lg"
+            href="{{url_for('login_page')}}"
+            role="button"
+            >Login</a
+          >
         </div>
         <p class="text-muted">Don't have an account?</p>
         <div class="btn-positioning">
-        <a class="btn btn-warning btn-lg" href="{{url_for('signup_page')}}" role="button">Sign Up</a>
+          <a
+            class="btn btn-warning btn-lg"
+            href="{{url_for('signup_page')}}"
+            role="button"
+            >Sign Up</a
+          >
         </div>
       </div>
     </div>
     <!-- End of login / sign up section -->
 
-    <!-- Start of search section -->
+    <!-- Search game section -->
     <div class="col-lg-6 pt-5">
       <div class="card search-box-style pt-5 pb-2">
         <div class="card-body text-center">
@@ -45,7 +54,7 @@
         </form>
       </div>
     </div>
-    <!-- End of search section -->
+    <!-- End of search game section -->
   </div>
 </div>
 
