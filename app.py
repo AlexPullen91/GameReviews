@@ -1,6 +1,7 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
+import bcrypt
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
@@ -9,19 +10,17 @@ if path.exists("env.py"):
 app = Flask(__name__)
 
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
 
-# @app.route('/')
-# @app.route('/get_reviews')
-# def get_reviews():
-#     return render_template(
-#         'reviews.html', reviews=mongo.db.reviews.find())
-
 @app.route('/')
 @app.route('/landing_page')
 def landing_page():
+    if 'username' in session:
+        return 'You are logged in as ' + session['username']
+
     return render_template('landingpage.html')
 
 
@@ -85,6 +84,29 @@ def delete_review(review_id):
 
 @app.route('/signup_page')
 def signup_page():
+    return render_template('signup.html')
+
+
+@app.route('/signup', methods=['POST', 'GET'])
+def signup():
+    if request.method == 'POST':
+        users = mongo.db.users
+        existing_user = users.find_one({'name': request.form['username']})
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+
+        if password == confirm_password:
+            if existing_user is None:
+                hashpass = bcrypt.hashpw(
+                    request.form['password'].encode('utf-8'), bcrypt.gensalt())
+                users.insert({
+                    'name': request.form['username'],
+                    'password': hashpass
+                })
+                session['username'] = request.form['username']
+                return redirect(url_for('login_page'))
+            return ('That username already exists!')
+        return ('Your passwords do not match')
     return render_template('signup.html')
 
 
