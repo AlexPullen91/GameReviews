@@ -18,9 +18,6 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/landing_page')
 def landing_page():
-    if 'username' in session:
-        return 'You are logged in as ' + session['username']
-
     return render_template('landingpage.html')
 
 
