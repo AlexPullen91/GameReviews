@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-lg-6">
-      <h1>Welcome to your hub{{users.name}}</h1>
+    <div class="col-lg-6 text-center py-5">
+      <h1 class="py-5">Welcome to your hub{{users.name}}</h1>
       <a href="{{url_for('logout')}}" class="btn btn-dark">Logout</a>
     </div>
     
@@ -12,9 +12,6 @@
       <div class="card search-box-style pt-5 pb-2">
         <div class="card-body text-center">
           Search for a game to read user-submitted reviews
-        </div>
-        <div class="card-body text-center">
-          Or sign up / login to submit your own
         </div>
         <img
           src="static/images/gamepads.png"
