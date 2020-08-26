@@ -123,8 +123,19 @@ def login():
     if login_user:
         if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
-            return redirect(url_for('landing_page'))
+            return redirect(url_for('userhub'))
     return 'Invalid username/password combination'
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect('/landing_page')
+
+
+@app.route('/userhub')
+def userhub():
+    return render_template('userhub.html', users=mongo.db.users.find())
 
 
 if __name__ == '__main__':
