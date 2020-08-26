@@ -4,12 +4,12 @@
     <!-- Login form section  -->
     <div class="col-lg-6 text-center py-5">
       <h1 class="py-2">Login</h1>
-      <form>
+      <form method="POST" action="{{url_for('login')}}">
         <div class="form-group">
           <input
             type="text"
             class="form-control"
-            id="username"
+            name="username"
             placeholder="Username"
             aria-describedby="username"
           />
@@ -18,7 +18,7 @@
           <input
             type="password"
             class="form-control"
-            id="password"
+            name="password"
             placeholder="Password"
           />
         </div>
