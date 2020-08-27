@@ -7,60 +7,59 @@ from os import path
 if path.exists("env.py"):
     import env
 
-app = Flask(__name__)
+APP = Flask(__name__)
 
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
-app.secret_key = os.environ.get("SECRET_KEY")
+APP.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+APP.secret_key = os.environ.get("SECRET_KEY")
 
-mongo = PyMongo(app)
+MONGO = PyMongo(APP)
 
 
-@app.route('/')
-@app.route('/landing_page')
+@APP.route('/landing_page')
 def landing_page():
     return render_template('landingpage.html')
 
 
-@app.route('/get_review/<review_id>')
+@APP.route('/get_review/<review_id>')
 def get_review(review_id):
-    the_review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
     return render_template('getreview.html', review=the_review)
 
 
-@app.route('/add_review')
+@APP.route('/add_review')
 def add_review():
     return render_template(
-        'addreview.html', reviews=mongo.db.reviews.find())
+        'addreview.html', reviews=MONGO.db.reviews.find())
 
 
-@app.route('/insert_review', methods=['POST'])
+@APP.route('/insert_review', methods=['POST'])
 def insert_review():
-    reviews = mongo.db.reviews
+    reviews = MONGO.db.reviews
     reviews.insert_one(request.form.to_dict())
     return redirect(url_for('browse_reviews'))
 
 
-@app.route('/browse_reviews')
+@APP.route('/browse_reviews')
 def browse_reviews():
     return render_template(
-        'browse.html', reviews=mongo.db.reviews.find())
+        'browse.html', reviews=MONGO.db.reviews.find())
 
 
-@app.route('/manage_reviews')
+@APP.route('/manage_reviews')
 def manage_reviews():
     return render_template(
-        'manage.html', reviews=mongo.db.reviews.find())
+        'manage.html', reviews=MONGO.db.reviews.find())
 
 
-@app.route('/edit_review/<review_id>')
+@APP.route('/edit_review/<review_id>')
 def edit_review(review_id):
-    the_review = mongo.db.reviews.find_one({'_id': ObjectId(review_id)})
+    the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
     return render_template('editreview.html', review=the_review)
 
 
-@app.route('/update_review/<review_id>', methods=['POST'])
+@APP.route('/update_review/<review_id>', methods=['POST'])
 def update_review(review_id):
-    reviews = mongo.db.reviews
+    reviews = MONGO.db.reviews
     reviews.update({'_id': ObjectId(review_id)}, {
         'game_title': request.form.get('game_title'),
         'genres': request.form.get('genres'),
@@ -73,21 +72,21 @@ def update_review(review_id):
     return redirect(url_for('manage_reviews'))
 
 
-@app.route('/delete_review/<review_id>')
+@APP.route('/delete_review/<review_id>')
 def delete_review(review_id):
-    mongo.db.reviews.remove({'_id': ObjectId(review_id)})
+    MONGO.db.reviews.remove({'_id': ObjectId(review_id)})
     return redirect(url_for('manage_reviews'))
 
 
-@app.route('/signup_page')
+@APP.route('/signup_page')
 def signup_page():
     return render_template('signup.html')
 
 
-@app.route('/signup', methods=['POST', 'GET'])
+@APP.route('/signup', methods=['POST', 'GET'])
 def signup():
     if request.method == 'POST':
-        users = mongo.db.users
+        users = MONGO.db.users
         existing_user = users.find_one({'name': request.form['username']})
         password = request.form['password']
         confirm_password = request.form['confirm_password']
@@ -107,35 +106,36 @@ def signup():
     return render_template('signup.html')
 
 
-@app.route('/login_page')
+@APP.route('/login_page')
 def login_page():
     return render_template('login.html')
 
 
-@app.route('/login', methods=['POST'])
+@APP.route('/login', methods=['POST'])
 def login():
-    users = mongo.db.users
+    users = MONGO.db.users
     login_user = users.find_one({'name': request.form['username']})
 
     if login_user:
-        if bcrypt.hashpw(request.form['password'].encode('utf-8'), login_user['password']) == login_user['password']:
+        if bcrypt.hashpw(request.form['password'].encode(
+                'utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('userhub'))
     return 'Invalid username/password combination'
 
 
-@app.route('/logout')
+@APP.route('/logout')
 def logout():
     session.clear()
     return redirect('/landing_page')
 
 
-@app.route('/userhub')
+@APP.route('/userhub')
 def userhub():
-    return render_template('userhub.html', users=mongo.db.users.find())
+    return render_template('userhub.html', users=MONGO.db.users.find())
 
 
 if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
+    APP.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
