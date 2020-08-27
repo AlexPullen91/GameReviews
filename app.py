@@ -15,15 +15,15 @@ APP.secret_key = os.environ.get("SECRET_KEY")
 MONGO = PyMongo(APP)
 
 
-@APP.route('/landing_page')
+@APP.route('/')
 def landing_page():
     return render_template('landingpage.html')
 
 
-@APP.route('/get_review/<review_id>')
+@APP.route('/review/<review_id>')
 def get_review(review_id):
     the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
-    return render_template('getreview.html', review=the_review)
+    return render_template('review.html', review=the_review)
 
 
 @APP.route('/add_review')
