@@ -39,24 +39,7 @@
 
     <!-- Search game section  -->
     <div class="col-lg-6 pt-5">
-      <div class="card py-2">
-        <div class="card-body text-center">
-          Search for a game to read user-submitted reviews or submit your own
-        </div>
-        <img
-          src="static/images/gamepads.png"
-          class="img-fluid w-25 mx-auto d-block"
-          alt="Gamepads"
-        />
-        <form class="text-center form-inline my-2 mx-auto my-lg-0">
-          <input
-            class="form-control"
-            type="search"
-            placeholder="search games"
-            aria-label="Search"
-          />
-        </form>
-      </div>
+      {% include 'components/searchbox.html' %}
     </div>
     <!-- End of search game section -->
   </div>
