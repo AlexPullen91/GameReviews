@@ -39,6 +39,16 @@ def insert_review():
     return redirect(url_for('pages/browse_reviews'))
 
 
+# @APP.route('/add_review', methods=['POST'])
+# def create_review():
+#     if request.methods == 'POST':
+#         reviews = MONGO.db.reviews
+#         reviews.insert_one(request.form.to_dict())
+#         return redirect(url_for('pages/browse_reviews'))
+#     return render_template(
+#         'pages/addreview.html', reviews=MONGO.db.reviews.find())
+
+
 @APP.route('/browse_reviews')
 def browse_reviews():
     return render_template(
