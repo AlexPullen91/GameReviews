@@ -127,12 +127,12 @@ def login():
 @APP.route('/logout')
 def logout():
     session.clear()
-    return redirect('/landing_page')
+    return redirect('/')
 
 
 @APP.route('/userhub')
 def userhub():
-    return render_template('userhub.html', users=MONGO.db.users.find())
+    return render_template('pages/userhub.html', users=MONGO.db.users.find())
 
 
 if __name__ == '__main__':
