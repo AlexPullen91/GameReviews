@@ -17,44 +17,44 @@ MONGO = PyMongo(APP)
 
 @APP.route('/')
 def landing_page():
-    return render_template('landingpage.html')
+    return render_template('pages/landingpage.html')
 
 
 @APP.route('/review/<review_id>')
 def get_review(review_id):
     the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
-    return render_template('review.html', review=the_review)
+    return render_template('pages/review.html', review=the_review)
 
 
 @APP.route('/add_review')
 def add_review():
     return render_template(
-        'addreview.html', reviews=MONGO.db.reviews.find())
+        'pages/addreview.html', reviews=MONGO.db.reviews.find())
 
 
 @APP.route('/insert_review', methods=['POST'])
 def insert_review():
     reviews = MONGO.db.reviews
     reviews.insert_one(request.form.to_dict())
-    return redirect(url_for('browse_reviews'))
+    return redirect(url_for('pages/browse_reviews'))
 
 
 @APP.route('/browse_reviews')
 def browse_reviews():
     return render_template(
-        'browse.html', reviews=MONGO.db.reviews.find())
+        'pages/browse.html', reviews=MONGO.db.reviews.find())
 
 
 @APP.route('/manage_reviews')
 def manage_reviews():
     return render_template(
-        'manage.html', reviews=MONGO.db.reviews.find())
+        'pages/manage.html', reviews=MONGO.db.reviews.find())
 
 
 @APP.route('/edit_review/<review_id>')
 def edit_review(review_id):
     the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
-    return render_template('editreview.html', review=the_review)
+    return render_template('pages/editreview.html', review=the_review)
 
 
 @APP.route('/update_review/<review_id>', methods=['POST'])
@@ -69,18 +69,18 @@ def update_review(review_id):
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
-    return redirect(url_for('manage_reviews'))
+    return redirect(url_for('pages/manage_reviews'))
 
 
 @APP.route('/delete_review/<review_id>')
 def delete_review(review_id):
     MONGO.db.reviews.remove({'_id': ObjectId(review_id)})
-    return redirect(url_for('manage_reviews'))
+    return redirect(url_for('pages/manage_reviews'))
 
 
 @APP.route('/signup_page')
 def signup_page():
-    return render_template('signup.html')
+    return render_template('pages/signup.html')
 
 
 @APP.route('/signup', methods=['POST', 'GET'])
@@ -103,12 +103,12 @@ def signup():
                 return redirect(url_for('login_page'))
             return ('That username already exists!')
         return ('Your passwords do not match')
-    return render_template('signup.html')
+    return render_template('pages/signup.html')
 
 
 @APP.route('/login_page')
 def login_page():
-    return render_template('login.html')
+    return render_template('pages/login.html')
 
 
 @APP.route('/login', methods=['POST'])

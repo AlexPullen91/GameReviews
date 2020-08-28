@@ -1,9 +1,12 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'layout/base.html' %} {% block content %}
 
 <div class="container pt-5">
   <div class="row pt-5">
     <!-- Review list section -->
     <div class="col-lg-6">
+      <!-- <img src="static/images/droid.png" class="img-fluid w-25 mx-auto d-block" alt="Responsive image" />
+    <h3></h3> -->
+
       <div class="media">
         <img
           src="static/images/droid.png"
@@ -11,27 +14,21 @@
           alt="droid"
         />
         <div class="media-body">
-          <h5 class="mt-0">Manage your reviews</h5>
+          <h5 class="mt-0">Browse recently added user submitted reviews</h5>
         </div>
       </div>
 
       {% for review in reviews %}
       <div class="list-group">
-        <div class="list-group-item list-group-item-action">
+        <a href="{{url_for('get_review', review_id=review._id)}}" class="list-group-item list-group-item-action">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1 py-1">"{{review.game_title}}"</h5>
+            <h5 class="mb-1">"{{review.game_title}}"</h5>
           </div>
-          <a
-            href="{{url_for('edit_review', review_id=review._id)}}"
-            class="btn btn-dark"
-            >Edit</a
-          >
-          <a
-            href="{{url_for('delete_review', review_id=review._id)}}"
-            class="btn btn-danger"
-            >Delete</a
-          >
-        </div>
+          <p class="mb-1">
+            {{review.rating}}
+          </p>
+          <small>Reviewed by: {{review.reviewed_by}}</small>
+        </a>
       </div>
       {% endfor %}
     </div>
