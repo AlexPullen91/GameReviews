@@ -138,7 +138,8 @@ def login():
                 'utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('dashboard'))
-    return 'Invalid username/password combination'
+    flash('Invalid username / password combination', 'invalid')
+    return redirect('/login_page')
 
 
 @APP.route('/logout')
