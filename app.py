@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session
+from flask import Flask, render_template, redirect, request, url_for, session, flash
 from flask_pymongo import PyMongo
 import bcrypt
 from bson.objectid import ObjectId
@@ -118,8 +118,8 @@ def signup():
                 })
                 session['username'] = request.form['username']
                 return redirect(url_for('login_page'))
-            return ('That username already exists!')
-        return ('Your passwords do not match')
+            flash('That username already exists!', 'userexists')
+        flash('Your passwords do not match', 'nomatch')
     return render_template('pages/signup.html')
 
 
