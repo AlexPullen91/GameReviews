@@ -1,0 +1,65 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+	<a class="navbar-brand" href="{{url_for('landing_page')}}">GameReviews<img
+          src="{{url_for('static', filename='images/buttons.png')}}"
+          width="35"
+          height="35"
+          alt="gamepad buttons"
+      /></a>
+		<button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav ml-auto">
+                {% if session['username'] %}
+                <li class="nav-item">
+					<a class="nav-link" href="{{url_for('userhub')}}">Dashboard
+						<span class="sr-only">(current)</span></a>
+				</li>
+                {% else %}
+				<li class="nav-item">
+					<a class="nav-link" href="{{url_for('landing_page')}}">Home
+						<span class="sr-only">(current)</span></a>
+				</li>
+                {% endif %}
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Reviews
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="{{url_for('manage_reviews')}}">Manage</a>
+						<a class="dropdown-item" href="{{url_for('browse_reviews')}}">Browse</a>
+					</div>
+				</li>
+                {% if session['username'] %}
+                <li class="nav-item">
+					<a href="{{url_for('logout')}}" class="nav-link">Logout</a>
+				</li>
+                {% else %}
+				<li class="nav-item">
+					<a href="{{url_for('signup_page')}}" class="nav-link">Sign Up</a>
+				</li>
+				<li class="nav-item">
+					<a href="{{url_for('login_page')}}" class="nav-link">Login</a>
+				</li>
+                {% endif %}
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+        </form>
+		</div>
+</nav>
