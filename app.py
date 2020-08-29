@@ -137,7 +137,7 @@ def login():
         if bcrypt.hashpw(request.form['password'].encode(
                 'utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
-            return redirect(url_for('userhub'))
+            return redirect(url_for('dashboard'))
     return 'Invalid username/password combination'
 
 
@@ -147,9 +147,9 @@ def logout():
     return redirect('/')
 
 
-@APP.route('/userhub')
-def userhub():
-    return render_template('pages/userhub.html', users=MONGO.db.users.find())
+@APP.route('/dashboard')
+def dashboard():
+    return render_template('pages/dashboard.html')
 
 
 if __name__ == '__main__':
