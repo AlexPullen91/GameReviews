@@ -17,11 +17,18 @@ MONGO = PyMongo(APP)
 
 @APP.route('/')
 def landing_page():
+    """
+    Renders the landing page
+    """
     return render_template('pages/landingpage.html')
 
 
 @APP.route('/review/<review_id>')
 def get_review(review_id):
+    """
+    Retrieves a specific review from the database and
+    renders it on review.html
+    """
     the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
     return render_template('pages/review.html', review=the_review)
 
