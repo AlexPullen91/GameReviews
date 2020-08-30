@@ -1,5 +1,6 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for, session, flash
+from flask import Flask, render_template, redirect, request, url_for, session,\
+     flash
 from flask_pymongo import PyMongo
 import bcrypt
 from bson.objectid import ObjectId
@@ -35,7 +36,11 @@ def get_review(review_id):
 
 @APP.route('/add_review')
 def add_review():
-    if 'logged_in' in session:
+    """
+    Checks if user is logged in, if yes they are sent to add review page
+    if user is not logged in they are redirected to login page
+    """
+    if 'username' in session:
         return render_template(
             'pages/addreview.html', reviews=MONGO.db.reviews.find())
     flash('You must create an account or login to submit reviews', 'noaccount')
