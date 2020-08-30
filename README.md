@@ -126,7 +126,7 @@ Users are able to search for and read reviews without creating an account and ar
 
 ### Issues and Resolutions
 
-
+* Fixed an issue with sign up where users entering a name that already exists in the database would also be told their passwords dont match when they did. This was solved by adding a return redirect after each error message.
 
 ### Known Issues
 
