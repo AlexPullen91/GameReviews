@@ -35,8 +35,11 @@ def get_review(review_id):
 
 @APP.route('/add_review')
 def add_review():
-    return render_template(
-        'pages/addreview.html', reviews=MONGO.db.reviews.find())
+    if 'logged_in' in session:
+        return render_template(
+            'pages/addreview.html', reviews=MONGO.db.reviews.find())
+    flash('You must create an account or login to submit reviews', 'noaccount')
+    return redirect('login_page')
 
 
 @APP.route('/insert_review', methods=['POST'])
