@@ -4,9 +4,10 @@
     {% include 'layout/head.html' %}
   </head>
   <body>
-    
+    <header>
     {% include 'components/navbar.html' %}
-    
+    {% include 'components/header.html' %}
+    </header>
     {% block content %} {% endblock %} 
     
     {% include 'layout/scripts.html' %}
