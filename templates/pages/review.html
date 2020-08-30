@@ -53,19 +53,22 @@
     </div>
   </div>
   <div class="row pb-5">
-  
     <div class="col-sm-6 text-center">
-    {% if session['username'] == review.reviewed_by %}
+      {% if session['username'] == review.reviewed_by %}
       <a
-        href="{{ url_for('browse_reviews') }}"
+        href="{{url_for('edit_review', review_id=review._id)}}"
         class="btn btn-dark"
-        type="submit"
-        name="add_review"
+        >Edit</a
       >
+      <a
+        href="{{url_for('delete_review', review_id=review._id)}}"
+        class="btn btn-danger"
+        >Delete</a
+      >
+      <a href="{{ url_for('browse_reviews') }}" class="btn btn-dark">
         Go back
       </a>
       {% else %}
-      
       <p class="text-muted">Want to submit your own review?</p>
       <a
         href="{{ url_for('add_review') }}"
@@ -77,7 +80,7 @@
       </a>
       {% endif %}
     </div>
-    
+
     <div class="col-sm-6 pt-3">
       <form class="form-inline my-2 my-lg-0">
         <input
