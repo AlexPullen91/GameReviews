@@ -120,7 +120,9 @@ def signup():
                 flash('Sign up successful', 'signedup')
                 return redirect(url_for('login_page'))
             flash('That username already exists!', 'userexists')
+            return redirect(url_for('signup_page'))
         flash('Your passwords do not match', 'nomatch')
+        return redirect(url_for('signup_page'))
     return render_template('pages/signup.html')
 
 
