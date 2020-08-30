@@ -117,6 +117,7 @@ def signup():
                     'password': hashpass
                 })
                 session['username'] = request.form['username']
+                flash('Sign up successful', 'signedup')
                 return redirect(url_for('login_page'))
             flash('That username already exists!', 'userexists')
         flash('Your passwords do not match', 'nomatch')
