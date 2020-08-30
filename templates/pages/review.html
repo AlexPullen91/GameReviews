@@ -53,7 +53,19 @@
     </div>
   </div>
   <div class="row pb-5">
+  
     <div class="col-sm-6 text-center">
+    {% if session['username'] == review.reviewed_by %}
+      <a
+        href="{{ url_for('browse_reviews') }}"
+        class="btn btn-dark"
+        type="submit"
+        name="add_review"
+      >
+        Go back
+      </a>
+      {% else %}
+      
       <p class="text-muted">Want to submit your own review?</p>
       <a
         href="{{ url_for('add_review') }}"
@@ -63,7 +75,9 @@
       >
         Click here
       </a>
+      {% endif %}
     </div>
+    
     <div class="col-sm-6 pt-3">
       <form class="form-inline my-2 my-lg-0">
         <input
