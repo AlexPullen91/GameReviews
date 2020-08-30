@@ -51,7 +51,7 @@ def add_review():
 def insert_review():
     reviews = MONGO.db.reviews
     reviews.insert_one(request.form.to_dict())
-    return redirect(url_for('pages/browse_reviews'))
+    return redirect(url_for('browse_reviews'))
 
 
 @APP.route('/browse_reviews')
@@ -87,13 +87,13 @@ def update_review(review_id):
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
-    return redirect(url_for('pages/manage_reviews'))
+    return redirect(url_for('manage_reviews'))
 
 
 @APP.route('/delete_review/<review_id>')
 def delete_review(review_id):
     MONGO.db.reviews.remove({'_id': ObjectId(review_id)})
-    return redirect(url_for('pages/manage_reviews'))
+    return redirect(url_for('manage_reviews'))
 
 
 @APP.route('/signup_page')
