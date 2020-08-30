@@ -3,6 +3,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-6 text-center py-5">
+        {% include 'components/messages/signedup.html' %}
 			<h1 class="py-5">Welcome, {{session['username']}}</h1>
 			<a href="{{url_for('manage_reviews')}}" class="btn btn-dark">Manage</a>
 			<a href="{{url_for('logout')}}" class="btn btn-dark">Logout</a>

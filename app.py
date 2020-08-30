@@ -119,7 +119,7 @@ def signup():
                 })
                 session['username'] = request.form['username']
                 flash('Sign up successful', 'signedup')
-                return redirect(url_for('login_page'))
+                return redirect(url_for('dashboard'))
             flash('That username already exists!', 'userexists')
             return redirect(url_for('signup_page'))
         flash('Your passwords do not match', 'nomatch')
