@@ -57,8 +57,8 @@
         </div>
         <div class="form-group">
           <label for="rating">Rating</label>
-          <select class="form-control" id="rating" name="rating">
-            <option disabled selected>"{{review.rating}}"</option>
+          <select class="form-control" id="rating" name="rating" required>
+            <option value="{{review.rating}}">{{review.rating}}</option>
             <option value="Awful">Awful</option>
             <option value="Meh">Meh</option>
             <option value="Decent">Decent</option>
@@ -66,14 +66,14 @@
             <option value="Amazing!">Amazing!</option>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group d-none">
           <label for="reviewed_by">Reviewed by</label>
           <input
             class="form-control"
             id="reviewed_by"
             name="reviewed_by"
             type="text"
-            value="{{review.reviewed_by}}"
+            value="{{session['username']}}"
           />
         </div>
       </div>

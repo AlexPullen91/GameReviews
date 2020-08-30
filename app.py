@@ -84,6 +84,7 @@ def update_review(review_id):
         'platforms': request.form.get('platforms'),
         'release_date': request.form.get('release_date'),
         'reviewed_by': request.form.get('reviewed_by'),
+        'image_url': request.form.get('image_url'),
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
