@@ -14,7 +14,7 @@
           alt="droid"
         />
         <div class="media-body">
-          <h3 class="mt-0 heading">Browse</h3>
+          <h2 class="mt-0 heading">Browse</h2>
           <h6>recently added user submitted reviews</h6>
         </div>
       </div>
@@ -22,9 +22,9 @@
       {% for review in reviews %}
       <div class="list-group mt-1 rounded-pill text-center">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">"{{review.game_title}}"</h5>
+            <h5 class="mb-1">{{review.game_title}}</h5>
           <p class="mb-1">
-            {{review.rating}}
+            "{{review.rating}}"
           </p>
           <small>Reviewed by: {{review.reviewed_by}}</small>
         </a>
