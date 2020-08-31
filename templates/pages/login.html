@@ -5,12 +5,12 @@
     <div class="col-lg-6 text-center py-5">
     {% include 'components/messages/noaccount.html' %}
     {% include 'components/messages/invalid.html' %}
-      <h1 class="py-2">Login</h1>
+      <h1 class="py-2 heading">Login</h1>
       <form method="POST" action="{{url_for('login')}}">
         <div class="form-group">
           <input
             type="text"
-            class="form-control"
+            class="form-control narrow-input-fields"
             name="username"
             placeholder="Username"
             aria-describedby="username"
@@ -20,7 +20,7 @@
         <div class="form-group">
           <input
             type="password"
-            class="form-control"
+            class="form-control narrow-input-fields"
             name="password"
             placeholder="Password"
             required

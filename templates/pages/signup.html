@@ -3,12 +3,12 @@
   <div class="row">
     <!-- Sign up form section  -->
     <div class="col-lg-6 text-center py-5">
-      <h1 class="py-2">Create an Account</h1>
+      <h1 class="py-2 heading">Create an Account</h1>
       <form method="POST" action="{{url_for('signup')}}">
         <div class="form-group">
           <input
             type="text"
-            class="form-control"
+            class="form-control narrow-input-fields"
             name="username"
             placeholder="Username"
             aria-describedby="username"
@@ -18,7 +18,7 @@
         <div class="form-group">
           <input
             type="password"
-            class="form-control"
+            class="form-control narrow-input-fields"
             name="password"
             placeholder="Password"
             required
@@ -27,7 +27,7 @@
         <div class="form-group">
           <input
             type="password"
-            class="form-control"
+            class="form-control narrow-input-fields"
             name="confirm_password"
             placeholder="Confirm Password"
             required
@@ -66,11 +66,6 @@
     <!-- Image section -->
     <div class="col-lg-6">
       <div class="card search-box-style pt-5 pb-2">
-        <img
-          src="static/images/key.png"
-          class="img-medium mx-auto d-block pb-2"
-          alt="Gamepads"
-        />
         <img
           src="static/images/handheld-game.png"
           class="img-medium mx-auto d-block pb-2"

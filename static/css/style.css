@@ -44,6 +44,11 @@ body {
     margin: 0 auto;
 }
 
+.narrow-input-fields {
+    width: 70%;
+    margin: auto;
+}
+
 /* Search box section */
 
 .search-box-style {
