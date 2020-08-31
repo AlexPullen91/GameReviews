@@ -2,7 +2,7 @@
 
 body {
   background-color: #fff;
-  font-family: 'Roboto'
+  font-family: 'Roboto';
 }
 
 /* General styling */
@@ -48,6 +48,7 @@ body {
 
 .search-box-style {
     border: none;
+    color: #666;
     margin: auto;
     width: 75%;
 }
