@@ -1,6 +1,11 @@
 <div class="card py-5 search-box-style">
   <div class="card-body text-center">
-    Search for a game to read user-submitted reviews or submit your own
+    {% if session['username'] %}
+    <p>Search for a game to read user-submitted reviews or submit your own</p>
+    {% else %}
+    <p>Search for a game to read user-submitted reviews</p>
+    <p>or create an account and login to submit your own</p>
+    {% endif %}
   </div>
   <img
     src="static/images/gamepads.png"
