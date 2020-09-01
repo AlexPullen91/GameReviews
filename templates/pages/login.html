@@ -5,7 +5,7 @@
     <div class="col-lg-6 text-center py-5">
     {% include 'components/messages/noaccount.html' %}
     {% include 'components/messages/invalid.html' %}
-      <h1 class="py-2 heading">Login</h1>
+      <h1 class="pb-3 heading">Login</h1>
       <form method="POST" action="{{url_for('login')}}">
         <div class="form-group">
           <input
@@ -26,10 +26,14 @@
             required
           />
         </div>
-        <button type="submit" class="btn btn-dark">Login</button>
+        <div class="btn-positioning btn-w-30 pt-4">
+            <button type="submit" class="btn btn-dark">Login</button>
+        </div>
       </form>
-      <p class="py-3">Don't have an account yet?</p>
-      <a href="{{url_for('signup_page')}}" class="btn btn-warning">Sign Up</a>
+      <p class="pt-4 text-muted">Don't have an account yet?</p>
+      <div class="btn-positioning btn-w-30">
+        <a href="{{url_for('signup_page')}}" class="btn btn-warning">Sign Up</a>
+      </div>
     </div>
     <!-- End of login form section -->
 

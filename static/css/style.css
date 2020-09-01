@@ -35,13 +35,20 @@ body {
     font-size: 1.5rem;
 }
 
-/* Sign up Login Buttons */
+/* Sign up / Login forms */
 
 .btn-positioning {
     display: flex;
     flex-direction: column;
-    width: 40%;
     margin: 0 auto;
+}
+
+.btn-w-40 {
+    width: 40%;
+}
+
+.btn-w-30 {
+    width: 30%;
 }
 
 .narrow-input-fields {

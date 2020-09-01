@@ -4,8 +4,8 @@
 	<div class="row">
 		<div class="col-lg-6 text-center py-5">
         {% include 'components/messages/signedup.html' %}
-			<h1 class="pt-5 heading">Welcome</h1>
-            <h2>{{session['username']}}</h2>
+			<h1 class="pt-4 heading">Welcome</h1>
+            <h2 class="pb-5">{{session['username']}}</h2>
             <div class="btn-positioning">
                 <a href="{{url_for('manage_reviews')}}" class="btn btn-dark my-2">Manage</a>
                 <a href="{{url_for('logout')}}" class="btn btn-dark my-2">Logout</a>

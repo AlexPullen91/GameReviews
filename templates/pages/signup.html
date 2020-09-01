@@ -3,7 +3,7 @@
   <div class="row">
     <!-- Sign up form section  -->
     <div class="col-lg-6 text-center py-5">
-      <h1 class="py-2 heading">Create an Account</h1>
+      <h1 class="pb-3 heading">Create an Account</h1>
       <form method="POST" action="{{url_for('signup')}}">
         <div class="form-group">
           <input
@@ -33,7 +33,9 @@
             required
           />
         </div>
-        <button type="submit" class="btn btn-dark">Sign Up</button>
+        <div class="btn-positioning btn-w-30 pt-4">
+            <button type="submit" class="btn btn-dark">Sign Up</button>
+        </div>
       </form>
       <div class="pt-5">
         {% with messages = get_flashed_messages(category_filter=["userexists"]) %} 

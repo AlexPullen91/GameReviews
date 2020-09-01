@@ -17,12 +17,12 @@
         {% endif %}
     {% endwith %}
     </div>
-      <div class="jumbotron">
+      <div>
         <h1 class="landing-heading pb-2">GameReviews</h1>
         <p class="lead">
           Your home of video game reviews
         </p>
-        <div class="btn-positioning py-4">
+        <div class="btn-positioning btn-w-40 py-4">
           <a
             class="btn btn-dark btn-lg"
             href="{{url_for('login_page')}}"
@@ -31,7 +31,7 @@
           >
         </div>
         <p class="text-muted">Don't have an account?</p>
-        <div class="btn-positioning">
+        <div class="btn-positioning btn-w-40">
           <a
             class="btn btn-warning btn-lg"
             href="{{url_for('signup_page')}}"
