@@ -49,6 +49,10 @@ def add_review():
 
 @APP.route('/insert_review', methods=['POST'])
 def insert_review():
+    """
+    Inserts user's review into the reviews database then
+    redirects user to browse.html
+    """
     reviews = MONGO.db.reviews
     reviews.insert_one(request.form.to_dict())
     return redirect(url_for('browse_reviews'))
