@@ -11,7 +11,7 @@
           alt="droid"
         />
         <div class="media-body">
-          <h2 class="mt-0 heading">Manage</h2>
+          <h2 class="heading">Manage</h2>
           <h6>View, edit or delete your reviews here</h6>
         </div>
       </div>
@@ -23,7 +23,7 @@
                     <h5 class="mb-1 py-1">"{{review.game_title}}"</h5>
                 <a
                     href="{{url_for('edit_review', review_id=review._id)}}"
-                    class="btn btn-dark rounded-pill"
+                    class="btn green-btn rounded-pill"
                     >Edit</a>
                 <a
                     href="{{url_for('delete_review', review_id=review._id)}}"

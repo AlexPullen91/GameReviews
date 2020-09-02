@@ -3,19 +3,16 @@
 body {
   background-color: #fff;
   font-family: 'Roboto';
+  color: #666;
 }
 
 /* General styling */
 
 /* Headings */
 
-.landing-heading {
-    font-family: 'Monofett', 'Roboto';
-    font-size: 2.6rem;
-}
-
 .heading {
     font-family: 'Monofett', 'Roboto';
+    color: #000;
 }
 
 /* Images */
@@ -35,12 +32,49 @@ body {
     font-size: 1.5rem;
 }
 
-/* Sign up / Login forms */
+/* Buttons */
 
 .btn-positioning {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+}
+
+.pink-btn {
+    background-color: #EF6C8F;
+    color: #fff;
+}
+
+.pink-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.purple-btn {
+    background-color: #9038A8;
+    color: #fff;
+}
+
+.purple-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.green-btn {
+    background-color: #20BDAD;
+    border-color: #20BDAD;
+    color: #fff;
+}
+
+.green-btn:hover {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-danger:hover {
+    background-color: #000;
+    border-color: #000;
 }
 
 .btn-w-40 {
@@ -51,6 +85,8 @@ body {
     width: 30%;
 }
 
+/* Sign up / Login forms */
+
 .narrow-input-fields {
     width: 70%;
     margin: auto;
@@ -60,7 +96,6 @@ body {
 
 .search-box-style {
     border: none;
-    color: #666;
     margin: auto;
     width: 75%;
 }
