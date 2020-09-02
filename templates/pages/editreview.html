@@ -5,12 +5,12 @@
     <div class="row">
       <!-- game image section -->
       <div class="col-md-6 m-auto text-center">
-        <img src="{{review.image_url}}" class="img-fluid img-style thick-border" alt="Responsive image" />
+        <img src="{{review.image_url}}" class="img-medium img-style thick-border" alt="Responsive image" />
       </div>
       <!-- end of game image section -->
 
       <!-- game details input section -->
-      <div class="col-md-6">
+      <div class="col-md-6 mt-3">
         <div class="form-group">
           <label for="game_title">Game Title</label>
           <input
@@ -84,17 +84,18 @@
       <div class="col-lg-12">
         <div class="form-group">
           <textarea
-            class="form-control border-radius-sm thick-border"
+            class="form-control border-radius-sm thick-border mt-4"
             name="review"
             id="review"
             rows="6"
             maxlength="5000"
             placeholder="Write your review here... (5000 characters max)"
           >{{review.review}}</textarea>
-          <button class="btn btn-dark" type="submit" name="action">
-            Submit
-          </button>
-          <a href="{{ url_for('manage_reviews') }}" class="btn btn-dark">Cancel</a>
+        <div class="text-center my-4">
+            <button class="btn green-btn mx-1 rounded-pill" type="submit" name="action">
+                Submit
+            </button>
+            <a href="{{ url_for('manage_reviews') }}" class="btn purple-btn mx-1 rounded-pill">Cancel</a>
         </div>
       </div>
       <!-- end of game review input section -->
