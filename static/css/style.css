@@ -99,3 +99,11 @@ body {
     margin: auto;
     width: 75%;
 }
+
+.thick-border {
+    border: 3px solid #000;
+}
+
+.box-shadow {
+    box-shadow: 5px 8px #000;
+}
