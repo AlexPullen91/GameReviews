@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Monofett&family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monofett&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
 
 body {
   background-color: #fff;
-  font-family: 'Roboto';
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* General styling */
@@ -15,9 +16,9 @@ body {
     border-bottom: 3px solid #000;
 }
 
-.box-shadow {
-    box-shadow: 1px 2px #000;
-}
+/* .box-shadow {
+    box-shadow: 5px 5px #000;
+} */
 
 .border-radius-sm {
     border-radius: 1rem;
@@ -37,7 +38,7 @@ body {
 }
 
 .img-medium {
-    width: 60%;
+    width: 50%;
 }
 
 /* Navbar */
