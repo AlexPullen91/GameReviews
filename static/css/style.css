@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Monofett&family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
 
-
 body {
   background-color: #fff;
   font-family: 'Open Sans', sans-serif;
@@ -16,9 +15,9 @@ body {
     border-bottom: 3px solid #000;
 }
 
-/* .box-shadow {
+.box-shadow {
     box-shadow: 5px 5px #000;
-} */
+}
 
 .border-radius-sm {
     border-radius: 1rem;
