@@ -20,7 +20,7 @@
       </div>
 
       {% for review in reviews %}
-      <div class="list-group mt-1 rounded-pill text-center thick-border box-shadow">
+      <div class="list-group my-2 rounded-pill text-center thick-border box-shadow">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="list-group-item list-group-item-action">
             <h5 class="font-weight-bold mb-1">{{review.game_title}}</h5>
           <p class="mb-1">

@@ -3,7 +3,6 @@
 body {
   background-color: #fff;
   font-family: 'Roboto';
-  color: #666;
 }
 
 /* General styling */
@@ -105,5 +104,5 @@ body {
 }
 
 .box-shadow {
-    box-shadow: 5px 8px #000;
+    box-shadow: 5px 5px #000;
 }
