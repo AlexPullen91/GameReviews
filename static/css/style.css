@@ -7,6 +7,18 @@ body {
 
 /* General styling */
 
+.thick-border {
+    border: 3px solid #000;
+}
+
+.box-shadow {
+    box-shadow: 5px 5px #000;
+}
+
+.border-radius-sm {
+    border-radius: 1rem;
+}
+
 /* Headings */
 
 .heading {
@@ -87,7 +99,7 @@ body {
 /* Sign up / Login forms */
 
 .narrow-input-fields {
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
@@ -97,12 +109,4 @@ body {
     border: none;
     margin: auto;
     width: 75%;
-}
-
-.thick-border {
-    border: 3px solid #000;
-}
-
-.box-shadow {
-    box-shadow: 5px 5px #000;
 }
