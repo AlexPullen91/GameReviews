@@ -2,10 +2,10 @@
 <div class="container">
   <div class="row pt-5">
     <!-- Game image section -->
-    <div class="col-md-6 m-auto pb-4 text-center">
+    <div class="col-md-6 mx-auto pb-5 text-center">
       <img
         src="{{review.image_url}}"
-        class="img-fluid img-style"
+        class="img-medium img-style thick-border"
         alt="image of video game"
       />
     </div>
@@ -13,6 +13,7 @@
 
     <!-- Game info section -->
     <div class="col-md-6">
+    <h1 class="heading py-4">Review</h1>
       <table class="table">
         <tbody>
           <tr>
@@ -47,32 +48,32 @@
   <div class="row pt-3">
     <!-- Game review section -->
     <div class="col-lg-12 pb-5">
-      <textarea class="form-control m-auto" disabled>
+      <textarea class="form-control border-radius-sm m-auto" disabled>
         {{review.review}}
       </textarea>
     </div>
   </div>
   <div class="row pb-5">
-    <div class="col-sm-6 text-center">
+    <div class="col-sm-6 pb-5 text-center">
       {% if session['username'] == review.reviewed_by %}
       <a
         href="{{url_for('edit_review', review_id=review._id)}}"
-        class="btn btn-dark"
+        class="btn green-btn mx-1 rounded-pill"
         >Edit</a
       >
       <a
         href="{{url_for('delete_review', review_id=review._id)}}"
-        class="btn btn-danger"
+        class="btn btn-danger mx-1 rounded-pill"
         >Delete</a
       >
-      <a href="{{ url_for('browse_reviews') }}" class="btn btn-dark">
+      <a href="{{ url_for('browse_reviews') }}" class="btn purple-btn mx-1 rounded-pill">
         Go back
       </a>
       {% else %}
       <p class="text-muted">Want to submit your own review?</p>
       <a
         href="{{ url_for('add_review') }}"
-        class="btn btn-dark"
+        class="btn green-btn rounded-pill"
         type="submit"
         name="add_review"
       >
@@ -81,10 +82,10 @@
       {% endif %}
     </div>
 
-    <div class="col-sm-6 pt-3">
-      <form class="form-inline my-2 my-lg-0">
+    <div class="col-sm-6 mt-2 pt-1">
+      <form class="form-inline my-lg-0">
         <input
-          class="form-control searchbar-style m-auto w-auto"
+          class="form-control searchbar-style rounded-pill thick-border m-auto w-auto"
           type="search"
           placeholder="Search games"
           aria-label="Search"
