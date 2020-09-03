@@ -203,11 +203,11 @@ This test determines if the site responds to whether or not user is logged in
 
 ### Content
 
-* Icons used were from [Flaticon](https://www.flaticon.com/packs/gaming-98?word=gaming)
+* Icons used are from [Flaticon](https://www.flaticon.com/packs/gaming-98?word=gaming)
 
 ### Code
 
-* The [Pretty Printed](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) youtube channel was extremely helpful for learning how to implement Flask features such as the user login system and flash messaging
+* The [Pretty Printed](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) youtube channel was extremely helpful for learning how to implement some Flask features such as the user login system and flash messaging.
 
 ### Acknowledgements
 
