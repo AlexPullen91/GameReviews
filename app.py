@@ -44,7 +44,7 @@ def add_review():
         return render_template(
             'pages/addreview.html', reviews=MONGO.db.reviews.find())
     flash("You must create an account or login to submit reviews!", "nouser")
-    return redirect('login_page')
+    return redirect('login')
 
 
 @APP.route('/insert_review', methods=['POST'])
@@ -80,7 +80,7 @@ def manage_reviews():
         return render_template(
             'pages/manage.html', reviews=MONGO.db.reviews.find())
     flash("You must create an account or login first!", "noaccount")
-    return redirect('login_page')
+    return redirect('login')
 
 
 @APP.route('/edit_review/<review_id>')
