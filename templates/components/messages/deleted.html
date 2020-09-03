@@ -1,8 +1,8 @@
 <div class="pt-2">
-    {% with messages = get_flashed_messages(category_filter=["userexists"]) %} 
+    {% with messages = get_flashed_messages(category_filter=["deleted"]) %} 
         {% if messages %} 
             {% for message in messages %}
-                <div class="alert alert-danger alert-dismissable" role="alert">
+                <div class="alert alert-success alert-dismissable text-center" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="close">
                         <span aria-hidden="true">&times;</span></button>
                         {{message}}

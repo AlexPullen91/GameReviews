@@ -2,7 +2,7 @@
     {% with messages = get_flashed_messages(category_filter=["nomatch"]) %} 
         {% if messages %} 
             {% for message in messages %}
-                <div class="alert alert-warning alert-dismissable" role="alert">
+                <div class="alert alert-danger alert-dismissable" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="close">
                         <span aria-hidden="true">&times;</span></button>
                         {{message}}

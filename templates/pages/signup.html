@@ -3,6 +3,9 @@
   <div class="row pt-5">
     <!-- Sign up form section  -->
     <div class="col-lg-6 text-center py-5">
+    {% include 'components/messages/userexists.html' %}
+
+    {% include 'components/messages/nomatch.html' %}
       <h1 class="pb-4 heading">Create an Account</h1>
       <form method="POST" action="{{url_for('signup')}}">
         <div class="form-group py-2">
@@ -37,9 +40,6 @@
             <button type="submit" class="btn purple-btn rounded-pill">Sign Up</button>
         </div>
       </form>
-        {% include 'components/messages/userexists.html' %}
-
-        {% include 'components/messages/nomatch.html' %}
     </div>
     <!-- End of sign up form section -->
 

@@ -43,7 +43,7 @@ def add_review():
     if 'username' in session:
         return render_template(
             'pages/addreview.html', reviews=MONGO.db.reviews.find())
-    flash('You must create an account or login to submit reviews', 'noaccount')
+    flash("You must create an account or login to submit reviews!", "nouser")
     return redirect('login_page')
 
 
@@ -55,6 +55,7 @@ def insert_review():
     """
     reviews = MONGO.db.reviews
     reviews.insert_one(request.form.to_dict())
+    flash("Your review has been added, nice!", "added")
     return redirect(url_for('browse_reviews'))
 
 
@@ -78,7 +79,7 @@ def manage_reviews():
     if 'username' in session:
         return render_template(
             'pages/manage.html', reviews=MONGO.db.reviews.find())
-    flash('You must create an account or login first!', 'noaccount')
+    flash("You must create an account or login first!", "noaccount")
     return redirect('login_page')
 
 
@@ -109,13 +110,14 @@ def update_review(review_id):
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
-    flash("Your changes have been saved", "saved")
+    flash("Changes saved", "saved")
     return redirect(url_for('manage_reviews'))
 
 
 @APP.route('/delete_review/<review_id>')
 def delete_review(review_id):
     MONGO.db.reviews.remove({'_id': ObjectId(review_id)})
+    flash("Deleted successfully", "deleted")
     return redirect(url_for('manage_reviews'))
 
 
@@ -143,9 +145,9 @@ def signup():
                 session['username'] = request.form['username']
                 flash('Sign up successful', 'signedup')
                 return redirect(url_for('dashboard'))
-            flash('That username already exists!', 'userexists')
+            flash("Username already exists! Try another!", "userexists")
             return redirect(url_for('signup_page'))
-        flash('Your passwords do not match', 'nomatch')
+        flash("Your passwords do not match! Try again!", "nomatch")
         return redirect(url_for('signup_page'))
     return render_template('pages/signup.html')
 
@@ -165,14 +167,14 @@ def login():
                 'utf-8'), login_user['password']) == login_user['password']:
             session['username'] = request.form['username']
             return redirect(url_for('dashboard'))
-    flash('Invalid username / password combination', 'invalid')
+    flash("Invalid username / password combination", "invalid")
     return redirect('/login_page')
 
 
 @APP.route('/logout')
 def logout():
     session.clear()
-    flash('Logout successful', 'logout')
+    flash("Logged out, Bye!", "logout")
     return redirect('/')
 
 
