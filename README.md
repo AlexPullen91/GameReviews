@@ -159,6 +159,25 @@ This test determines if the user login process works as intended
 
     Verdict: Working as intended
 
+*Test case:* **Site responsive to user session**
+
+This test determines if the site responds to whether or not user is logged in
+
+    1. Upon visiting landing page user can see login and sign up buttons on the left and on the navbar which direct the user to their respective pages.
+    2. Upon completing the sign up or login process user is redirected to the dashboard where navbar now displays:
+        - 'Dashboard' instead of 'Home'
+        - 'Review' now has dropdown functionality with the options 'Browse' and 'Manage'.
+        - 'Logout' instead of 'Sign up' or 'Login'
+    4. Clicking 'Home' will now take user to 'Dashboard' instead of landing page until they log out.
+    5. Clicking 'Browse' still works the same as intended, taking user to browse review page where they can view and select reviews submitted by all users.
+    5. Clicking 'Manage' takes user to their review management screen where they can view, edit or delete reviews that only they have submitted.
+        - clicking view takes user to review page where they can press either, 'Edit, 'Delete' or 'Go back' buttons.
+        - when viewing the review page whilst logged out the user instead sees "Want to submit your own review?" 'Click here'.
+        - selecting 'Click here' redirects user to login page with an alert advising to login first. If they are already logged in they are taken straight to add review page.
+    6. Clicking 'Logout' in the dashboard screen or in the navbar takes user back to landing page with a success alert and navbar returns to initial state.
+
+    Verdict: Working as intended
+
 ### Issues and Resolutions
 
 * During development I encountered an issue with the user sign up feature when users entered a name already taken in the database.
