@@ -24,6 +24,16 @@ def landing_page():
     return render_template('pages/landingpage.html')
 
 
+@APP.route('/browse-reviews')
+def browse_reviews():
+    """
+    Renders the browse reviews page and retreives reviews
+    from the database
+    """
+    return render_template(
+        'pages/browse.html', reviews=MONGO.db.reviews.find())
+
+
 @APP.route('/review/<review_id>')
 def get_review(review_id):
     """
@@ -34,7 +44,7 @@ def get_review(review_id):
     return render_template('pages/review.html', review=the_review)
 
 
-@APP.route('/add_review')
+@APP.route('/add-review')
 def add_review():
     """
     Checks if user is logged in, if yes they are sent to add review page
@@ -47,7 +57,7 @@ def add_review():
     return redirect('login')
 
 
-@APP.route('/insert_review', methods=['POST'])
+@APP.route('/insert-review', methods=['POST'])
 def insert_review():
     """
     Inserts user's review into the reviews database then
@@ -59,17 +69,7 @@ def insert_review():
     return redirect(url_for('browse_reviews'))
 
 
-@APP.route('/browse_reviews')
-def browse_reviews():
-    """
-    Renders the browse reviews page and retreives reviews
-    from the database
-    """
-    return render_template(
-        'pages/browse.html', reviews=MONGO.db.reviews.find())
-
-
-@APP.route('/manage_reviews')
+@APP.route('/manage-reviews')
 def manage_reviews():
     """
     If user is logged in then renders the manage review page which
@@ -83,7 +83,7 @@ def manage_reviews():
     return redirect('login')
 
 
-@APP.route('/edit_review/<review_id>')
+@APP.route('/edit-review/<review_id>')
 def edit_review(review_id):
     """
     Grabs selected review from the database and renders it
@@ -93,7 +93,7 @@ def edit_review(review_id):
     return render_template('pages/editreview.html', review=the_review)
 
 
-@APP.route('/update_review/<review_id>', methods=['POST'])
+@APP.route('/update-review/<review_id>', methods=['POST'])
 def update_review(review_id):
     """
     Any edits made by the user are recorded and saved in the database
@@ -114,7 +114,7 @@ def update_review(review_id):
     return redirect(url_for('manage_reviews'))
 
 
-@APP.route('/delete_review/<review_id>')
+@APP.route('/delete-review/<review_id>')
 def delete_review(review_id):
     """
     Removes the selected review from the database and

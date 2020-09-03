@@ -18,7 +18,7 @@
         </div>
       </div>
     
-      {% for review in reviews %}
+      {% for review in reviews|reverse %}
         {% if session['username'] == review.reviewed_by %}
         <div class="list-group">
             <div class="list-group-item list-group-item-action my-1 rounded-pill text-center thick-border box-shadow">
