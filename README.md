@@ -131,19 +131,32 @@ Users are able to search for and read reviews without creating an account and ar
 
 ## Testing
 
-
+Testing for responsiveness and bugs throughout development was carried out with google chrome developer tools and the device toolbar to ensure compatibility on all screen sizes.
 
 ## Manual Testing
 
+*Test case:* **User sign up process**
 
+This test determines if the user sign up process works as intended
+
+    1. User clicks sign up button on landing page or navbar and is directed to sign up page.
+    2. Clicking sign up button at bottom of form alerts user to empty required fields.
+    3. Entering a name in username field that already exists in the database along with matching passwords alerts user to try a different name.
+    4. Entering a unique name in username field with passwords that do not match alerts user to try again.
+    5. Entering a unique name in username field with matching passwords successfully creates a new user and directs them to their dashboard.
+
+    Verdict: Working as intended
 
 ### Issues and Resolutions
 
-* Fixed an issue with sign up where users entering a name that already exists in the database would also be told their passwords dont match when they did. This was solved by adding a return redirect after each error message.
+* During development I encountered an issue with the user sign up feature when users entered a name already taken in the database.
+    * The error handling process would correctly alert the user that the name is already taken but also alert them that their passwords didn't match even when they did.
+    * This was solved by redirecting the user to the signup page at the end of each if statement.
+
 
 ### Known Issues
 
-
+* Currently users are still able to post reviews for a game they have already submitted a review for.
 
 ---
 
@@ -159,14 +172,15 @@ Users are able to search for and read reviews without creating an account and ar
 
 ### Content
 
-
+* Icons used were from [Flaticon](https://www.flaticon.com/packs/gaming-98?word=gaming)
 
 ### Code
 
+* The [Pretty Printed](https://www.youtube.com/channel/UC-QDfvrRIDB6F0bIO4I4HkQ) youtube channel was extremely helpful for learning how to implement Flask features such as the user login system and flash messaging
 
 ### Acknowledgements
 
-
+* My mentor [Simen Daehlin](https://github.com/Eventyret) for his help and advice on this project.
 
 ### Disclaimer
 
