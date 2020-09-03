@@ -116,18 +116,25 @@ def update_review(review_id):
 
 @APP.route('/delete_review/<review_id>')
 def delete_review(review_id):
+    """
+    Removes the selected review from the database and
+    redirets user to manage reviews
+    """
     MONGO.db.reviews.remove({'_id': ObjectId(review_id)})
     flash("Deleted successfully", "deleted")
     return redirect(url_for('manage_reviews'))
 
 
-@APP.route('/signup_page')
-def signup_page():
-    return render_template('pages/signup.html')
-
-
 @APP.route('/signup', methods=['POST', 'GET'])
 def signup():
+    """
+    Handles new user sign up process, if passwords match and theres no
+    existing user then they're added to the database, logged in and
+    redirected to the dashboard
+    """
+    if request.method == 'GET':
+        return render_template('pages/signup.html')
+
     if request.method == 'POST':
         users = MONGO.db.users
         existing_user = users.find_one({'name': request.form['username']})
@@ -146,19 +153,26 @@ def signup():
                 flash('Sign up successful', 'signedup')
                 return redirect(url_for('dashboard'))
             flash("Username already exists! Try another!", "userexists")
-            return redirect(url_for('signup_page'))
+            return redirect(url_for('signup'))
         flash("Your passwords do not match! Try again!", "nomatch")
-        return redirect(url_for('signup_page'))
+        return redirect(url_for('signup'))
     return render_template('pages/signup.html')
 
 
-@APP.route('/login_page')
+@APP.route('/login-page')
 def login_page():
+    """
+    Renders the login page
+    """
     return render_template('pages/login.html')
 
 
 @APP.route('/login', methods=['POST'])
 def login():
+    """
+    User login process, username is retrieved from the database and
+    if correct password is used they're redirected to their dashboard
+    """
     users = MONGO.db.users
     login_user = users.find_one({'name': request.form['username']})
 
@@ -171,16 +185,22 @@ def login():
     return redirect('/login_page')
 
 
+@APP.route('/dashboard')
+def dashboard():
+    """
+    Renders the dashboard page
+    """
+    return render_template('pages/dashboard.html')
+
+
 @APP.route('/logout')
 def logout():
+    """
+    User is logged out by clearing the session
+    """
     session.clear()
     flash("Logged out, Bye!", "logout")
     return redirect('/')
-
-
-@APP.route('/dashboard')
-def dashboard():
-    return render_template('pages/dashboard.html')
 
 
 if __name__ == '__main__':

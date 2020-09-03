@@ -1,13 +1,13 @@
 <div class="pt-2">
-{% with messages = get_flashed_messages(category_filter=["nouser"]) %} 
-    {% if messages %} 
-        {% for message in messages %}
-            <div class="alert alert-danger alert-dismissable" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="close">
-                    <span aria-hidden="true">&times;</span></button>
-                    {{message}}
-            </div>
-        {% endfor %} 
-    {% endif %}
-{% endwith %}
+    {% with messages = get_flashed_messages(category_filter=["nouser"]) %} 
+        {% if messages %} 
+            {% for message in messages %}
+                <div class="alert alert-danger alert-dismissable" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="close">
+                        <span aria-hidden="true">&times;</span></button>
+                        {{message}}
+                </div>
+            {% endfor %} 
+        {% endif %}
+    {% endwith %}
 </div>
