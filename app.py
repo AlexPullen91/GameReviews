@@ -94,6 +94,10 @@ def edit_review(review_id):
 
 @APP.route('/update_review/<review_id>', methods=['POST'])
 def update_review(review_id):
+    """
+    Any edits made by the user are recorded and saved in the database
+    and they are redirected to the manage review page
+    """
     reviews = MONGO.db.reviews
     reviews.update({'_id': ObjectId(review_id)}, {
         'game_title': request.form.get('game_title'),
@@ -105,6 +109,7 @@ def update_review(review_id):
         'rating': request.form.get('rating'),
         'review': request.form.get('review')
     })
+    flash("Your changes have been saved", "saved")
     return redirect(url_for('manage_reviews'))
 
 
