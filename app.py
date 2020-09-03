@@ -159,20 +159,15 @@ def signup():
     return render_template('pages/signup.html')
 
 
-@APP.route('/login-page')
-def login_page():
-    """
-    Renders the login page
-    """
-    return render_template('pages/login.html')
-
-
-@APP.route('/login', methods=['POST'])
+@APP.route('/login', methods=['POST', 'GET'])
 def login():
     """
     User login process, username is retrieved from the database and
     if correct password is used they're redirected to their dashboard
     """
+    if request.method == 'GET':
+        return render_template('pages/login.html')
+
     users = MONGO.db.users
     login_user = users.find_one({'name': request.form['username']})
 
@@ -182,7 +177,7 @@ def login():
             session['username'] = request.form['username']
             return redirect(url_for('dashboard'))
     flash("Invalid username / password combination", "invalid")
-    return redirect('/login_page')
+    return redirect('/login')
 
 
 @APP.route('/dashboard')
