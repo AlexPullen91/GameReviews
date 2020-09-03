@@ -60,12 +60,21 @@ def insert_review():
 
 @APP.route('/browse_reviews')
 def browse_reviews():
+    """
+    Renders the browse reviews page and retreives reviews
+    from the database
+    """
     return render_template(
         'pages/browse.html', reviews=MONGO.db.reviews.find())
 
 
 @APP.route('/manage_reviews')
 def manage_reviews():
+    """
+    If user is logged in then renders the manage review page which
+    only lists reviews submitted by that user
+    if user is not logged in they're redirected to the login page
+    """
     if 'username' in session:
         return render_template(
             'pages/manage.html', reviews=MONGO.db.reviews.find())
@@ -75,6 +84,10 @@ def manage_reviews():
 
 @APP.route('/edit_review/<review_id>')
 def edit_review(review_id):
+    """
+    Grabs selected review from the database and renders it
+    on the edit review page
+    """
     the_review = MONGO.db.reviews.find_one({'_id': ObjectId(review_id)})
     return render_template('pages/editreview.html', review=the_review)
 
