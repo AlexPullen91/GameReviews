@@ -101,18 +101,31 @@ Users are able to search for and read reviews without creating an account and ar
 
 ### Languages
 
-
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/CSS)
+* [JavaScript](https://www.javascript.com/)
+* [Python](https://www.python.org/)
 
 ---
 
 ### Libraries
 
-
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/quickstart/)
+* [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+* [Bootstrap](https://getbootstrap.com/)
+* [jQuery](https://jquery.com/)
+* [Google Fonts](https://fonts.google.com/)
 
 ---
 
 ### Tools
 
+* [MongoDB](https://www.mongodb.com/)
+* [Github](https://github.com/)
+* [Gitpod](https://www.gitpod.io/)
+* [Git](https://git-scm.com/)
+* [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
+* [Balsamiq](Balsamiq)
 
 ---
 
