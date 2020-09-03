@@ -140,10 +140,22 @@ Testing for responsiveness and bugs throughout development was carried out with 
 This test determines if the user sign up process works as intended
 
     1. User clicks sign up button on landing page or navbar and is directed to sign up page.
-    2. Clicking sign up button at bottom of form alerts user to empty required fields.
+    2. Clicking sign up button at bottom of form alerts user to empty required input fields.
     3. Entering a name in username field that already exists in the database along with matching passwords alerts user to try a different name.
     4. Entering a unique name in username field with passwords that do not match alerts user to try again.
     5. Entering a unique name in username field with matching passwords successfully creates a new user and directs them to their dashboard.
+
+    Verdict: Working as intended
+
+*Test case:* **User login process**
+
+This test determines if the user login process works as intended
+
+    1. User clicks login button on landing page or navbar and is directed to login page.
+    2. Clicking login button at bottom of form alerts user to empty required input fields.
+    3. Entering a name into username field and a password into password field that aren't in the database alerts user with an error message.
+    4. Entering a name into username field that is saved in the database and entering an incorrect password alerts user with an error message.
+    5. Entering a name into username field that is saved in the database along with entering the correct password redirects user to their dashboard.
 
     Verdict: Working as intended
 
