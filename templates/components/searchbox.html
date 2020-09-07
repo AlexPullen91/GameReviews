@@ -30,12 +30,14 @@
   />
   </div>
   </div>
-  <form class="text-center form-inline mx-auto my-lg-0">
+  <form method="POST" action="{{url_for('search_game')}}" class="text-center form-inline mx-auto my-lg-0">
     <input
       class="form-control font-weight-light rounded-pill thick-border"
       type="search"
+      name="search"
       placeholder="search games"
-      aria-label="Search"
+      aria-label="Search games"
     />
+    <!-- <button type="submit" name="submit" value="search">Search</button> -->
   </form>
 </div>

@@ -3,7 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for, session,\
      flash
 from flask_pymongo import PyMongo
 import bcrypt
-# import requests
+import requests
 from bson.objectid import ObjectId
 from os import path
 if path.exists("env.py"):
@@ -13,20 +13,38 @@ APP = Flask(__name__)
 
 APP.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 APP.secret_key = os.environ.get("SECRET_KEY")
-# API_KEY = os.environ.get("API_KEY")
+API_KEY = os.environ.get("API_KEY")
 
 MONGO = PyMongo(APP)
 
 # url = 'https://api-v3.igdb.com/games'
 # headers = {'user-key': API_KEY}
-# params = {'fields': 'name, genres.name, platforms.name, release_dates.human', 'limit': 1}
+# params = {'fields': 'name, genres.name, platforms.name, release_dates.human', 'search': "Luigi's mansion 3", 'limit': 1}
 
-# r = requests.get(url, headers=headers, params=params)
+# r = requests.post(url, headers=headers, params=params)
 
 # if r:
 #     print(r.json())
 # else:
 #     print('error')
+
+
+@APP.route('/search', methods=['POST', 'GET'])
+def search_game():
+    if request.method == 'POST':
+        url = 'https://api-v3.igdb.com/games'
+        headers = {'user-key': API_KEY}
+        gameName = request.form.get('search')
+        params = {'fields': 'name, genres.name, platforms.name, release_dates.human', 'search': f"{gameName}", 'limit': 1}
+        r = requests.post(url, headers=headers, params=params)
+        if r:
+            print(r.json())
+            return render_template('pages/search.html')
+        else:
+            print('error')
+            return redirect('/')
+    if request.method == 'GET':
+        return redirect('/')
 
 
 @APP.route('/')

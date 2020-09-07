@@ -19,7 +19,7 @@
       </div>
 
       {% for review in reviews[0:10]|reverse %}
-      <div class="list-group my-2 rounded-pill text-center thick-border box-shadow">
+      <div class="list-group rounded-pill box-shadow my-2 text-center thick-border">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="list-group-item list-group-item-action">
             <h6 class="font-weight-bold mb-1">{{review.game_title}}</h6>
           <p class="mb-1">
