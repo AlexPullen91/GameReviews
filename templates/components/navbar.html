@@ -38,8 +38,8 @@
             </li>
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2 thick-border font-weight-light rounded-pill" type="search" placeholder="Search" aria-label="Search" />
+        <form method="POST" action="{{url_for('search_game')}}" class="form-inline my-2 my-lg-0">
+            <input type="search" name="search" placeholder="Search games" aria-label="Search games" class="form-control mr-sm-2 thick-border font-weight-light rounded-pill" />
         </form>
     </div>
 </nav>

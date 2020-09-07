@@ -35,16 +35,66 @@ def search_game():
         url = 'https://api-v3.igdb.com/games'
         headers = {'user-key': API_KEY}
         gameName = request.form.get('search')
-        params = {'fields': 'name, genres.name, platforms.name, release_dates.human', 'search': f"{gameName}", 'limit': 1}
+        params = {
+            'fields': 'name, genres.name, platforms.name, release_dates.human',
+            'search': f"{gameName}",
+            'limit': 1
+                }
+
         r = requests.post(url, headers=headers, params=params)
+
+        gameTitle = r.json()[0]['name']
+        genres = r.json()[0]['genres']
+        genreNames = []
+        for name in genres:
+            genreNames.append((name['name']))
+
+        platforms = r.json()[0]['platforms']
+        platformNames = []
+        for name in platforms:
+            platformNames.append((name['name']))
+
+        release_date = r.json()[0]['release_dates']
+        release_dates = []
+        for human in release_date:
+            release_dates.append((human['human']))
+
         if r:
-            print(r.json())
+            print(gameTitle, genreNames, platformNames, release_dates)
             return render_template('pages/search.html')
         else:
             print('error')
             return redirect('/')
     if request.method == 'GET':
         return redirect('/')
+
+# url = 'https://api-v3.igdb.com/games'
+# headers = {'user-key': API_KEY}
+# # gameName = request.form.get('search')
+# params = {
+#     'fields': 'name, genres.name, platforms.name, release_dates.human',
+#     'search': 'zelda',
+#     'limit': 1
+#         }
+# r = requests.post(url, headers=headers, params=params)
+
+# gameTitle = r.json()[0]['name']
+# genres = r.json()[0]['genres']
+# genreNames = []
+# for name in genres:
+#     genreNames.append((name['name']))
+
+# platforms = r.json()[0]['platforms']
+# platformNames = []
+# for name in platforms:
+#     platformNames.append((name['name']))
+
+# release_date = r.json()[0]['release_dates']
+# release_dates = []
+# for human in release_date:
+#     release_dates.append((human['human']))
+
+# print(gameTitle, genreNames, platformNames, release_dates)
 
 
 @APP.route('/')
