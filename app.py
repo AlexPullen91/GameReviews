@@ -36,7 +36,7 @@ def search_game():
         headers = {'user-key': API_KEY}
         gameName = request.form.get('search')
         games_params = {
-            'fields': 'name, genres.name, platforms.name, release_dates.human, cover, cover.url',
+            'fields': 'name, genres.name, platforms.name, release_dates.human, cover.url',
             'search': f"{gameName}",
             'limit': 1
                 }
@@ -63,7 +63,14 @@ def search_game():
 
         if r:
             print(gameTitle, genreNames, platformNames, release_dates, coverBig)
-            return render_template('pages/search.html')
+            return render_template(
+                'pages/search.html',
+                coverBig=coverBig,
+                gameTitle=gameTitle,
+                genreNames=genreNames,
+                platformNames=platformNames,
+                release_dates=release_dates
+                )
         else:
             print('error')
             return redirect('/')
