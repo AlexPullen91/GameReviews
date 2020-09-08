@@ -205,9 +205,6 @@ def signup():
     existing user then they're added to the database, logged in and
     redirected to the dashboard
     """
-    if request.method == 'GET':
-        return render_template('pages/signup.html')
-
     if request.method == 'POST':
         users = MONGO.db.users
         existing_user = users.find_one({'name': request.form['username']})
@@ -230,6 +227,9 @@ def signup():
         flash("Your passwords do not match! Try again!", "nomatch")
         return redirect(url_for('signup'))
     return render_template('pages/signup.html')
+
+    if request.method == 'GET':
+        return render_template('pages/signup.html')
 
 
 @APP.route('/login', methods=['POST', 'GET'])

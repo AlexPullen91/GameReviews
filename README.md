@@ -62,7 +62,7 @@ I've opted to use detailed straight lineal colour style icons that are represent
 * Forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
 * Information and search results occupy left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
 * Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
-* [Monfett](https://fonts.google.com/specimen/Monofett?query=mono) is used for 'GameReviews' and some headings whilst everything else is [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans&sidebar.open=true#about)
+* [Monfett](https://fonts.google.com/specimen/Monofett?query=mono) is used for 'GameReviews' and some headings whilst everything else is [Roboto](https://fonts.google.com/specimen/Roboto?sidebar.open=true#about)
 
 ---
 
