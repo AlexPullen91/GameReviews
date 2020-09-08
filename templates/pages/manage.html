@@ -4,11 +4,9 @@
   <div class="row pt-5">
     <!-- Review list section -->
     <div class="col-lg-6">
-    {% include 'components/messages/saved.html' %}
-    {% include 'components/messages/deleted.html' %}
       <div class="media pt-5">
         <img
-          src="static/images/droid.png"
+          src="{{url_for('static', filename='images/droid.png')}}"
           class="img-fluid w-25 mr-3 pt-5"
           alt="droid"
         />
@@ -17,6 +15,8 @@
           <h6 class="font-weight-light">View, edit or delete your reviews here</h6>
         </div>
       </div>
+      {% include 'components/messages/saved.html' %}
+      {% include 'components/messages/deleted.html' %}
     
       {% for review in reviews|reverse %}
         {% if session['username'] == review.reviewed_by %}
