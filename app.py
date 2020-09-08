@@ -93,11 +93,17 @@ def search_reviews():
         # the_review = MONGO.db.reviews.find({'game_title': f"{reviewName}"})
         reviews = MONGO.db.reviews
         reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
-        print(reviewList)
-        # for review in reviews.find({'game_title': f"{reviewName}"}):
-            # print(review)
+        id_list = []
+        for _id in reviewList:
+            id_list.append((_id['_id']))
+        game_title = reviewList[0]['game_title']
+        print(game_title)
         return render_template(
-            'pages/searchreviews.html', reviewList=reviewList)
+            'pages/searchreviews.html',
+            reviewList=reviewList,
+            game_title=game_title,
+            reviews=MONGO.db.reviews.find()
+            )
     return redirect('/')
 
 
