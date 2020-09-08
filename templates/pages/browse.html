@@ -4,8 +4,6 @@
   <div class="row pt-5">
     <!-- Review list section -->
     <div class="col-lg-6">
-      {% include 'components/messages/added.html' %}
-
       <div class="media pt-5">
         <img
           src="static/images/droid.png"
@@ -17,6 +15,8 @@
           <h6 class="font-weight-light">recently added user submitted reviews</h6>
         </div>
       </div>
+
+      {% include 'components/messages/added.html' %}  
 
       {% for review in reviews|reverse %}
       <div class="list-group rounded-pill box-shadow my-2 text-center thick-border">

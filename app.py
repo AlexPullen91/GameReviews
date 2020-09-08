@@ -261,7 +261,7 @@ def logout():
     User is logged out by clearing the session
     """
     session.clear()
-    flash("Logged out, Bye!", "logout")
+    flash("Logged out... Bye!", "logout")
     return redirect('/')
 
 
