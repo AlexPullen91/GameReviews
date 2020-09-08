@@ -89,22 +89,22 @@ def search_game():
 @APP.route('/searchreview', methods=['POST'])
 def search_reviews():
     if request.method == 'POST':
-        reviewName = request.form.get('searchreviews')
-        # the_review = MONGO.db.reviews.find({'game_title': f"{reviewName}"})
-        reviews = MONGO.db.reviews
-        reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
-        id_list = []
-        for _id in reviewList:
-            id_list.append((_id['_id']))
-        game_title = reviewList[0]['game_title']
-        print(game_title)
-        return render_template(
-            'pages/searchreviews.html',
-            reviewList=reviewList,
-            game_title=game_title,
-            reviews=MONGO.db.reviews.find()
-            )
-    return redirect('/')
+        try:
+            reviewName = request.form.get('searchreviews')
+            reviews = MONGO.db.reviews
+            reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
+            game_title = reviewList[0]['game_title']
+            print(game_title)
+            return render_template(
+                'pages/searchreviews.html',
+                reviewList=reviewList,
+                game_title=game_title,
+                reviews=MONGO.db.reviews.find()
+                )
+        except IndexError:
+            return redirect('/')
+    if request.method == 'GET':
+        return redirect('/')
 
 
 @APP.route('/browse/reviews')
