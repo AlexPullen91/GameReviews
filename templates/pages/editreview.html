@@ -19,11 +19,12 @@
             name="game_title"
             type="text"
             value="{{review.game_title}}"
+            readonly
           />
         </div>
         <div class="form-group">
           <label for="genres">Genres</label>
-          <input class="form-control thick-border border-radius-sm" id="genres" name="genres" type="text" value="{{review.genres}}"/>
+          <input class="form-control thick-border border-radius-sm" name="genres" type="text" value="{{review.genres}}" readonly/>
         </div>
         <div class="form-group">
           <label for="platforms">Platforms</label>
@@ -32,6 +33,7 @@
             name="platforms"
             type="text"
             value="{{review.platforms}}"
+            readonly
           />
         </div>
         <div class="form-group">
@@ -41,15 +43,17 @@
             name="release_date"
             type="text"
             value="{{review.release_date}}"
+            readonly
           />
         </div>
-        <div class="form-group">
-          <label for="game_title">Image URL</label>
+        <div class="form-group d-none">
+          <label for="image_url">Image URL</label>
           <input
             class="form-control thick-border border-radius-sm"
             name="image_url"
             type="text"
             value="{{review.image_url}}"
+            readonly
           />
         </div>
         <div class="form-group">
@@ -70,6 +74,7 @@
             name="reviewed_by"
             type="text"
             value="{{session['username']}}"
+            readonly
           />
         </div>
       </div>
