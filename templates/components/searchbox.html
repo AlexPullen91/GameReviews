@@ -1,9 +1,11 @@
-<div class="card py-5 search-box-style">
+{% include 'components/messages/typo.html' %}
+{% include 'components/messages/nogame.html' %}
+<div class="card py-5 search-box-style sticky-top">
   <div class="card-body text-center font-weight-light">
     {% if session['username'] %}
-    <p>Search for a game to read user-submitted reviews or submit your own</p>
+    <p class="mt-5">Search for a game to read user-submitted reviews or submit your own</p>
     {% else %}
-    <p>Search for a game to read user-submitted reviews</p>
+    <p class="mt-5">Search for a game to read user-submitted reviews</p>
     <p>or create an account and login to submit your own</p>
     {% endif %}
   </div>
@@ -38,6 +40,5 @@
       placeholder="search games"
       aria-label="Search games"
     />
-    <!-- <button type="submit" name="submit" value="search">Search</button> -->
   </form>
 </div>

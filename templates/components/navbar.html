@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
 	<a class="navbar-brand" href="#">GameReviews<img src="{{url_for('static', filename='images/buttons.png')}}" width="35" height="35" alt="gamepad buttons"/>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,7 +44,3 @@
     </div>
     
 </nav>
-<div>
-    {% include 'components/messages/typo.html' %}
-    {% include 'components/messages/nogame.html' %}
-</div>
