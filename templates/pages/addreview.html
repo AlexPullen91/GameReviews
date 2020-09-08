@@ -15,19 +15,26 @@
 
       <!-- game details input section -->
       <div class="col-md-6">
-      <h1 class="heading py-4">Add Review</h1>
+        <h1 class="heading py-4">Add Review</h1>
         <div class="form-group">
           <label for="game_title">Game Title</label>
           <input
             class="form-control thick-border border-radius-sm"
             name="game_title"
             type="text"
+            value="{{ gameTitle }}"
             required
           />
         </div>
         <div class="form-group">
           <label for="genres">Genres</label>
-          <input class="form-control thick-border border-radius-sm" name="genres" type="text" required/>
+          <input
+            class="form-control thick-border border-radius-sm"
+            name="genres"
+            type="text"
+            value="{{ genreNames }}"
+            required
+          />
         </div>
         <div class="form-group">
           <label for="platforms">Platforms</label>
@@ -35,6 +42,7 @@
             class="form-control thick-border border-radius-sm"
             name="platforms"
             type="text"
+            value="{{ platformNames }}"
             required
           />
         </div>
@@ -44,6 +52,7 @@
             class="form-control thick-border border-radius-sm"
             name="release_date"
             type="text"
+            value="{{ release_dates }}"
             required
           />
         </div>
@@ -53,12 +62,17 @@
             class="form-control thick-border border-radius-sm"
             name="image_url"
             type="text"
+            value="{{ coverBig }}"
             required
           />
         </div>
         <div class="form-group">
           <label for="rating">Rating</label>
-          <select class="form-control thick-border border-radius-sm" name="rating" required>
+          <select
+            class="form-control thick-border border-radius-sm"
+            name="rating"
+            required
+          >
             <option value="">How was it?</option>
             <option value="Awful">Awful</option>
             <option value="Meh">Meh</option>
@@ -92,12 +106,18 @@
             required
           ></textarea>
           <div class="text-center my-4">
-          <button class="btn green-btn rounded-pill mx-1" type="submit" name="action">
-            Submit
-          </button>
-          <a href="{{url_for('browse_reviews')}}" class="btn purple-btn rounded-pill mx-1"
-            >Cancel</a
-          >
+            <button
+              class="btn green-btn rounded-pill mx-1"
+              type="submit"
+              name="action"
+            >
+              Submit
+            </button>
+            <a
+              href="{{url_for('browse_reviews')}}"
+              class="btn purple-btn rounded-pill mx-1"
+              >Cancel</a
+            >
           </div>
         </div>
       </div>

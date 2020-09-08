@@ -134,15 +134,26 @@ def get_review(review_id):
     return render_template('pages/review.html', review=the_review)
 
 
-@APP.route('/add-review')
+@APP.route('/add-review', methods=['POST'])
 def add_review():
     """
     Checks if user is logged in, if yes they are sent to add review page
     if user is not logged in they are redirected to login page
     """
     if 'username' in session:
+        coverBig = request.form.get('coverBig')
+        gameTitle = request.form.get('gameTitle')
+        genreNames = request.form.get('genreNames')
+        platformNames = request.form.get('platformNames')
+        release_dates = request.form.get('release_dates')
         return render_template(
-            'pages/addreview.html', reviews=MONGO.db.reviews.find())
+            'pages/addreview.html',
+            coverBig=coverBig,
+            gameTitle=gameTitle,
+            genreNames=genreNames,
+            platformNames=platformNames,
+            release_dates=release_dates,
+            reviews=MONGO.db.reviews.find())
     flash("You must create an account or login to submit reviews!", "nouser")
     return redirect('login')
 
