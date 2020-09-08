@@ -32,12 +32,12 @@ body {
 
 /* Images */
 
-.img-style {
-    border-radius: 0.5rem;
-}
-
 .img-medium {
     width: 50%;
+}
+
+.img-lg {
+    width: 70%;
 }
 
 /* Navbar */

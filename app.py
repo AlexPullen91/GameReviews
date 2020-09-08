@@ -78,10 +78,10 @@ def search_game():
                 )
         except KeyError:
             flash("There was a problem with your search, try something else!", "prob")
-            return redirect('/')
+            return redirect('dashboard')
         except IndexError:
             flash("There were no matches for this game, try something else!", "nogame")
-            return redirect('/')
+            return redirect('dashboard')
     if request.method == 'GET':
         return redirect('/')
 
