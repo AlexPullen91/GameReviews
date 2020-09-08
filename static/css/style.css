@@ -55,6 +55,23 @@ body {
     margin: 0 auto;
 }
 
+.cover-btn {
+    border-style: none;
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
+}
+
+.cover-btn:hover,
+.cover-btn:focus {
+    transform: scale(1.01);
+    outline: none;
+}
+
+.cover-btn:active {
+    transform: scale(0.99);
+}
+
 .pink-btn {
     background-color: #EF6C8F;
     color: #fff;

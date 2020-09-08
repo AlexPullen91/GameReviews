@@ -1,48 +1,6 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container">
-  <div class="row pt-5">
-    <!-- <div class="col-md-6">
-      <div class="media">
-        <img
-          src="static/images/droid.png"
-          class="img-fluid w-25 mr-3"
-          alt="droid"
-        />
-        <div class="media-body">
-          <h2 class="mt-0 heading">Search</h2>
-          <h6 class="font-weight-light">Is this what you were looking for?</h6>
-        </div>
-      </div>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th scope="row">Game Title:</th>
-            <td>{{ gameTitle }}</td>
-          </tr>
-          <tr>
-            <th scope="row">Genres:</th>
-            {% for name in genreNames %}
-            <td>{{ name }}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            <th scope="row">Platforms:</th>
-            {% for name in platformNames %}
-            <td>{{ name }}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            <th scope="row">Release Date:</th>
-            {% for date in release_dates %}
-            <td>{{ date }}</td>
-            {% endfor %}
-          </tr>
-        </tbody>
-      </table>
-    </div> -->
-
-    <!-- next attempt  -->
-
+  <div class="row pt-4">
     <div class="col-lg-6">
       <div class="media">
         <img
@@ -55,8 +13,13 @@
           <h6 class="font-weight-light">Is this what you were looking for?</h6>
         </div>
       </div>
-      <div class="text-center pt-3">
+      <div class="text-center pb-5">
         <form action="{{ url_for('add_review') }}" method="POST">
+        <button
+            type="submit"
+            name="action"
+            class="cover-btn"
+          >
           <h5 class="font-weight-light py-2">{{ gameTitle }}</h5>
           <img
             src="{{ coverBig }}"
@@ -103,8 +66,9 @@
               value="{% for date in release_dates %}{{ date }} / {% endfor %}"
             />
           </div>
-          <button
-            class="btn green-btn rounded-pill mx-1"
+          </button>
+          <!-- <button
+            class="btn green-btn rounded-pill mx-3"
             type="submit"
             name="action"
           >
@@ -112,22 +76,13 @@
           </button>
           <a
             href="{{url_for('browse_reviews')}}"
-            class="btn purple-btn rounded-pill mx-1"
+            class="btn purple-btn rounded-pill mx-3"
             >No...</a
-          >
+          > -->
         </form>
-        <!-- {% for name in genreNames %}
-          <p>{{ name }}</p>
-          {% endfor %}
-          {% for name in platformNames %}
-          <p>{{ name }}</p>
-          {% endfor %}
-          {% for date in release_dates %}
-          <p>{{ date }}</p>
-          {% endfor %} -->
       </div>
     </div>
-    <div class="col-lg-6">
+    <div class="col-lg-6 pt-5">
       {% include 'components/searchbox.html' %}
     </div>
   </div>
