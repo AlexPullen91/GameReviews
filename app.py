@@ -70,8 +70,11 @@ def search_game():
                 platformNames=platformNames,
                 release_dates=release_dates
                 )
-        except KeyError, IndexError:
-            print('error')
+        except KeyError:
+            flash("There was a problem with your search, make sure there's no typos!", "typo")
+            return redirect('/')
+        except IndexError:
+            flash("There were no matches for this game, try something else!", "nogame")
             return redirect('/')
     if request.method == 'GET':
         return redirect('/')
