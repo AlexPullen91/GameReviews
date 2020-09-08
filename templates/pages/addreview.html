@@ -7,7 +7,7 @@
       <div class="col-md-6 m-auto text-center">
         <img
           src="{{ coverBig }}"
-          class="img-fluid"
+          class="img-fluid border-radius-sm thick-border"
           alt="map as placeholder image"
         />
       </div>
@@ -23,7 +23,7 @@
             name="game_title"
             type="text"
             value="{{ gameTitle }}"
-            required
+            readonly
           />
         </div>
         <div class="form-group">
@@ -33,7 +33,7 @@
             name="genres"
             type="text"
             value="{{ genreNames }}"
-            required
+            readonly
           />
         </div>
         <div class="form-group">
@@ -43,7 +43,7 @@
             name="platforms"
             type="text"
             value="{{ platformNames }}"
-            required
+            readonly
           />
         </div>
         <div class="form-group">
@@ -53,17 +53,17 @@
             name="release_date"
             type="text"
             value="{{ release_dates }}"
-            required
+            readonly
           />
         </div>
-        <div class="form-group">
+        <div class="form-group d-none">
           <label for="game_title">Image URL</label>
           <input
             class="form-control thick-border border-radius-sm"
             name="image_url"
             type="text"
             value="{{ coverBig }}"
-            required
+            readonly
           />
         </div>
         <div class="form-group">
@@ -88,6 +88,7 @@
             name="reviewed_by"
             type="text"
             value="{{session['username']}}"
+            readonly
           />
         </div>
       </div>
