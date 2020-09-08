@@ -17,16 +17,16 @@ API_KEY = os.environ.get("API_KEY")
 
 MONGO = PyMongo(APP)
 
-# url = 'https://api-v3.igdb.com/games'
-# headers = {'user-key': API_KEY}
-# params = {'fields': 'name, genres.name, platforms.name, release_dates.human', 'search': "Luigi's mansion 3", 'limit': 1}
 
-# r = requests.post(url, headers=headers, params=params)
-
-# if r:
-#     print(r.json())
-# else:
-#     print('error')
+@APP.route('/')
+def landing_page():
+    """
+    If user is not logged in renders the landing page,
+    if user is logged in redirects to dashboard
+    """
+    if 'username' in session:
+        return redirect('dashboard')
+    return render_template('pages/landingpage.html')
 
 
 @APP.route('/search', methods=['POST', 'GET'])
@@ -76,42 +76,6 @@ def search_game():
             return redirect('/')
     if request.method == 'GET':
         return redirect('/')
-
-# url = 'https://api-v3.igdb.com/games'
-# headers = {'user-key': API_KEY}
-# # gameName = request.form.get('search')
-# params = {
-#     'fields': 'name, genres.name, platforms.name, release_dates.human',
-#     'search': 'zelda',
-#     'limit': 1
-#         }
-# r = requests.post(url, headers=headers, params=params)
-
-# gameTitle = r.json()[0]['name']
-# genres = r.json()[0]['genres']
-# genreNames = []
-# for name in genres:
-#     genreNames.append((name['name']))
-
-# platforms = r.json()[0]['platforms']
-# platformNames = []
-# for name in platforms:
-#     platformNames.append((name['name']))
-
-# release_date = r.json()[0]['release_dates']
-# release_dates = []
-# for human in release_date:
-#     release_dates.append((human['human']))
-
-# print(gameTitle, genreNames, platformNames, release_dates)
-
-
-@APP.route('/')
-def landing_page():
-    """
-    Renders the landing page
-    """
-    return render_template('pages/landingpage.html')
 
 
 @APP.route('/browse-reviews')
