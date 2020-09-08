@@ -181,7 +181,7 @@ def update_review(review_id):
     return redirect(url_for('manage_reviews'))
 
 
-@APP.route('/delete-review/<review_id>')
+@APP.route('/delete/review/<review_id>')
 def delete_review(review_id):
     """
     Removes the selected review from the database and
