@@ -43,26 +43,25 @@ def search_game():
 
         r = requests.post(games_url, headers=headers, params=games_params)
 
-        cover = r.json()[0]['cover']['url']
-        coverBig = cover.replace('thumb', 'cover_big')
-        gameTitle = r.json()[0]['name']
-        genres = r.json()[0]['genres']
-        genreNames = []
-        for name in genres:
-            genreNames.append((name['name']))
+        try:
+            cover = r.json()[0]['cover']['url']
+            coverBig = cover.replace('thumb', 'cover_big')
+            gameTitle = r.json()[0]['name']
+            genres = r.json()[0]['genres']
+            genreNames = []
+            for name in genres:
+                genreNames.append((name['name']))
 
-        platforms = r.json()[0]['platforms']
-        platformNames = []
-        for name in platforms:
-            platformNames.append((name['name']))
+            platforms = r.json()[0]['platforms']
+            platformNames = []
+            for name in platforms:
+                platformNames.append((name['name']))
 
-        release_date = r.json()[0]['release_dates']
-        release_dates = []
-        for human in release_date:
-            release_dates.append((human['human']))
+            release_date = r.json()[0]['release_dates']
+            release_dates = []
+            for human in release_date:
+                release_dates.append((human['human']))
 
-        if r:
-            print(gameTitle, genreNames, platformNames, release_dates, coverBig)
             return render_template(
                 'pages/search.html',
                 coverBig=coverBig,
@@ -71,7 +70,7 @@ def search_game():
                 platformNames=platformNames,
                 release_dates=release_dates
                 )
-        else:
+        except KeyError, IndexError:
             print('error')
             return redirect('/')
     if request.method == 'GET':
