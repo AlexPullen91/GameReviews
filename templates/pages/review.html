@@ -83,11 +83,12 @@
     </div>
 
     <div class="col-sm-6 mt-2 pt-1">
-      <form class="form-inline my-lg-0">
+      <form method="POST" action="{{ url_for('search_reviews') }}" class="form-inline my-lg-0">
         <input
           class="form-control searchbar-style rounded-pill thick-border m-auto w-auto"
           type="search"
-          placeholder="Search games"
+          name="searchreviews"
+          placeholder="Search reviews"
           aria-label="Search"
         />
       </form>

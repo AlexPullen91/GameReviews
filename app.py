@@ -86,6 +86,21 @@ def search_game():
         return redirect('/')
 
 
+@APP.route('/searchreview', methods=['POST'])
+def search_reviews():
+    if request.method == 'POST':
+        reviewName = request.form.get('searchreviews')
+        # the_review = MONGO.db.reviews.find({'game_title': f"{reviewName}"})
+        reviews = MONGO.db.reviews
+        reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
+        print(reviewList)
+        # for review in reviews.find({'game_title': f"{reviewName}"}):
+            # print(review)
+        return render_template(
+            'pages/searchreviews.html', reviewList=reviewList)
+    return redirect('/')
+
+
 @APP.route('/browse/reviews')
 def browse_reviews():
     """
