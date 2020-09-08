@@ -71,7 +71,7 @@ def search_game():
                 release_dates=release_dates
                 )
         except KeyError:
-            flash("There was a problem with your search, make sure there's no typos!", "typo")
+            flash("There was a problem with your search, try something else!", "prob")
             return redirect('/')
         except IndexError:
             flash("There were no matches for this game, try something else!", "nogame")
