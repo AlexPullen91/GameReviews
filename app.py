@@ -80,7 +80,7 @@ def search_game():
         return redirect('/')
 
 
-@APP.route('/browse-reviews')
+@APP.route('/browse/reviews')
 def browse_reviews():
     """
     Renders the browse reviews page and retreives reviews
