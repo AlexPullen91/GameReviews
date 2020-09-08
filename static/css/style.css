@@ -2,7 +2,7 @@
 
 body {
   background-color: #fff;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', 'sans-serif';
 }
 
 /* General styling */
@@ -26,7 +26,7 @@ body {
 /* Headings */
 
 .heading {
-    font-family: 'Monofett', 'Roboto';
+    font-family: 'Monofett', 'Open Sans';
     color: #000;
 }
 
@@ -43,7 +43,7 @@ body {
 /* Navbar */
 
 .navbar-brand {
-    font-family: 'Monofett', 'Roboto';
+    font-family: 'Monofett', 'Open Sans';
     font-size: 1.5rem;
 }
 

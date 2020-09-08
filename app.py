@@ -21,8 +21,8 @@ MONGO = PyMongo(APP)
 @APP.route('/')
 def landing_page():
     """
-    If user is not logged in renders the landing page,
-    if user is logged in redirects to dashboard
+    If user is not logged in, renders the landing page
+    if user is logged in, redirects to dashboard
     """
     if 'username' in session:
         return redirect('dashboard')
@@ -31,6 +31,12 @@ def landing_page():
 
 @APP.route('/search', methods=['POST', 'GET'])
 def search_game():
+    """
+    Makes a POST request to the IGDB API using a user inputted value and
+    the data is passed into form fields in search.html ready for user to
+    rate, review and then submit. Redirects to landing page or dashboard
+    upon encountering errors.
+    """
     if request.method == 'POST':
         games_url = 'https://api-v3.igdb.com/games'
         headers = {'user-key': API_KEY}
