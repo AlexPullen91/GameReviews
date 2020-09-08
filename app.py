@@ -106,7 +106,7 @@ def get_review(review_id):
     return render_template('pages/review.html', review=the_review)
 
 
-@APP.route('/add/review', methods=['POST'])
+@APP.route('/addreview', methods=['POST'])
 def add_review():
     """
     Checks if user is logged in, if yes they are sent to add review page

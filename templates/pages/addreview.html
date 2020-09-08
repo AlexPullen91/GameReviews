@@ -4,17 +4,22 @@
   <form action="{{ url_for('insert_review') }}" method="POST">
     <div class="row pt-5">
       <!-- game image section -->
-      <div class="col-md-6 m-auto text-center">
+      <div class="col-md-5 m-auto text-center">
         <img
           src="{{ coverBig }}"
           class="img-fluid border-radius-sm thick-border"
           alt="map as placeholder image"
         />
+        <!-- <img
+        src="{{ coverBig }}"
+        class="img-lg border-radius-sm thick-border"
+        alt="image of video game cover"
+      /> -->
       </div>
       <!-- end of game image section -->
 
       <!-- game details input section -->
-      <div class="col-md-6">
+      <div class="col-md-7">
         <h1 class="heading py-4">Add Review</h1>
         <div class="form-group">
           <label for="game_title">Game Title</label>
