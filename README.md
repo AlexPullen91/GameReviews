@@ -62,7 +62,7 @@ I've opted to use detailed straight lineal colour style icons that are represent
 * Forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
 * Information and search results occupy left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
 * Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
-* [Monfett](https://fonts.google.com/specimen/Monofett?query=mono) is used for 'GameReviews' whilst the sans-serif [Montserrat](https://fonts.google.com/specimen/Montserrat?query=mon#about) is used everywhere else
+* [Monfett](https://fonts.google.com/specimen/Monofett?query=mono) is used for 'GameReviews' and some headings whilst everything else is [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans&sidebar.open=true#about)
 
 ---
 
@@ -80,7 +80,7 @@ This site is designed to provide users a simple and intuitive experience where w
 
 This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database. 
 
-This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating out of 5 and write out their review.
+This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating and write out their review.
 
 Once users create an account they are are able to submit multiple reviews, edit reviews and delete reviews.
 
@@ -184,6 +184,11 @@ This test determines if the site responds to whether or not user is logged in
     * The error handling process would correctly alert the user that the name is already taken but also alert them that their passwords didn't match even when they did.
     * This was solved by redirecting the user to the signup page at the end of each if statement.
 
+* I encountered an issue when working on the search API function that involved trying to grab the game image.
+    * The cover.url key in the parameters of the API request would only retern a tiny thumbnail image.
+    * This wasn't suitable for my needs so after some digging I found the info I needed in the API documentation.
+    * Within the url string returned from the API the image size is determined by ```"thumb"```.
+    * Using ```replace()``` to swap in ```cover_big``` I now had the url for the larger image.
 
 ### Known Issues
 
