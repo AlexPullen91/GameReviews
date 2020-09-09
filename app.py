@@ -29,6 +29,63 @@ def landing_page():
     return render_template('pages/landingpage.html')
 
 
+# @APP.route('/search', methods=['POST', 'GET'])
+# def search_game():
+#     """
+#     Makes a POST request to the IGDB API using a user inputted value and
+#     the data is passed into form fields in search.html ready for user to
+#     rate, review and then submit. Redirects to landing page or dashboard
+#     upon encountering errors.
+#     """
+#     if request.method == 'POST':
+#         games_url = 'https://api-v3.igdb.com/games'
+#         headers = {'user-key': API_KEY}
+#         gameName = request.form.get('search')
+#         games_params = {
+#             'fields': 'name, genres.name, platforms.name, release_dates.human, cover.url',
+#             'search': f"{gameName}",
+#             'limit': 1
+#                 }
+
+#         r = requests.post(games_url, headers=headers, params=games_params)
+
+#         try:
+#             cover = r.json()[0]['cover']['url']
+#             coverBig = cover.replace('thumb', 'cover_big')
+#             gameTitle = r.json()[0]['name']
+#             genres = r.json()[0]['genres']
+#             genreNames = []
+#             for name in genres:
+#                 genreNames.append((name['name']))
+
+#             platforms = r.json()[0]['platforms']
+#             platformNames = []
+#             for name in platforms:
+#                 platformNames.append((name['name']))
+
+#             release_date = r.json()[0]['release_dates']
+#             release_dates = []
+#             for human in release_date:
+#                 release_dates.append((human['human']))
+
+#             return render_template(
+#                 'pages/search.html',
+#                 coverBig=coverBig,
+#                 gameTitle=gameTitle,
+#                 genreNames=genreNames,
+#                 platformNames=platformNames,
+#                 release_dates=release_dates
+#                 )
+#         except KeyError:
+#             flash("There was a problem with your search, try something else!", "prob")
+#             return redirect('dashboard')
+#         except IndexError:
+#             flash("There were no matches for this game, try something else!", "nogame")
+#             return redirect('dashboard')
+#     if request.method == 'GET':
+#         return redirect('/')
+
+
 @APP.route('/search', methods=['POST', 'GET'])
 def search_game():
     """
@@ -53,6 +110,7 @@ def search_game():
             cover = r.json()[0]['cover']['url']
             coverBig = cover.replace('thumb', 'cover_big')
             gameTitle = r.json()[0]['name']
+            title_lower = gameTitle.lower()
             genres = r.json()[0]['genres']
             genreNames = []
             for name in genres:
@@ -68,44 +126,90 @@ def search_game():
             for human in release_date:
                 release_dates.append((human['human']))
 
+            # reviewName = request.form.get('search')
+            # review_lower = reviewName.lower()
+            reviews = MONGO.db.reviews
+            reviewList = list(reviews.find({'title_lower': f"{title_lower}"}))
+            game_title = reviewList[0]['title_lower']
+            print(gameTitle)
+            print(game_title)
+            print(title_lower)
+            # print(review_lower)
             return render_template(
                 'pages/search.html',
                 coverBig=coverBig,
                 gameTitle=gameTitle,
                 genreNames=genreNames,
                 platformNames=platformNames,
-                release_dates=release_dates
+                release_dates=release_dates,
+                reviewList=reviewList,
+                game_title=game_title,
+                title_lower=title_lower,
+                reviews=MONGO.db.reviews.find()
                 )
         except KeyError:
             flash("There was a problem with your search, try something else!", "prob")
-            return redirect('dashboard')
-        except IndexError:
-            flash("There were no matches for this game, try something else!", "nogame")
-            return redirect('dashboard')
-    if request.method == 'GET':
-        return redirect('/')
-
-
-@APP.route('/searchreview', methods=['POST'])
-def search_reviews():
-    if request.method == 'POST':
-        try:
-            reviewName = request.form.get('searchreviews')
-            reviews = MONGO.db.reviews
-            reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
-            game_title = reviewList[0]['game_title']
-            print(game_title)
-            return render_template(
-                'pages/searchreviews.html',
-                reviewList=reviewList,
-                game_title=game_title,
-                reviews=MONGO.db.reviews.find()
-                )
-        except IndexError:
-            print('not found')
             return redirect('/')
+        except IndexError:
+            try:
+                cover = r.json()[0]['cover']['url']
+                coverBig = cover.replace('thumb', 'cover_big')
+                gameTitle = r.json()[0]['name']
+                title_lower = gameTitle.lower()
+                genres = r.json()[0]['genres']
+                genreNames = []
+                for name in genres:
+                    genreNames.append((name['name']))
+
+                platforms = r.json()[0]['platforms']
+                platformNames = []
+                for name in platforms:
+                    platformNames.append((name['name']))
+
+                release_date = r.json()[0]['release_dates']
+                release_dates = []
+                for human in release_date:
+                    release_dates.append((human['human']))
+                return render_template(
+                    'pages/search.html',
+                    coverBig=coverBig,
+                    gameTitle=gameTitle,
+                    genreNames=genreNames,
+                    platformNames=platformNames,
+                    release_dates=release_dates,
+                    title_lower=title_lower,
+                    reviews=MONGO.db.reviews.find()
+                    )
+            except IndexError:
+                flash("There were no matches for this game, try something else!", "nogame")
+                return redirect('/')
+        # except IndexError:
+        #     flash("There were no matches for this game, try something else!", "nogame")
+        #     return redirect('/')
     if request.method == 'GET':
         return redirect('/')
+
+
+# @APP.route('/searchreview', methods=['POST'])
+# def search_reviews():
+#     if request.method == 'POST':
+#         try:
+#             reviewName = request.form.get('searchreviews')
+#             reviews = MONGO.db.reviews
+#             reviewList = list(reviews.find({'game_title': f"{reviewName}"}))
+#             game_title = reviewList[0]['game_title']
+#             print(game_title)
+#             return render_template(
+#                 'pages/searchreviews.html',
+#                 reviewList=reviewList,
+#                 game_title=game_title,
+#                 reviews=MONGO.db.reviews.find()
+#                 )
+#         except IndexError:
+#             print('not found')
+#             return redirect('/')
+#     if request.method == 'GET':
+#         return redirect('/')
 
 
 @APP.route('/browse/reviews')
@@ -137,6 +241,7 @@ def add_review():
     if 'username' in session:
         coverBig = request.form.get('coverBig')
         gameTitle = request.form.get('gameTitle')
+        title_lower = request.form.get('title_lower')
         genreNames = request.form.get('genreNames')
         platformNames = request.form.get('platformNames')
         release_dates = request.form.get('release_dates')
@@ -144,6 +249,7 @@ def add_review():
             'pages/addreview.html',
             coverBig=coverBig,
             gameTitle=gameTitle,
+            title_lower=title_lower,
             genreNames=genreNames,
             platformNames=platformNames,
             release_dates=release_dates,
