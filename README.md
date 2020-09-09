@@ -190,9 +190,19 @@ This test determines if the site responds to whether or not user is logged in
     * Within the url string returned from the API the image size is determined by ```"thumb"```.
     * Using ```replace()``` to swap in ```cover_big``` I now had the url for the larger image.
 
+* A particularly gruesome nuisance during development was coding in the logic to stop users submitting reviews for a game they had already reviewed.
+    * Much of the headache was born through trying to locate the values I needed from the appropriate keys.
+    * Liberal use of ```print()``` in the console helped me narrow down what I needed and eventually I was left with ```user``` and ```existing_review```
+    * ```user``` contains the value received from the user database collection and ```existing_review``` contained the value obtained from the review database collection.
+    * I tried these variables, (including earlier *wrong* variations of them) in various different conditionals before settling on the current solution.
+    * Before there is a particular review in the database for a user then ```existing_review``` returns ```None```, once I realised this I stopped checking in the first ```if``` condition for ```existing_review['reviewed_by'] is None``` which was returning ```TypeError: 'NoneType' object is not subscriptable```.
+    * By just checking ```if user and existing_review is None``` the code block that inserts the review runs.
+    * Following this up with ```elif user and existing_review['reviewed_by']``` users are successfully redirected without submitting a review, error message and all.
+    * Perhaps not the most elegant piece of code or the optimal user experience but the simple fact that it works is a satisfactory trade off for the time being.
+
 ### Known Issues
 
-* Currently users are still able to post reviews for a game they have already submitted a review for.
+* *Currently users are still able to post reviews for a game they have already submitted a review for* **solved**
 
 ---
 
