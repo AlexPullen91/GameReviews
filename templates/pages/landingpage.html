@@ -5,6 +5,8 @@
     <!-- Login / sign up section -->
     <div class="col-lg-6 pt-5 text-center">
     {% include 'components/messages/logout.html' %}
+    {% include 'components/messages/problem.html' %}
+    {% include 'components/messages/nogame.html' %}
       <div class="pt-5">
         <h1 class="heading pb-2">GameReviews</h1>
         <p class="lead">
@@ -32,7 +34,7 @@
     <!-- End of login / sign up section -->
 
     <!-- Search game section -->
-    <div class="col-lg-6">
+    <div class="col-lg-6 mt-4">
         {% include 'components/searchbox.html' %}
     </div>
     <!-- End of search game section -->
