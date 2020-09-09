@@ -1,6 +1,7 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container">
   <div class="row pt-5">
+  <!-- API search result section -->
     <div class="col-lg-6">
       <div class="sticky-top pt-5">
         <div class="media pt-5 text-center">
@@ -18,8 +19,9 @@
               <img
                 src="{{ coverBig }}"
                 class="img-fluid border-radius-sm thick-border"
-                alt="game cover"
+                alt="image of game cover"
               />
+              <!-- Hidden form values for add review function -->
               <div class="form-group">
                 <input
                   class="form-control thick-border border-radius-sm d-none"
@@ -68,11 +70,15 @@
                   value="{% for date in release_dates %}{{ date }} / {% endfor %}"
                 />
               </div>
+              <!-- End of hidden form values -->
             </button>
           </form>
         </div>
       </div>
     </div>
+    <!-- End of API search result section -->
+
+    <!-- Review search results section -->
     <div class="col-lg-6">
       <div class="media pt-5">
         <img
@@ -107,6 +113,7 @@
       </div>
       {% endif %} {% endfor %}
     </div>
+    <!-- End of review search results section -->
   </div>
 </div>
 
