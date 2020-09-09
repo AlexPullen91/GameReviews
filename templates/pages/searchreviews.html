@@ -28,7 +28,14 @@
             {% endif %}
 			{% endfor %}
 		</div>
-		<div class="col-lg-6">
+
+        <!-- Search game section  -->
+        <div class="col-lg-6">
+        {% include 'components/searchbox.html' %}
+        </div>
+        <!-- End of search game section -->
+        
+		<!-- <div class="col-lg-6">
 
 			{% for review in reviews %}
 			{% if review.game_title == game_title %}
@@ -39,7 +46,7 @@
 			{{ review.reviewed_by }}
 			{% endif %}
 			{% endfor %}
-		</div>
+		</div> -->
 	</div>
 </div>
 
