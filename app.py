@@ -179,10 +179,29 @@ def insert_review():
     Inserts user's review into the reviews database then
     redirects user to browse.html
     """
-    reviews = MONGO.db.reviews
-    reviews.insert_one(request.form.to_dict())
-    flash("Your review has been added, nice!", "added")
-    return redirect(url_for('browse_reviews'))
+    if request.method == 'POST':
+        reviews = MONGO.db.reviews
+        users = MONGO.db.users
+        existing_user = users.find_one({'name': request.form['reviewed_by']})
+        existing_review = reviews.find_one({'game_title': request.form['game_title'], 'reviewed_by': request.form['reviewed_by']})
+        user = existing_user['name']
+        # reviewer = existing_review['reviewed_by']
+        print(existing_review)
+        print('existing user:', user)
+        # print('existing_review:', reviewer)
+        if user and existing_review is None:
+            reviews.insert_one(request.form.to_dict())
+            flash("Your review has been added, nice!", "added")
+            return redirect(url_for('browse_reviews'))
+        elif user and existing_review['reviewed_by']:
+            print('not today guapo')
+            flash("Doh, you've already reviewed this game!", "already")
+            return redirect('/')
+    # print('nope', existing_user['name'])
+    # print('nope', session['username'])
+    # print(existing_review['reviewed_by'])
+    flash("Doh, you've already reviewed this game!", "already")
+    return redirect('/')
 
 
 @APP.route('/manage/reviews')
