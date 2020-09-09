@@ -13,7 +13,7 @@
 
     <!-- Game info section -->
     <div class="col-md-7">
-    <h1 class="heading py-4">Review</h1>
+      <h1 class="heading py-4">Review</h1>
       <table class="table">
         <tbody>
           <tr>
@@ -48,42 +48,76 @@
   <div class="row pt-3">
     <!-- Game review section -->
     <div class="col-lg-12 pb-5">
-      <textarea class="form-control thick-border border-radius-sm m-auto" rows="6" readonly>
+      <textarea
+        class="form-control thick-border border-radius-sm m-auto"
+        rows="6"
+        readonly
+      >
         {{review.review}}
       </textarea>
     </div>
   </div>
   <div class="row pb-5">
-    <div class="col-sm-6 pb-5 text-center">
+    <div class="col-sm-4 m-auto text-center">
       {% if session['username'] == review.reviewed_by %}
+      <div class="my-1">
       <a
         href="{{url_for('edit_review', review_id=review._id)}}"
-        class="btn green-btn mx-1 rounded-pill"
+        class="btn green-btn m-2 rounded-pill"
         >Edit</a
       >
       <a
         href="{{url_for('delete_review', review_id=review._id)}}"
-        class="btn btn-danger mx-1 rounded-pill"
+        class="btn btn-danger m-2 rounded-pill"
         >Delete</a
       >
-      <a href="{{ url_for('browse_reviews') }}" class="btn purple-btn mx-1 rounded-pill">
+      <a
+        href="{{ url_for('browse_reviews') }}"
+        class="btn purple-btn m-2 rounded-pill"
+      >
         Go back
       </a>
+      </div>
       {% else %}
-      <p class="text-muted">Want to submit your own review?</p>
       <a
-        href="{{ url_for('add_review') }}"
-        class="btn green-btn rounded-pill"
-        type="submit"
-        name="add_review"
+        href="{{ url_for('browse_reviews') }}"
+        class="btn green-btn rounded-pill my-1"
       >
-        Click here
+        Browse reviews
       </a>
       {% endif %}
     </div>
-
-    <div class="col-sm-6 mt-2 pt-1">
-      <form method="POST" action="{{ url_for('search_game') }}" class="form-inline my-lg-0">
+    <div class="col-sm-4 m-auto">
+      <div class="row">
+        <div class="col-4">
+          <img
+            src="{{url_for('static', filename='images/handheld-game.png')}}"
+            class="img-fluid mx-auto d-block"
+            alt="handheld game"
+          />
+        </div>
+        <div class="col-4">
+          <img
+            src="{{url_for('static', filename='images/buttons.png')}}"
+            class="img-fluid mx-auto d-block"
+            alt="Gamepad buttons"
+          />
+        </div>
+        <div class="col-4">
+          <img
+            src="{{url_for('static', filename='images/hearts.png')}}"
+            class="img-fluid mx-auto d-block"
+            alt="hearts in speech bubble"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4 text-center m-auto">
+      <form
+        method="POST"
+        action="{{ url_for('search_game') }}"
+        class="form-inline my-lg-0"
+      >
         <input
           class="form-control searchbar-style rounded-pill thick-border m-auto w-auto"
           type="search"

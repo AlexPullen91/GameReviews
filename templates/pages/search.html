@@ -1,7 +1,7 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container">
   <div class="row pt-5">
-  <!-- API search result section -->
+    <!-- API search result section -->
     <div class="col-lg-6">
       <div class="sticky-top pt-5">
         <div class="media pt-5 text-center">
@@ -93,7 +93,8 @@
           </h6>
         </div>
       </div>
-      {% for review in reviews|reverse %} {% if review.title_lower == title_lower %}
+      {% for review in reviews|reverse %} {% if review.title_lower ==
+      title_lower %}
       <div
         class="list-group rounded-pill box-shadow my-3 text-center thick-border"
       >
