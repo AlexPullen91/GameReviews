@@ -102,6 +102,7 @@ def search_reviews():
                 reviews=MONGO.db.reviews.find()
                 )
         except IndexError:
+            print('not found')
             return redirect('/')
     if request.method == 'GET':
         return redirect('/')
