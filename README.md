@@ -178,6 +178,18 @@ This test determines if the site responds to whether or not user is logged in
 
     Verdict: Working as intended
 
+*Test case:* **Search Function**
+
+This test determines if the search function works as intended.
+
+    1. User clicks in the search field and types in a game name and presses enter.
+    2. If the game name does not exist in the IGDB database (IndexError) they are redirected back to dashboard or landing page with error message, "There were no matches for this game, try something else!"
+    3. If the game name returns a (KeyError) in the console, user is redirected back to dashboard or landing page with error message, "There was a problem with your search, try something else!"
+    4. If the game name finds a match in the IGDB database user is taken to search.html where a clickable image of the game cover is rendered along with any previously submitted reviews for that game.
+    5. If there are no reviews found in the database the search will still fetch the game cover which users can click and begin reviewing. 
+
+    Verdict: Working as intended
+
 ### Issues and Resolutions
 
 * During development I encountered an issue with the user sign up feature when users entered a name already taken in the database.
