@@ -52,7 +52,7 @@
                   class="form-control thick-border border-radius-sm d-none"
                   name="genreNames"
                   type="text"
-                  value="{% for name in genreNames %}{{ name }} / {% endfor %}"
+                  value="{% set hyphen = joiner('---') %}{% for name in genreNames %}{{ hyphen() }} {{ name }} {% endfor %}"
                 />
               </div>
               <div class="form-group">
@@ -60,7 +60,7 @@
                   class="form-control thick-border border-radius-sm d-none"
                   name="platformNames"
                   type="text"
-                  value="{% for name in platformNames %}{{ name }} / {% endfor %}"
+                  value="{% set hyphen = joiner('---') %}{% for name in platformNames %}{{ hyphen() }} {{ name }} {% endfor %}"
                 />
               </div>
               <div class="form-group">
@@ -68,7 +68,7 @@
                   class="form-control thick-border border-radius-sm d-none"
                   name="release_dates"
                   type="text"
-                  value="{% for date in release_dates %}{{ date }} / {% endfor %}"
+                  value="{% set hyphen = joiner('---') %}{% for date in release_dates %}{{ hyphen() }} {{ date }} {% endfor %}"
                 />
               </div>
               <!-- End of hidden form values -->
