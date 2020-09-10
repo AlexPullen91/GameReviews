@@ -228,9 +228,13 @@ This test determines if the add review function works as intended.
     * Following this up with ```elif user and existing_review['reviewed_by']``` users are successfully redirected without submitting a review, error message and all.
     * Perhaps not the most elegant piece of code or the optimal user experience but the simple fact that it works is a satisfactory trade off for the time being.
 
+* When reviews are submitted with any formatting this is recorded appropriately in the database but is lost when rendered by the Jinja templating.
+    * By keeping ```<textarea>``` set to readonly as the container for the review text the original formatting is retained.
+
 ### Known Issues
 
 * *Currently users are still able to post reviews for a game they have already submitted a review for* **solved**
+* *Reviews submitted to the database retain their formatting but when rendered through jinja templating they lose it.* **solved** 
 
 ---
 
