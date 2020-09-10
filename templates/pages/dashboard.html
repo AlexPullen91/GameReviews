@@ -7,7 +7,7 @@
         {% include 'components/messages/nogame.html' %}
         {% include 'components/messages/already.html' %}
 			<h1 class="pt-5 display-4 heading">Welcome</h1>
-            <h2 class="pb-4">{{session['username']}}</h2>
+            <h2 class=" font-weight-light pb-4">{{session['username']}}</h2>
             <div class="btn-positioning btn-w-30">
                 <a href="{{url_for('manage_reviews')}}" class="btn purple-btn my-3 rounded-pill">Manage</a>
                 <a href="{{url_for('browse_reviews')}}" class="btn pink-btn my-3 rounded-pill">Browse</a>

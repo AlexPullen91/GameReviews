@@ -22,7 +22,7 @@
         {% if session['username'] == review.reviewed_by %}
         <div class="list-group my-3">
             <div class="list-group-item list-group-item-action rounded-pill text-center thick-border box-shadow">
-                <h6 class="font-weight-bold mb-1 py-1">{{review.game_title}}</h6>
+                <h6 class="mb-1 py-1">{{review.game_title}}</h6>
                 <a
                     href="{{url_for('get_review', review_id=review._id)}}"
                     class="btn purple-btn m-1 rounded-pill"
