@@ -348,6 +348,7 @@ Follow these steps to deploy on Heroku:
 ### Content
 
 * Icons used are from [Flaticon](https://www.flaticon.com/packs/gaming-98?word=gaming)
+* Favicon generated from [favicon.ico Generator](https://www.favicon.cc/)
 
 ### Code
 
