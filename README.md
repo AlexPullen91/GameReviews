@@ -185,7 +185,7 @@ This test determines if the search function works as intended.
     1. User clicks in the search field and types in a game name and presses enter.
     2. If the game name does not exist in the IGDB database (IndexError) they are redirected back to dashboard or landing page with error message, "There were no matches for this game, try something else!"
     3. If the game name returns a (KeyError) in the console, user is redirected back to dashboard or landing page with error message, "There was a problem with your search, try something else!"
-    4. If the game name finds a match in the IGDB database user is taken to search.html where a clickable image of the game cover is rendered along with any previously submitted reviews for that game.
+    4. If the game name finds a match in the IGDB database user is taken to search.html where a clickable image of the game cover is rendered along with any previously submitted reviews for that game which they can select and read.
     5. If there are no reviews found in the database the search will still fetch the game cover which users can click and begin reviewing. 
 
     Verdict: Working as intended
@@ -195,13 +195,37 @@ This test determines if the search function works as intended.
 This test determines if the add review function works as intended.
 
     1. Once user has searched for a game and are satisfied with their selection they are taken to addreview.html
-    2. Here they will see the input fields for title, genres, platforms and released with their values already set (input fields set to readonly).
-    3. Below they will see rating and review input fields and below these, Submit and Cancel buttons.
+    2. Here they see the input fields for title, genres, platforms and released with their values already set (input fields set to readonly).
+    3. Below they see rating and review input fields and below these, Submit and Cancel buttons.
     4. Selecting Submit before choosing a rating alerts user to "please select an item in the list".
     5. Selecting a rating and then selecting Submit button without entering anything in review field alerts user to "Please fill in this field."
     6. Selecting a rating and entering text into the review field followed by selecting Submit button user is redirected to browse.html with a confirmation message above their review.
     7. If user follows these steps whilst already having reviewed the same game they are redirected to dashboard with an error message and the review is not added to database.
     8. Selecting cancel button returns user to browse.
+
+    Verdict: Working as intended
+
+*Test case:* **Editing a review**
+
+This test determines if the edit review function works as intended.
+
+    1. Once a user has logged in and submitted a review they are now able to edit it from manage section or by directly viewing the review.
+    2. Once in edit review user sees input fields for title, genres, platforms and released with their values already set (input fields set to readonly).
+    3. Below they see rating and review fields with their previous ratings and confirm changes button and cancel button.
+    4. Selecting Confirm changes with or without altered rating and review fields takes user back to manage section with success message.
+    5. If changes were made, viewing the review again displays it with edited changes.
+    6. Whilst in edit review, pressing the cancel button at any time takes user back to manage section.
+
+    Verdict: Working as intended
+
+
+*Test case:* **Deleting a review**
+
+This test determines if the delete review function works as intended.
+
+    1. Once a user has logged in and submitted a review they are now able to delete it whilst in the manage section or by directly viewing it.
+    2. Pressing delete button in manage section removes the review from the page and from the database and returns a success message.
+    3. Pressing delete button whilst viewing the review directly removes it from the database and takes user back to manage section with a success message.
 
     Verdict: Working as intended
 
