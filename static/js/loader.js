@@ -1,0 +1,1 @@
+document.body.onload = () => document.getElementById("loader").classList.add("hidden");
