@@ -5,7 +5,7 @@
     <div class="col-md-5 m-auto pb-5 text-center">
       <img
         src="{{review.image_url}}"
-        class="img-fluid border-radius-sm thick-border"
+        class="img-fluid box-shadow border-radius-sm thick-border"
         alt="image of video game cover"
       />
     </div>
@@ -17,7 +17,7 @@
       <table class="table">
         <tbody>
           <tr>
-            <th scope="row">Game Title:</th>
+            <th scope="row">Title:</th>
             <td>{{review.game_title}}</td>
           </tr>
           <tr>
@@ -29,7 +29,7 @@
             <td>{{review.platforms}}</td>
           </tr>
           <tr>
-            <th scope="row">Release Date:</th>
+            <th scope="row">Released:</th>
             <td>{{review.release_date}}</td>
           </tr>
           <tr>
@@ -49,12 +49,14 @@
     <!-- Game review section -->
     <div class="col-lg-12 pb-5">
       <textarea
-        class="form-control thick-border border-radius-sm m-auto"
+        class="form-control border-radius-sm thick-border"
         rows="6"
         readonly
-      >
-        {{review.review}}
+      >{{review.review}}
       </textarea>
+      <!-- <div class="review-box-style border-radius-sm p-3 thick-border">
+        {{review.review}}
+      </div> -->
     </div>
   </div>
   <div class="row pb-5">
