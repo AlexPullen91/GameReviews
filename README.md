@@ -257,17 +257,90 @@ This test determines if the delete review function works as intended.
 
 ### Known Issues
 
-* *Currently users are still able to post reviews for a game they have already submitted a review for* **solved**
-* *Reviews submitted to the database retain their formatting but when rendered through jinja templating they lose it.* **solved** 
+* *Currently users are still able to post reviews for a game they have already submitted a review for.* - **solved**
+* *Reviews submitted to the database retain their formatting but when rendered through jinja templating they lose it.* - **solved** 
 
 ---
 
 ## Deployment
 
+In order to deploy GameReviews you will need to have installed the following:
 
----
+* Python 3
+* PIP
+* Git
+* Heroku CLI
 
----
+The backend of this app utilises MongoDB and therefore will require you to make an account in order to set up a collection for storing user details and reviews. 
+
+### Local Deployment
+
+To deploy GameReviews locally:
+
+1. Download the zip directly from the [repository](https://github.com/AlexPullen91/GameReviews)  or use this line of code in your terminal
+
+    ```git clone https://github.com/AlexPullen91/GameReviews.git```
+
+2. Install the modules necessary to run the app by typing this in your terminal
+
+    ```python -m pip -r requirements.txt```
+
+3. In MongoDB create a database with two collections named "reviews" and "users"
+
+4. Create an ```env.py``` at root level of your application and add to .gitignore before pushing to a public repository. Add the following lines whilst making sure to replace the strings with your own information.
+
+        import os
+
+        os.environ["MONGO_URI"] = 'YOUR_MONGODB_URI'
+        os.environ["SECRET_KEY"] = 'YOUR_SECRET_KEY'
+        os.environ["API_KEY"] = 'YOUR_API_KEY'
+        os.environ["DEBUG"] = 'True'
+
+
+5. You should now be able to run the app with this command
+
+    ```python3 run app.py```
+
+### Heroku Deployment
+
+Follow these steps to deploy on Heroku:
+
+1. Create a new app on Heroku
+
+2. Make sure your Procfile and and requirements.txt are present and up to date
+    * Procfile: 
+        * ```web: python app.py```
+    * requirements.txt:
+        * ```pip3 freeze --local > requirements.txt```
+
+3. Retrieve your heroku git URL from settings section and add as a remote.
+
+    ```git remote add heroku https://git.heroku.com/your-heroku-git-url```
+
+
+4. Push to Heroku
+
+    ```git push heroku master```
+
+5. Prepare the application for launch
+
+    ```heroku ps:scale web=5```
+
+6. Set your config vars in Heroku settings
+
+    | Variable   | Value           |
+    |------------|-----------------|
+    | MONGO_URI  | YOUR_MONGO_URI  |
+    | SECRET_KEY | YOUR_SECRET_KEY |
+    | API_KEY    | YOUR_API_KEY    |
+    | DEBUG      | FALSE           |
+
+    Enter your own information for the URI and the KEYs.
+    
+7. In deploy section of Heroku select Deploy Branch 
+
+8. Press open app button to view a freshly deployed GameReviews. 
+
 
 ## Credits
 
