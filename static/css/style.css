@@ -123,11 +123,16 @@ menu full width on smaller screen sizes */
   width: 30%;
 }
 
-/* Sign up / Login forms */
+/* Forms */
 
 .narrow-input-fields {
   width: 60%;
   margin: auto;
+}
+
+.form-control:focus {
+    border-color: #9038A8; 
+    box-shadow: 0 0 0 0.1rem #EF6C8F;
 }
 
 /* Search box section */
