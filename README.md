@@ -190,6 +190,22 @@ This test determines if the search function works as intended.
 
     Verdict: Working as intended
 
+*Test case:* **Adding a review**
+
+This test determines if the add review function works as intended.
+
+    1. Once user has searched for a game and are satisfied with their selection they are taken to addreview.html
+    2. Here they will see the input fields for title, genres, platforms and released with their values already set (input fields set to readonly).
+    3. Below they will see rating and review input fields and below these, Submit and Cancel buttons.
+    4. Selecting Submit before choosing a rating alerts user to "please select an item in the list".
+    5. Selecting a rating and then selecting Submit button without entering anything in review field alerts user to "Please fill in this field."
+    6. Selecting a rating and entering text into the review field followed by selecting Submit button user is redirected to browse.html with a confirmation message above their review.
+    7. If user follows these steps whilst already having reviewed the same game they are redirected to dashboard with an error message and the review is not added to database.
+    8. Selecting cancel button returns user to browse.
+
+    Verdict: Working as intended
+
+
 ### Issues and Resolutions
 
 * During development I encountered an issue with the user sign up feature when users entered a name already taken in the database.
