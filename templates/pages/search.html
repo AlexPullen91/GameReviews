@@ -96,9 +96,7 @@
       </div>
       {% for review in reviews|reverse %} {% if review.title_lower ==
       title_lower %}
-      <div
-        class="list-group rounded-pill box-shadow my-3 text-center thick-border"
-      >
+      <div class="list-group rounded-pill box-shadow my-3 text-center thick-border">
         <a
           href="{{url_for('get_review', review_id=review._id)}}"
           class="list-group-item list-group-item-action"
@@ -107,10 +105,7 @@
           <p class="mb-1">
             "{{review.rating}}"
           </p>
-          <small
-            >Reviewed by:
-            <span class="font-weight-bold">{{review.reviewed_by}}</span></small
-          >
+          <small>Reviewed by:<span class="font-weight-bold">{{review.reviewed_by}}</span></small>
         </a>
       </div>
       {% endif %} {% endfor %}

@@ -1,44 +1,34 @@
 {% extends 'layout/base.html' %} {% block content %}
 
 <div class="container">
-  <div class="row pt-5">
-    <!-- Login / sign up section -->
-    <div class="col-lg-6 pt-5 text-center">
-    {% include 'components/messages/logout.html' %}
-    {% include 'components/messages/problem.html' %}
-    {% include 'components/messages/nogame.html' %}
-      <div class="pt-5">
-        <h1 class="heading pb-2">GameReviews</h1>
-        <p class="lead">
-          Your home of video game reviews
-        </p>
-        <div class="btn-positioning btn-w-40 py-4">
-          <a
-            class="btn green-btn btn-lg rounded-pill"
-            href="{{url_for('login')}}"
-            role="button"
-            >Login</a
-          >
-        </div>
-        <p class="text-muted font-weight-light">Don't have an account?</p>
-        <div class="btn-positioning btn-w-40">
-          <a
-            class="btn purple-btn btn-lg rounded-pill"
-            href="{{url_for('signup')}}"
-            role="button"
-            >Sign Up</a
-          >
-        </div>
-      </div>
-    </div>
-    <!-- End of login / sign up section -->
+	<div class="row pt-5">
+		<!-- Login / sign up section -->
+		<div class="col-lg-6 pt-5 text-center">
+			{% include 'components/messages/logout.html' %}
+			{% include 'components/messages/problem.html' %}
+			{% include 'components/messages/nogame.html' %}
+			<div class="pt-5">
+				<h1 class="heading pb-2">GameReviews</h1>
+				<p class="lead">
+					Your home of video game reviews
+				</p>
+				<div class="btn-positioning btn-w-40 py-4">
+					<a class="btn green-btn btn-lg rounded-pill" href="{{url_for('login')}}" role="button">Login</a>
+				</div>
+				<p class="text-muted font-weight-light">Don't have an account?</p>
+				<div class="btn-positioning btn-w-40">
+					<a class="btn purple-btn btn-lg rounded-pill" href="{{url_for('signup')}}" role="button">Sign Up</a>
+				</div>
+			</div>
+		</div>
+		<!-- End of login / sign up section -->
 
-    <!-- Search game section -->
-    <div class="col-lg-6 mt-4">
-        {% include 'components/searchbox.html' %}
-    </div>
-    <!-- End of search game section -->
-  </div>
+		<!-- Search game section -->
+		<div class="col-lg-6 mt-4">
+			{% include 'components/searchbox.html' %}
+		</div>
+		<!-- End of search game section -->
+	</div>
 </div>
 
 {% endblock %}
