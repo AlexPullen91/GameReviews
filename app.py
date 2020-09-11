@@ -346,13 +346,13 @@ def logout():
     return redirect('/')
 
 
-# @APP.route('/favicon.ico')
-# def favicon():
-#     """
-#     Uses the send_from_directory module to help render favicon
-#     """
-#     return send_from_directory(os.path.join(APP.root_path, 'static/images'),
-#                                'favicon.ico')
+@APP.route('/favicon.ico')
+def favicon():
+    """
+    Uses the send_from_directory module to help render favicon
+    """
+    return send_from_directory(os.path.join(APP.root_path, 'static/images'),
+                               'favicon.ico')
 
 
 if __name__ == '__main__':

@@ -57,11 +57,21 @@ I've opted to use detailed straight lineal colour style icons that are represent
 * Fixed Navbar featuring app name and flagship logo. Nav links and search function enable easy navigation of the app
 * Muted neutral colours in the layout to compliment the use of detailed straight lineal colour style icons
 * Thick black borders similar to icon outlines used throughout
-* Shades of white for the backgrounds #FFFFFF #FAFAFA #F5F5F5
-* Icey #e6eff4 and pale light blue #d5e9ff used in css gradient effect on some backgrounds
-* Jet #333333 and Black #000 for font colours 
-* For button colours in keeping with the gamepad button colours: French Pink #EF6C8F Dark Orchard #9038A8 Light Sea Green #20BDAD
-* Forms fields always occupy left of the screen whilst the right side display icons, usually pushing below on smaller screen sizes
+* Shades of white for the backgrounds 
+    * #FFFFFF 
+    * #FAFAFA 
+    * #F5F5F5
+* CSS gradient effect on some backgrounds
+    * #e6eff4 ice
+    * #d5e9ff pale light blue 
+* Font colors
+    * #333333 jet 
+    * #000 black  
+* For button colours in keeping with the gamepad button colours:
+    * #EF6C8F french pink
+    * #9038A8 dark orchard
+    * #20BDAD light sea green
+* Sign up and login forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
 * Search screen displays result of API game search on the left and review search results on the right
 * Information occupies left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
 * Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
@@ -81,7 +91,7 @@ You can find my wireframes [here](https://github.com/AlexPullen91/GameReviews/tr
 
 This site is designed to provide users with a simple and intuitive experience where within just a matter of clicks they are signed up and then writing their review.
 
-This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database once submitted. 
+This app utilizes the IGDB API to pull information about the games that users search for which then populates the site's database once submitted. 
 
 Users are able to search for and read reviews without creating an account and are prompted to create one if they wish to submit reviews.
 
@@ -98,6 +108,7 @@ Getting started is simple:
 #### Potential Future features
 
 * More game details, details narrowed down to specific platforms and game versions
+* Sorting features for the reviews, browse is currently limited to only display up to 100 reviews
 * Options to purchase games from the review page
 * Upvoting / downvoting system or a likes system to indicate quality of or approval of reviews
 * More site members features such as forums and messaging
