@@ -1,5 +1,7 @@
 # GameReviews 
 
+![Multi device Screenshot](https://github.com/AlexPullen91/GameReviews/blob/master/wireframes/gamereviews-devices.png?raw=true)
+
 *"Your home of video game reviews"*
 
 GameReviews is a site for and based around users who want to read and write reviews for their favourite video games and store them all in one place. Use the search function to find and read game reviews or create an account to begin contributing your own.
