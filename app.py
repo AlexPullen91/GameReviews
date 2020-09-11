@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session,\
-     flash, send_from_directory
+    flash, send_from_directory
 from flask_pymongo import PyMongo
 import bcrypt
 import requests
@@ -47,7 +47,7 @@ def search_game():
             'fields': 'name, genres.name, platforms.name, release_dates.human, cover.url',
             'search': f"{gameName}",
             'limit': 1
-                }
+        }
 
         r = requests.post(games_url, headers=headers, params=games_params)
 
@@ -85,7 +85,7 @@ def search_game():
                 game_title=game_title,
                 title_lower=title_lower,
                 reviews=MONGO.db.reviews.find()
-                )
+            )
         except KeyError:
             flash(
                 "There was a problem with your search, try something else!",
@@ -120,9 +120,10 @@ def search_game():
                     platformNames=platformNames,
                     release_dates=release_dates,
                     title_lower=title_lower
-                    )
+                )
             except IndexError:
-                flash("There were no matches for this game, try something else!", "nogame")
+                flash(
+                    "There were no matches for this game, try something else!", "nogame")
                 return redirect('/')
     if request.method == 'GET':
         return redirect('/')
@@ -187,7 +188,7 @@ def insert_review():
         existing_review = reviews.find_one({
             'game_title': request.form['game_title'],
             'reviewed_by': request.form['reviewed_by']
-            })
+        })
         user = existing_user['name']
         print(existing_review)
         print('existing user:', user)
@@ -210,22 +211,13 @@ def manage_reviews():
     If user is logged in then renders the manage review page which
     only lists reviews submitted by that user
     if user is not logged in they're redirected to the login page
+    Also handles logic for displaying placeholder message incase
+    user has no reviews submitted yet.
     """
-    reviews = MONGO.db.reviews
-    # reviewList = list(reviews.find({'title_lower': 'title_lower'}))
-    # users = MONGO.db.users
     username = session['username']
-
+    reviews = MONGO.db.reviews
     reviewer = reviews.find_one({'reviewed_by': username})
-    # current_user = users.find_one({'name': username})
 
-    # thisuser = current_user['name']
-    # print("Reviewer list:", reviewer)
-    # print("Reviewer is:", reviewer['reviewed_by'])
-    # print("Current user:", current_user)
-    # print("this user is:", thisuser)
-    # print("session username", session['username'])
-    # print("review list:", reviewList)
     if 'username' in session and reviewer is None:
         return render_template(
             'pages/manage.html',

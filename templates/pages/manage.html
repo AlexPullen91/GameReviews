@@ -18,7 +18,7 @@
       {% include 'components/messages/saved.html' %}
       {% include 'components/messages/deleted.html' %}
     
-      {% for review in reviews|reverse %}
+      {% for review in reviews[0:50]|reverse %}
         {% if session['username'] == review.reviewed_by %}
         <div class="list-group border-radius-sm my-3">
             <div class="list-group-item list-group-item-action review-box-style">

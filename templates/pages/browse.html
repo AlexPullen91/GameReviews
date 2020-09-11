@@ -18,7 +18,7 @@
 
       {% include 'components/messages/added.html' %}  
 
-      {% for review in reviews|reverse %}
+      {% for review in reviews[0:100]|reverse %}
       <div class="list-group border-radius-sm my-4">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
             <div class="flex-col float-left">
