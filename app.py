@@ -74,6 +74,7 @@ def search_game():
             reviews = MONGO.db.reviews
             reviewList = list(reviews.find({'title_lower': f"{title_lower}"}))
             game_title = reviewList[0]['title_lower']
+            print(genres)
             return render_template(
                 'pages/search.html',
                 coverBig=coverBig,
@@ -190,15 +191,11 @@ def insert_review():
             'reviewed_by': request.form['reviewed_by']
         })
         user = existing_user['name']
-        print(existing_review)
-        print('existing user:', user)
-
         if user and existing_review is None:
             reviews.insert_one(request.form.to_dict())
             flash("Your review has been added, nice!", "added")
             return redirect(url_for('browse_reviews'))
         elif user and existing_review['reviewed_by']:
-            print('not today guapo')
             flash("Doh, you've already reviewed this game!", "already")
             return redirect('/')
     flash("Doh, you've already reviewed this game!", "already")

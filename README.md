@@ -247,7 +247,16 @@ This test determines if the delete review function works as intended.
     * The error handling process would correctly alert the user that the name is already taken but also alert them that their passwords didn't match even when they did.
     * This was solved by redirecting the user to the signup page at the end of each if statement.
 
-* 
+* Writing the API search function presented a host of niggly issues that mostly centered on determining which keys or values I needed to access in order to get the right information.
+    * One little headscratcher that took a while was how to get the data from a game when there was more than one genre, platform or release date.
+    * After much printing() and googling I realised that because I had an array of dicts I needed to loop through it whilst specifying the key 'name'.
+    * After a bit of trial and error my eureka moment was born from this piece of code:
+        
+            genreNames = []
+            for name in genres:
+            genreNames.append((name['name']))
+    * Seems obvious now but this provided me with an array that I could then access with jinja templating. Rinse and repeat for the other fields.
+
 
 * I encountered an issue when working on the search API function that involved trying to grab the game image.
     * The cover.url key in the parameters of the API request would only retern a tiny thumbnail image.
