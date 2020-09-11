@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-  <body>
-    {% include 'layout/head.html' %}
-
-    {% include 'components/navbar.html' %}
-
-    {% include 'components/loader.html' %}
-
-    {% block content %} {% endblock %} 
-
-    {% include 'layout/scripts.html' %}
-  </body>
+    <body>
+        {% include 'layout/head.html' %} 
+        
+        {% include 'components/navbar.html' %}
+        
+        {% include 'components/loader.html' %}
+        
+        {% block content %} {% endblock %}
+        
+        {% include 'layout/scripts.html' %}
+    </body>
 </html>

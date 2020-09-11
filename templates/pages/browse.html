@@ -1,46 +1,42 @@
 {% extends 'layout/base.html' %} {% block content %}
 
 <div class="container">
-  <div class="row pt-5">
-    <!-- Review list section -->
-    <div class="col-lg-6">
-      <div class="media pt-5">
-        <img
-          src="{{url_for('static', filename='images/droid.png')}}"
-          class="img-fluid w-25 mr-3 pt-5"
-          alt="droid"
-        />
-        <div class="media-body pt-5">
-          <h2 class="mt-0 heading">Browse</h2>
-          <h6 class="font-weight-light">recently added user submitted reviews</h6>
-        </div>
-      </div>
-
-      {% include 'components/messages/added.html' %}  
-
-      {% for review in reviews[0:100]|reverse %}
-      <div class="list-group border-radius-sm my-4">
-        <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
-            <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
-            <div class="float-left">
-                <p class="heading rating-text mb-1">
-                    {{review.rating}}
-                </p>
-                <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+    <div class="row pt-5">
+        <!-- Review list section -->
+        <div class="col-lg-6">
+            <div class="media pt-5">
+                <img src="{{url_for('static', filename='images/droid.png')}}" class="img-fluid w-25 mr-3 pt-5" alt="droid" />
+                <div class="media-body pt-5">
+                    <h2 class="mt-0 heading">Browse</h2>
+                    <h6 class="font-weight-light">recently added user submitted reviews</h6>
+                </div>
             </div>
-            <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right">
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-    <!-- End of review list section -->
 
-    <!-- Search game section  -->
-    <div class="col-lg-6">
-      {% include 'components/searchbox.html' %}
+            {% include 'components/messages/added.html' %} 
+            
+            {% for review in reviews[0:100]|reverse %}
+            <div class="list-group border-radius-sm my-4">
+                <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
+                    <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
+                    <div class="float-left">
+                        <p class="heading rating-text mb-1">
+                            {{review.rating}}
+                        </p>
+                        <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+                    </div>
+                    <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right" />
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- End of review list section -->
+
+        <!-- Search game section  -->
+        <div class="col-lg-6">
+            {% include 'components/searchbox.html' %}
+        </div>
+        <!-- End of search game section -->
     </div>
-    <!-- End of search game section -->
-  </div>
 </div>
 
 {% endblock %}

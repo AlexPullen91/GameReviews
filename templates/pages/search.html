@@ -1,145 +1,100 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container">
-  <div class="row pt-5">
-    <!-- API search result section -->
-    <div class="col-lg-6">
-      <div class="sticky-top pt-5">
-        <div class="media pt-5 text-center">
-          <div class="media-body">
-            <h2 class="mt-0 heading">Search Game</h2>
-            <h6 class="font-weight-light">
-              Is this what you were looking for?
-            </h6>
-            <p class="font-weight-light">Click to begin reviewing</p>
-          </div>
+    <div class="row pt-5">
+        <!-- API search result section -->
+        <div class="col-lg-6">
+            <div class="sticky-top pt-5">
+                <div class="media pt-5 text-center">
+                    <div class="media-body">
+                        <h2 class="mt-0 heading">Search Game</h2>
+                        <h6 class="font-weight-light">
+                            Is this what you were looking for?
+                        </h6>
+                        <p class="font-weight-light">Click to begin reviewing</p>
+                    </div>
+                </div>
+                <div class="text-center pb-5">
+                    <form action="{{ url_for('add_review') }}" method="POST">
+                        <button type="submit" name="action" class="push-btn">
+                            <h5 class="font-weight-light py-2">{{ gameTitle }}</h5>
+                            <img src="{{ coverBig }}" class="img-fluid box-shadow border-radius-sm glow thick-border" alt="image of game cover" />
+                            <!-- Hidden form values for add review function -->
+                            <div class="form-group">
+                                <input class="form-control thick-border border-radius-sm d-none" name="coverBig" type="text" value="{{ coverBig }}" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control thick-border border-radius-sm d-none" name="gameTitle" type="text" value="{{ gameTitle }}" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control thick-border border-radius-sm d-none" name="title_lower" type="text" value="{{ title_lower }}" />
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control thick-border border-radius-sm d-none" name="genreNames" type="text" value="{% set hyphen = joiner('---') %}{% for name in genreNames %}{{ hyphen() }} {{ name }} {% endfor %}" />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control thick-border border-radius-sm d-none"
+                                    name="platformNames"
+                                    type="text"
+                                    value="{% set hyphen = joiner('---') %}{% for name in platformNames %}{{ hyphen() }} {{ name }} {% endfor %}"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                    class="form-control thick-border border-radius-sm d-none"
+                                    name="release_dates"
+                                    type="text"
+                                    value="{% set hyphen = joiner('---') %}{% for date in release_dates %}{{ hyphen() }} {{ date }} {% endfor %}"
+                                />
+                            </div>
+                            <!-- End of hidden form values -->
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <div class="text-center pb-5">
-          <form action="{{ url_for('add_review') }}" method="POST">
-            <button type="submit" name="action" class="push-btn">
-              <h5 class="font-weight-light py-2">{{ gameTitle }}</h5>
-              <img
-                src="{{ coverBig }}"
-                class="img-fluid box-shadow border-radius-sm glow thick-border"
-                alt="image of game cover"
-              />
-              <!-- Hidden form values for add review function -->
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="coverBig"
-                  type="text"
-                  value="{{ coverBig }}"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="gameTitle"
-                  type="text"
-                  value="{{ gameTitle }}"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="title_lower"
-                  type="text"
-                  value="{{ title_lower }}"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="genreNames"
-                  type="text"
-                  value="{% set hyphen = joiner('---') %}{% for name in genreNames %}{{ hyphen() }} {{ name }} {% endfor %}"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="platformNames"
-                  type="text"
-                  value="{% set hyphen = joiner('---') %}{% for name in platformNames %}{{ hyphen() }} {{ name }} {% endfor %}"
-                />
-              </div>
-              <div class="form-group">
-                <input
-                  class="form-control thick-border border-radius-sm d-none"
-                  name="release_dates"
-                  type="text"
-                  value="{% set hyphen = joiner('---') %}{% for date in release_dates %}{{ hyphen() }} {{ date }} {% endfor %}"
-                />
-              </div>
-              <!-- End of hidden form values -->
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- End of API search result section -->
+        <!-- End of API search result section -->
 
-    <!-- Review search results section -->
-    <div class="col-lg-6">
-      <div class="media pt-5">
-        <img
-          src="{{url_for('static', filename='images/droid.png')}}"
-          class="img-fluid w-25 mr-3 pt-5"
-          alt="droid"
-        />
-        <div class="media-body pt-5">
-          <h2 class="mt-0 heading">Search Reviews</h2>
-          <h6 class="font-weight-light">
-            Here are some reviews matching your search
-          </h6>
+        <!-- Review search results section -->
+        <div class="col-lg-6">
+            <div class="media pt-5">
+                <img src="{{url_for('static', filename='images/droid.png')}}" class="img-fluid w-25 mr-3 pt-5" alt="droid" />
+                <div class="media-body pt-5">
+                    <h2 class="mt-0 heading">Search Reviews</h2>
+                    <h6 class="font-weight-light">
+                        Here are some reviews matching your search
+                    </h6>
+                </div>
+            </div>
+            {% for review in reviews|reverse %}
+            {% if review.title_lower == title_lower %}
+            <div class="list-group font-weight-light border-radius-sm my-4">
+                <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
+                    <div class="flex-col float-left">
+                        <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
+                        <p class="heading rating-text mb-1">
+                            {{review.rating}}
+                        </p>
+                        <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+                    </div>
+                    <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right" />
+                </a>
+            </div>
+            {% endif %} {% endfor %}
+            {% if reviewList == [] %}
+            <div class="w-75 p-5 m-auto">
+                <p class="font-weight-light text-center pt-5">
+                    It looks like there's nothing here yet...
+                </p>
+                <p class="font-weight-light text-center mt-1">
+                    be the first to review this title!
+                </p>
+                <img src="{{url_for('static', filename='images/badge.png')}}" class="img-medium mx-auto d-block" alt="gold badge" />
+            </div>
+            {% endif %}
         </div>
-      </div>
-      {% for review in reviews|reverse %} {% if review.title_lower ==
-      title_lower %}
-      <div class="list-group font-weight-light border-radius-sm my-4">
-        <a
-          href="{{url_for('get_review', review_id=review._id)}}"
-          class="review-box-style glow push-btn list-group-item list-group-item-action"
-        >
-          <div class="flex-col float-left">
-            <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
-            <p class="heading rating-text mb-1">
-              {{review.rating}}
-            </p>
-            <small class="font-weight-light"
-              >Reviewed by:
-              <span class="font-weight-bold"
-                >{{review.reviewed_by}}</span
-              ></small
-            >
-          </div>
-          <img
-            src="{{url_for('static', filename='images/buttons.png')}}"
-            alt="gamepad buttons"
-            class="img-sm float-right"
-          />
-        </a>
-      </div>
-      {% endif %} {% endfor %} 
-      
-      {% if reviewList == [] %}
-      <div class="w-75 p-5 m-auto">
-        <p class="font-weight-light text-center pt-5">
-          It looks like there's nothing here yet...
-        </p>
-        <p class="font-weight-light text-center mt-1">
-          be the first to review this title!
-        </p>
-        <img
-          src="{{url_for('static', filename='images/badge.png')}}"
-          class="img-medium mx-auto d-block"
-          alt="gold badge"
-        />
-      </div>
-      {% endif %}
+        <!-- End of review search results section -->
     </div>
-    <!-- End of review search results section -->
-  </div>
 </div>
 
 {% endblock %}

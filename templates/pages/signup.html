@@ -1,64 +1,37 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container pt-5">
-  <div class="row pt-5">
-    <!-- Sign up form section  -->
-    <div class="col-lg-6 text-center py-5">
-    {% include 'components/messages/userexists.html' %}
+    <div class="row pt-5">
+        <!-- Sign up form section  -->
+        <div class="col-lg-6 text-center py-5">
+            {% include 'components/messages/userexists.html' %}
+            {% include 'components/messages/nomatch.html' %}
+            <h1 class="pb-4 heading">Create an Account</h1>
+            <form method="POST" action="{{url_for('signup')}}">
+                <div class="form-group py-2">
+                    <input type="text" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="username" placeholder="Username" required />
+                </div>
+                <div class="form-group py-2">
+                    <input type="password" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="password" placeholder="Password" required />
+                </div>
+                <div class="form-group py-2">
+                    <input type="password" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="confirm_password" placeholder="Confirm Password" required />
+                </div>
+                <div class="btn-positioning btn-w-30 pt-4">
+                    <button type="submit" class="btn purple-btn rounded-pill">Sign Up</button>
+                </div>
+            </form>
+        </div>
+        <!-- End of sign up form section -->
 
-    {% include 'components/messages/nomatch.html' %}
-      <h1 class="pb-4 heading">Create an Account</h1>
-      <form method="POST" action="{{url_for('signup')}}">
-        <div class="form-group py-2">
-          <input
-            type="text"
-            class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm"
-            name="username"
-            placeholder="Username"
-            required
-          />
+        <!-- Image section -->
+        <div class="col-lg-6">
+            <div class="card search-box-style pt-5 pb-2">
+                <img src="static/images/mobilegame.png" class="img-medium mx-auto d-block pb-2" alt="mobile game" />
+                <img src="static/images/keyboard.png" class="img-medium mx-auto d-block pb-2" alt="keyboard" />
+            </div>
         </div>
-        <div class="form-group py-2">
-          <input
-            type="password"
-            class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div class="form-group py-2">
-          <input
-            type="password"
-            class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm"
-            name="confirm_password"
-            placeholder="Confirm Password"
-            required
-          />
-        </div>
-        <div class="btn-positioning btn-w-30 pt-4">
-            <button type="submit" class="btn purple-btn rounded-pill">Sign Up</button>
-        </div>
-      </form>
+        <!-- End of image section -->
     </div>
-    <!-- End of sign up form section -->
-
-    <!-- Image section -->
-    <div class="col-lg-6">
-      <div class="card search-box-style pt-5 pb-2">
-        <img
-          src="static/images/mobilegame.png"
-          class="img-medium mx-auto d-block pb-2"
-          alt="mobile game"
-        />
-        <img
-          src="static/images/keyboard.png"
-          class="img-medium mx-auto d-block pb-2"
-          alt="keyboard"
-        />
-      </div>
-    </div>
-    <!-- End of image section -->
-  </div>
 </div>
 
 {% endblock %}

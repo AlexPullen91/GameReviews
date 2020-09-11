@@ -1,42 +1,24 @@
 <div class="card py-5 search-box-style sticky-top">
-  <div class="card-body text-center font-weight-light">
-    {% if session['username'] %}
-    <p class="mt-5">Search for a game to read user-submitted reviews or submit your own</p>
-    {% else %}
-    <p class="mt-5">Search for a game to read user-submitted reviews</p>
-    <p>or create an account and login to submit your own</p>
-    {% endif %}
-  </div>
-  <div class="row">
-  <div class="col-4">
-  <img
-    src="{{url_for('static', filename='images/handheld-game.png')}}"
-    class="img-fluid mb-4 mx-auto d-block"
-    alt="handheld game"
-  />
-  </div>
-  <div class="col-4">
-  <img
-    src="{{url_for('static', filename='images/buttons.png')}}"
-    class="img-fluid mb-4 mx-auto d-block"
-    alt="Gamepad buttons"
-  />
-  </div>
-  <div class="col-4">
-  <img
-    src="{{url_for('static', filename='images/hearts.png')}}"
-    class="img-fluid mb-4 mx-auto d-block"
-    alt="hearts in speech bubble"
-  />
-  </div>
-  </div>
-  <form method="POST" action="{{url_for('search_game')}}" class="text-center form-inline pb-5 mx-auto my-lg-0">
-    <input
-      class="form-control font-weight-light border-radius-sm thick-border"
-      type="search"
-      name="search"
-      placeholder="Search games"
-      aria-label="Search games"
-    />
-  </form>
+    <div class="card-body text-center font-weight-light">
+        {% if session['username'] %}
+        <p class="mt-5">Search for a game to read user-submitted reviews or submit your own</p>
+        {% else %}
+        <p class="mt-5">Search for a game to read user-submitted reviews</p>
+        <p>or create an account and login to submit your own</p>
+        {% endif %}
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <img src="{{url_for('static', filename='images/handheld-game.png')}}" class="img-fluid mb-4 mx-auto d-block" alt="handheld game" />
+        </div>
+        <div class="col-4">
+            <img src="{{url_for('static', filename='images/buttons.png')}}" class="img-fluid mb-4 mx-auto d-block" alt="Gamepad buttons" />
+        </div>
+        <div class="col-4">
+            <img src="{{url_for('static', filename='images/hearts.png')}}" class="img-fluid mb-4 mx-auto d-block" alt="hearts in speech bubble" />
+        </div>
+    </div>
+    <form method="POST" action="{{url_for('search_game')}}" class="text-center form-inline pb-5 mx-auto my-lg-0">
+        <input class="form-control font-weight-light border-radius-sm thick-border" type="search" name="search" placeholder="Search games" aria-label="Search games" />
+    </form>
 </div>

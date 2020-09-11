@@ -1,59 +1,39 @@
 {% extends 'layout/base.html' %} {% block content %}
-<div class="container pt-5">
-  <div class="row pt-5">
-    <!-- Login form section  -->
-    <div class="col-lg-6 text-center py-5">
-    {% include 'components/messages/nouser.html' %}
-    {% include 'components/messages/invalid.html' %}
-      <h1 class="pb-4 heading">Login</h1>
-      <form method="POST" action="{{url_for('login')}}">
-        <div class="form-group py-1">
-          <input
-            type="text"
-            class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm"
-            name="username"
-            placeholder="Username"
-            aria-describedby="username"
-            required
-          />
-        </div>
-        <div class="form-group py-1">
-          <input
-            type="password"
-            class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm"
-            name="password"
-            placeholder="Password"
-            required
-          />
-        </div>
-        <div class="btn-positioning btn-w-30 pt-4">
-            <button type="submit" class="btn green-btn thick-border rounded-pill">Login</button>
-        </div>
-      </form>
-      <p class="pt-4 font-weight-light text-muted">Don't have an account yet?</p>
-      <div class="btn-positioning btn-w-30">
-        <a href="{{url_for('signup')}}" class="btn purple-btn rounded-pill">Sign Up</a>
-      </div>
-    </div>
-    <!-- End of login form section -->
 
-    <!-- Image section -->
-    <div class="col-lg-6">
-      <div class="card search-box-style pt-5 pb-2">
-        <img
-          src="static/images/arcade.png"
-          class="img-medium mx-auto d-block pb-2"
-          alt="Colourful arcade machine"
-        />
-        <img
-          src="static/images/joystick.png"
-          class="img-medium mx-auto d-block pb-2"
-          alt="Black Gamepads"
-        />
-      </div>
+<div class="container pt-5">
+    <div class="row pt-5">
+        <!-- Login form section  -->
+        <div class="col-lg-6 text-center py-5">
+            {% include 'components/messages/nouser.html' %}
+            {% include 'components/messages/invalid.html' %}
+            <h1 class="pb-4 heading">Login</h1>
+            <form method="POST" action="{{url_for('login')}}">
+                <div class="form-group py-1">
+                    <input type="text" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="username" placeholder="Username" aria-describedby="username" required />
+                </div>
+                <div class="form-group py-1">
+                    <input type="password" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="password" placeholder="Password" required />
+                </div>
+                <div class="btn-positioning btn-w-30 pt-4">
+                    <button type="submit" class="btn green-btn thick-border rounded-pill">Login</button>
+                </div>
+            </form>
+            <p class="pt-4 font-weight-light text-muted">Don't have an account yet?</p>
+            <div class="btn-positioning btn-w-30">
+                <a href="{{url_for('signup')}}" class="btn purple-btn rounded-pill">Sign Up</a>
+            </div>
+        </div>
+        <!-- End of login form section -->
+
+        <!-- Image section -->
+        <div class="col-lg-6">
+            <div class="card search-box-style pt-5 pb-2">
+                <img src="static/images/arcade.png" class="img-medium mx-auto d-block pb-2" alt="Colourful arcade machine" />
+                <img src="static/images/joystick.png" class="img-medium mx-auto d-block pb-2" alt="Black Gamepads" />
+            </div>
+        </div>
+        <!-- End of image section -->
     </div>
-    <!-- End of image section -->
-  </div>
 </div>
 
 {% endblock %}

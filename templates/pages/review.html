@@ -1,137 +1,88 @@
 {% extends 'layout/base.html' %} {% block content %}
 <div class="container pt-5">
-  <div class="row pt-5">
-    <!-- Game image section -->
-    <div class="col-md-5 m-auto pb-5 text-center">
-      <img
-        src="{{review.image_url}}"
-        class="img-fluid box-shadow border-radius-sm thick-border"
-        alt="image of video game cover"
-      />
-    </div>
-    <!-- End of game image section  -->
+    <div class="row pt-5">
+        <!-- Game image section -->
+        <div class="col-md-5 m-auto pb-5 text-center">
+            <img src="{{review.image_url}}" class="img-fluid box-shadow border-radius-sm thick-border" alt="image of video game cover" />
+        </div>
+        <!-- End of game image section  -->
 
-    <!-- Game info section -->
-    <div class="col-md-7">
-      <h1 class="heading py-4">Review</h1>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th scope="row">Title:</th>
-            <td>{{review.game_title}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Genres:</th>
-            <td>{{review.genres}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Platforms:</th>
-            <td>{{review.platforms}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Released:</th>
-            <td>{{review.release_date}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Rating:</th>
-            <td>{{review.rating}}</td>
-          </tr>
-          <tr>
-            <th scope="row">Reviewed by:</th>
-            <td>{{review.reviewed_by}}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <!-- End of game info section -->
-  </div>
-  <div class="row pt-3">
-    <!-- Game review section -->
-    <div class="col-lg-12 pb-5">
-      <textarea
-        class="form-control review-box-style"
-        rows="6"
-        readonly
-      >{{review.review}}
-      </textarea>
-    </div>
-  </div>
-  <div class="row pb-5">
-    <div class="col-sm-4 m-auto py-2 text-center">
-      {% if session['username'] == review.reviewed_by %}
-      <div class="my-1">
-      <a
-        href="{{url_for('edit_review', review_id=review._id)}}"
-        class="btn green-btn m-2 rounded-pill"
-        role="button"
-        >Edit</a
-      >
-      <a
-        href="{{url_for('delete_review', review_id=review._id)}}"
-        class="btn btn-danger m-2 rounded-pill"
-        role="button"
-        >Delete</a
-      >
-      <a
-        href="{{ url_for('browse_reviews') }}"
-        class="btn purple-btn m-2 rounded-pill"
-        role="button"
-      >
-        Go back
-      </a>
-      </div>
-      {% else %}
-      <a
-        href="{{ url_for('browse_reviews') }}"
-        class="btn green-btn rounded-pill my-1"
-        role="button"
-      >
-        Browse reviews
-      </a>
-      {% endif %}
-    </div>
-    <div class="col-sm-4 py-2 m-auto">
-      <div class="row">
-        <div class="col-4">
-          <img
-            src="{{url_for('static', filename='images/handheld-game.png')}}"
-            class="img-fluid mx-auto d-block"
-            alt="handheld game"
-          />
+        <!-- Game info section -->
+        <div class="col-md-7">
+            <h1 class="heading py-4">Review</h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Title:</th>
+                        <td>{{review.game_title}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Genres:</th>
+                        <td>{{review.genres}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Platforms:</th>
+                        <td>{{review.platforms}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Released:</th>
+                        <td>{{review.release_date}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Rating:</th>
+                        <td>{{review.rating}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Reviewed by:</th>
+                        <td>{{review.reviewed_by}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-4">
-          <img
-            src="{{url_for('static', filename='images/buttons.png')}}"
-            class="img-fluid mx-auto d-block"
-            alt="Gamepad buttons"
-          />
-        </div>
-        <div class="col-4">
-          <img
-            src="{{url_for('static', filename='images/hearts.png')}}"
-            class="img-fluid mx-auto d-block"
-            alt="hearts in speech bubble"
-          />
-        </div>
-      </div>
+        <!-- End of game info section -->
     </div>
-    <div class="col-sm-4 py-2 text-center m-auto">
-      <form
-        method="POST"
-        action="{{ url_for('search_game') }}"
-        class="form-inline my-lg-0"
-      >
-        <input
-          class="form-control searchbar-style border-radius-sm thick-border m-auto w-auto"
-          type="search"
-          name="search"
-          placeholder="Search games"
-          aria-label="Search games function"
-        />
-      </form>
+    <div class="row pt-3">
+        <!-- Game review section -->
+        <div class="col-lg-12 pb-5">
+            <textarea class="form-control review-box-style" rows="6" readonly>{{review.review}}</textarea>
+        </div>
     </div>
-  </div>
-  <!-- End of game review section -->
+    <div class="row pb-5">
+        <div class="col-sm-4 m-auto py-2 text-center">
+            {% if session['username'] == review.reviewed_by %}
+            <div class="my-1">
+                <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn green-btn m-2 rounded-pill" role="button">Edit</a>
+                <a href="{{url_for('delete_review', review_id=review._id)}}" class="btn btn-danger m-2 rounded-pill" role="button">Delete</a>
+                <a href="{{ url_for('browse_reviews') }}" class="btn purple-btn m-2 rounded-pill" role="button">
+                    Go back
+                </a>
+            </div>
+            {% else %}
+            <a href="{{ url_for('browse_reviews') }}" class="btn green-btn rounded-pill my-1" role="button">
+                Browse reviews
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-sm-4 py-2 m-auto">
+            <div class="row">
+                <div class="col-4">
+                    <img src="{{url_for('static', filename='images/handheld-game.png')}}" class="img-fluid mx-auto d-block" alt="handheld game" />
+                </div>
+                <div class="col-4">
+                    <img src="{{url_for('static', filename='images/buttons.png')}}" class="img-fluid mx-auto d-block" alt="Gamepad buttons" />
+                </div>
+                <div class="col-4">
+                    <img src="{{url_for('static', filename='images/hearts.png')}}" class="img-fluid mx-auto d-block" alt="hearts in speech bubble" />
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 py-2 text-center m-auto">
+            <form method="POST" action="{{ url_for('search_game') }}" class="form-inline my-lg-0">
+                <input class="form-control searchbar-style border-radius-sm thick-border m-auto w-auto" type="search" name="search" placeholder="Search games" aria-label="Search games function" />
+            </form>
+        </div>
+    </div>
+    <!-- End of game review section -->
 </div>
 
 {% endblock %}

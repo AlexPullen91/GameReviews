@@ -1,74 +1,54 @@
 {% extends 'layout/base.html' %} {% block content %}
 
 <div class="container">
-  <div class="row pt-5">
-    <!-- Review list section -->
-    <div class="col-lg-6">
-      <div class="media pt-5">
-        <img
-          src="{{url_for('static', filename='images/droid.png')}}"
-          class="img-fluid w-25 mr-3 pt-5"
-          alt="droid"
-        />
-        <div class="media-body pt-5">
-          <h2 class="heading">Manage</h2>
-          <h6 class="font-weight-light">View, edit or delete your reviews here</h6>
-        </div>
-      </div>
-      {% include 'components/messages/saved.html' %}
-      {% include 'components/messages/deleted.html' %}
-    
-      {% for review in reviews[0:50]|reverse %}
-        {% if session['username'] == review.reviewed_by %}
-        <div class="list-group border-radius-sm my-3">
-            <div class="list-group-item list-group-item-action review-box-style">
-                <h6 class="font-weight-normal text-dark mb-1 py-1 text-center">{{review.game_title}}</h6>
-                <div class="float-sm-left pt-2">
-                <a
-                    href="{{url_for('get_review', review_id=review._id)}}"
-                    class="btn purple-btn m-2 rounded-pill"
-                    >View</a>
-                <a
-                    href="{{url_for('edit_review', review_id=review._id)}}"
-                    class="btn green-btn m-2 rounded-pill"
-                    >Edit</a>
-                <a
-                    href="{{url_for('delete_review', review_id=review._id)}}"
-                    class="btn btn-danger m-2 rounded-pill"
-                    >Delete</a>
-                    </div>
-                    
-                    <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right d-none d-sm-block">
+    <div class="row pt-5">
+        <!-- Review list section -->
+        <div class="col-lg-6">
+            <div class="media pt-5">
+                <img src="{{url_for('static', filename='images/droid.png')}}" class="img-fluid w-25 mr-3 pt-5" alt="droid" />
+                <div class="media-body pt-5">
+                    <h2 class="heading">Manage</h2>
+                    <h6 class="font-weight-light">View, edit or delete your reviews here</h6>
+                </div>
             </div>
+            {% include 'components/messages/saved.html' %}
+            {% include 'components/messages/deleted.html' %}
+            {% for review in reviews[0:50]|reverse %}
+            {% if session['username'] == review.reviewed_by %}
+            <div class="list-group border-radius-sm my-3">
+                <div class="list-group-item list-group-item-action review-box-style">
+                    <h6 class="font-weight-normal text-dark mb-1 py-1 text-center">{{review.game_title}}</h6>
+                    <div class="float-sm-left pt-2">
+                        <a href="{{url_for('get_review', review_id=review._id)}}" class="btn purple-btn m-2 rounded-pill">View</a>
+                        <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn green-btn m-2 rounded-pill">Edit</a>
+                        <a href="{{url_for('delete_review', review_id=review._id)}}" class="btn btn-danger m-2 rounded-pill">Delete</a>
+                    </div>
+
+                    <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right d-none d-sm-block" />
+                </div>
+            </div>
+            {% endif %} {% endfor %}
+            {% if session['username'] != reviewer['reviewed_by'] %}
+            <div class="w-75 p-5 m-auto">
+                <img src="{{url_for('static', filename='images/tetris.png')}}" class="img-medium mx-auto d-block" alt="tetris blocks" />
+                <p class="font-weight-light my-2 text-center">
+                    It looks like there's nothing here yet...
+                </p>
+                <p class="font-weight-light mt-1 text-center">
+                    use the search bar to start your first review!
+                </p>
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
-      {% endfor %}
+        <!-- End of review list section -->
 
-      {% if session['username'] != reviewer['reviewed_by'] %}
-      <div class="w-75 p-5 m-auto">
-        <img
-          src="{{url_for('static', filename='images/tetris.png')}}"
-          class="img-medium mx-auto d-block"
-          alt="tetris blocks"
-        />
-        <p class="font-weight-light my-2 text-center">
-          It looks like there's nothing here yet...
-        </p>
-        <p class="font-weight-light mt-1 text-center">
-          use the search bar to start your first review!
-        </p>
-        
-      </div>
-      {% endif %}
+        <!-- Search game section  -->
+        <div class="col-lg-6 affix">
+            {% include 'components/searchbox.html' %}
+        </div>
+        <!-- End of search game section -->
     </div>
-    <!-- End of review list section -->
-
-    <!-- Search game section  -->
-    <div class="col-lg-6 affix">
-      {% include 'components/searchbox.html' %}
-    </div>
-    <!-- End of search game section -->
-  </div>
 </div>
 
 {% endblock %}
+
