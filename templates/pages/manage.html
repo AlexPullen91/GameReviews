@@ -20,21 +20,24 @@
     
       {% for review in reviews|reverse %}
         {% if session['username'] == review.reviewed_by %}
-        <div class="list-group my-3">
-            <div class="list-group-item list-group-item-action rounded-pill text-center thick-border box-shadow">
+        <div class="list-group border-radius-sm my-3">
+            <div class="list-group-item list-group-item-action review-box-style">
+            <div class="flex-col float-left">
                 <h6 class="mb-1 py-1">{{review.game_title}}</h6>
                 <a
                     href="{{url_for('get_review', review_id=review._id)}}"
-                    class="btn purple-btn m-1 rounded-pill"
+                    class="btn btn-sm purple-btn m-1 rounded-pill"
                     >View</a>
                 <a
                     href="{{url_for('edit_review', review_id=review._id)}}"
-                    class="btn green-btn m-1 rounded-pill"
+                    class="btn btn-sm green-btn m-1 rounded-pill"
                     >Edit</a>
                 <a
                     href="{{url_for('delete_review', review_id=review._id)}}"
-                    class="btn btn-danger m-1 rounded-pill"
+                    class="btn btn-sm btn-danger m-1 rounded-pill"
                     >Delete</a>
+                    </div>
+                    <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right">
             </div>
         </div>
         {% endif %}

@@ -1,6 +1,6 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for, session,\
-     flash
+     flash, send_from_directory
 from flask_pymongo import PyMongo
 import bcrypt
 import requests
@@ -332,6 +332,15 @@ def logout():
     session.clear()
     flash("Logged out... Bye!", "logout")
     return redirect('/')
+
+
+@APP.route('/favicon.ico')
+def favicon():
+    """
+    Uses the send_from_directory module to help render favicon
+    """
+    return send_from_directory(os.path.join(APP.root_path, 'static/images'),
+                               'favicon.ico')
 
 
 if __name__ == '__main__':

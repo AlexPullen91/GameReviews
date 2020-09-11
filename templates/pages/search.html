@@ -15,11 +15,11 @@
         </div>
         <div class="text-center pb-5">
           <form action="{{ url_for('add_review') }}" method="POST">
-            <button type="submit" name="action" class="cover-btn">
+            <button type="submit" name="action" class="push-btn">
               <h5 class="font-weight-light py-2">{{ gameTitle }}</h5>
               <img
                 src="{{ coverBig }}"
-                class="img-fluid box-shadow border-radius-sm thick-border"
+                class="img-fluid box-shadow border-radius-sm glow thick-border"
                 alt="image of game cover"
               />
               <!-- Hidden form values for add review function -->
@@ -96,16 +96,16 @@
       </div>
       {% for review in reviews|reverse %} {% if review.title_lower ==
       title_lower %}
-      <div class="list-group rounded-pill box-shadow my-3 text-center thick-border">
-        <a
-          href="{{url_for('get_review', review_id=review._id)}}"
-          class="list-group-item list-group-item-action"
-        >
-          <h6 class="font-weight-bold mb-1">{{review.game_title}}</h6>
-          <p class="mb-1">
+      <div class="list-group font-weight-light border-radius-sm my-4">
+        <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
+            <div class="flex-col float-left">
+            <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
+          <p class="font-italic mb-1">
             "{{review.rating}}"
           </p>
-          <small>Reviewed by:<span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+          <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+          </div>
+          <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right">
         </a>
       </div>
       {% endif %} {% endfor %}

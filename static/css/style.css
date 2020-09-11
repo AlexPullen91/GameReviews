@@ -5,6 +5,41 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+/* .review-box-style-outer {
+  box-shadow: 0 0.1rem 0 0.6rem #000;
+  border: 2rem solid #9038a8;
+  background-color: #dbf8f8;
+} */
+
+/* .review-box-style-inner {
+    color: #fff;
+  border: 0.3rem solid #000;
+  box-shadow: 0 0.1rem 0rem 0.2rem #000;
+  background: rgb(230, 239, 244);
+  background: rgb(144, 56, 168);
+  background: linear-gradient(
+    90deg,
+    rgba(144, 56, 168, 1) 50%,
+    rgba(32, 189, 173, 1) 50%
+  );
+} */
+
+.review-info-stack {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-box-style {
+  box-shadow: 0 0 0 0.3rem #000;
+  border-radius: 0.8rem;
+  background: rgb(230, 239, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(230, 239, 244, 1) 45%,
+    rgba(213, 233, 255, 1) 57%
+  );
+}
+
 /* General styling */
 
 .thick-border {
@@ -32,11 +67,18 @@ body {
 
 /* Images */
 
+.img-sm {
+  height: auto;
+  width: 15%;
+}
+
 .img-medium {
+  height: auto;
   width: 50%;
 }
 
 .img-lg {
+  height: auto;
   width: 70%;
 }
 
@@ -53,6 +95,10 @@ menu full width on smaller screen sizes */
   float: left;
 }
 
+.dropdown-item:active {
+    background-color: #20bdad;
+}
+
 /* Buttons */
 
 .btn-positioning {
@@ -61,21 +107,24 @@ menu full width on smaller screen sizes */
   margin: 0 auto;
 }
 
-.cover-btn {
+.push-btn {
   border-style: none;
   background-color: inherit;
   color: inherit;
   font-family: inherit;
 }
 
-.cover-btn:hover,
-.cover-btn:focus {
+.push-btn:focus {
   transform: scale(1.01);
   outline: none;
 }
 
-.cover-btn:active {
+.push-btn:active {
   transform: scale(0.99);
+}
+
+.glow:hover {
+    box-shadow: 0 0 0.3rem 0.3rem #20bdad;
 }
 
 .pink-btn {
@@ -143,30 +192,29 @@ menu full width on smaller screen sizes */
   width: 75%;
 }
 
-/* Scrollbar styling  */Ï
+/* Scrollbar styling  */
+Ï ::-webkit-scrollbar {
+  width: 0.8rem;
+}
 
-::-webkit-scrollbar {
-    width: 0.8rem;
-}
- 
 ::-webkit-scrollbar-track {
-    box-shadow: 0 0 1rem 0.2 #666;
-    -webkit-box-shadow: inset 0 0 6px #666; 
-    border-radius: 1rem;
+  box-shadow: 0 0 1rem 0.2 #666;
+  -webkit-box-shadow: inset 0 0 6px #666;
+  border-radius: 1rem;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem 0.2 #666;
-    -webkit-box-shadow: inset 0 0 6px #666; 
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem 0.2 #666;
+  -webkit-box-shadow: inset 0 0 6px #666;
 }
 
 ::-webkit-scrollbar-corner {
-    border-radius: 1rem;
+  border-radius: 1rem;
 }
 
 ::-webkit-resizer {
-    border-radius: 2rem;
+  border-radius: 2rem;
 }
 
 /* Customized loader animation from W3Schools */
