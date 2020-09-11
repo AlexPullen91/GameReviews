@@ -57,7 +57,7 @@
     </div>
   </div>
   <div class="row pb-5">
-    <div class="col-sm-4 m-auto text-center">
+    <div class="col-sm-4 m-auto py-2 text-center">
       {% if session['username'] == review.reviewed_by %}
       <div class="my-1">
       <a
@@ -90,7 +90,7 @@
       </a>
       {% endif %}
     </div>
-    <div class="col-sm-4 m-auto">
+    <div class="col-sm-4 py-2 m-auto">
       <div class="row">
         <div class="col-4">
           <img
@@ -115,7 +115,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-4 text-center m-auto">
+    <div class="col-sm-4 py-2 text-center m-auto">
       <form
         method="POST"
         action="{{ url_for('search_game') }}"

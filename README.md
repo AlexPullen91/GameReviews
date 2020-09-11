@@ -53,14 +53,17 @@ To provide a platform used across various devices for users who want to read and
 
 I've opted to use detailed straight lineal colour style icons that are representative of gaming culture throughout the site which act as focal points in the layout and also helps to contextualize what the site is about and who it is aimed at. Shades of white for the background color gives the colourful icons more pop.
 
-* Simple user friendly interface.
-* Fixed Navbar featuring app name and flagship logo. Nav links and search function enable easy navigation of the app.
+* Simple user friendly interface
+* Fixed Navbar featuring app name and flagship logo. Nav links and search function enable easy navigation of the app
 * Muted neutral colours in the layout to compliment the use of detailed straight lineal colour style icons
+* Thick black borders similar to icon outlines used throughout
 * Shades of white for the backgrounds #FFFFFF #FAFAFA #F5F5F5
-* Jet for font colours #333333 
+* Icey #e6eff4 and pale light blue #d5e9ff used in css gradient effect on some backgrounds
+* Jet #333333 and Black #000 for font colours 
 * For button colours in keeping with the gamepad button colours: French Pink #EF6C8F Dark Orchard #9038A8 Light Sea Green #20BDAD
-* Forms fields always occupy left of the screen whilst the right side display icons, pushing below on smaller screen sizes
-* Information and search results occupy left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
+* Forms fields always occupy left of the screen whilst the right side display icons, usually pushing below on smaller screen sizes
+* Search screen displays result of API game search on the left and review search results on the right
+* Information occupies left side of the screen whilst the right side displays search function and icons, pushing below on smaller screens
 * Review pages feature a single image of the game along with some information situated in the top half of the screen with the text area just below it
 * [Monfett](https://fonts.google.com/specimen/Monofett?query=mono) is used for 'GameReviews' and some headings whilst everything else is [Roboto](https://fonts.google.com/specimen/Roboto?sidebar.open=true#about)
 
@@ -76,19 +79,25 @@ You can find my wireframes [here](https://github.com/AlexPullen91/GameReviews/tr
 
 ### Features
 
-This site is designed to provide users a simple and intuitive experience where within just a matter of clicks they are signed up and then writing their review.
+This site is designed to provide users with a simple and intuitive experience where within just a matter of clicks they are signed up and then writing their review.
 
-This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database. 
+This app will utilize the IGDB API to pull information about the games that users search for which then populates the site's database once submitted. 
 
-This is to facilitate a positive user experience as they simply type in the name of the game that they're looking for, proceed if they're happy with the selection and then all they have to do is provide a rating and write out their review.
+Users are able to search for and read reviews without creating an account and are prompted to create one if they wish to submit reviews.
 
 Once users create an account they are are able to submit multiple reviews, edit reviews and delete reviews.
 
-Users are able to search for and read reviews without creating an account and are prompted to create one if they wish to submit reviews.
+Getting started is simple:
+
+1. Enter the name of the game into the searchbar that they're looking for
+2. If they're happy with the result, select the game to review or read any posted reviews
+3. If posting a review just provide a rating and write out their review and Submit.
+
 
 
 #### Potential Future features
 
+* More game details, details narrowed down to specific platforms and game versions
 * Options to purchase games from the review page
 * Upvoting / downvoting system or a likes system to indicate quality of or approval of reviews
 * More site members features such as forums and messaging
@@ -126,12 +135,14 @@ Users are able to search for and read reviews without creating an account and ar
 * [Git](https://git-scm.com/)
 * [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
 * [Balsamiq](Balsamiq)
+* [CSS Gradient](https://cssgradient.io/)
 
 ---
 
 ## Testing
 
 Testing for responsiveness and bugs throughout development was carried out with google chrome developer tools and the device toolbar to ensure compatibility on all screen sizes.
+
 
 ## Manual Testing
 
@@ -261,6 +272,7 @@ This test determines if the delete review function works as intended.
 
 * *Currently users are still able to post reviews for a game they have already submitted a review for.* - **solved**
 * *Reviews submitted to the database retain their formatting but when rendered through jinja templating they lose it.* - **solved** 
+* Rather a lot of white space in the lower half of screen on iPad Pro - something to tackle in the future.
 
 ---
 

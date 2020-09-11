@@ -5,45 +5,10 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.review-info-stack {
-  display: flex;
-  flex-direction: column;
-}
-
-.rating-text {
-    font-size: 1.5rem;
-}
-
-.review-box-style {
-  box-shadow: 0 0 0 0.3rem #000;
-  border-radius: 0.8rem;
-  background: rgb(230, 239, 244);
-  background: linear-gradient(
-    90deg,
-    rgba(230, 239, 244, 1) 45%,
-    rgba(213, 233, 255, 1) 57%
-  );
-}
-
-/* .review-box-style {
-  box-shadow: 0 0 0 0.3rem #000;
-  border-radius: 0.8rem;
-  background: rgb(230, 239, 244);
-  background: linear-gradient(
-    90deg,
-    rgba(230, 239, 244, 1) 50%,
-    rgba(213, 233, 251, 1) 50%
-  );
-} */
-
 /* General styling */
 
 .thick-border {
   border: 3px solid #000;
-}
-
-.thick-border-btm {
-  border-bottom: 3px solid #000;
 }
 
 .box-shadow {
@@ -180,6 +145,23 @@ menu full width on smaller screen sizes */
   box-shadow: 0 0 0.2rem 0.1rem #9038a8;
 }
 
+/* Review boxes  */
+
+.rating-text {
+    font-size: 1.5rem;
+}
+
+.review-box-style {
+  box-shadow: 0 0 0 0.3rem #000;
+  border-radius: 0.8rem;
+  background: rgb(230, 239, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(230, 239, 244, 1) 45%,
+    rgba(213, 233, 255, 1) 57%
+  );
+}
+
 /* Search box section */
 
 .search-box-style {
@@ -189,6 +171,7 @@ menu full width on smaller screen sizes */
 }
 
 /* Scrollbar styling  */
+
 Ï ::-webkit-scrollbar {
   width: 0.8rem;
 }
