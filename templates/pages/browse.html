@@ -21,14 +21,16 @@
       {% for review in reviews[0:100]|reverse %}
       <div class="list-group border-radius-sm my-4">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
+            <div class="flex-col">
+                <h6 class="flex-col font-weight-normal mb-2">{{review.game_title}}</h6>
+            </div>
             <div class="flex-col float-left">
-            <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
-          <p class="heading rating-text mb-1">
-            {{review.rating}}
-          </p>
-          <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
-          </div>
-          <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right">
+                <p class="heading rating-text mb-1">
+                    {{review.rating}}
+                </p>
+                <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
+            </div>
+            <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right">
         </a>
       </div>
       {% endfor %}
