@@ -95,7 +95,7 @@ This app utilizes the IGDB API to pull information about the games that users se
 
 Users are able to search for and read reviews without creating an account and are prompted to create one if they wish to submit reviews.
 
-Once users create an account they are are able to submit multiple reviews, edit reviews and delete reviews.
+Once users create an account they are able to submit multiple reviews, edit reviews and delete reviews.
 
 Getting started is simple:
 
