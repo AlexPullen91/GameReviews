@@ -1,148 +1,148 @@
 @import url("https://fonts.googleapis.com/css2?family=Monofett&family=Roboto:wght@100;300;400;500;700&display=swap");
 
 body {
-  background-color: #ffffff;
-  font-family: "Roboto", sans-serif;
+    background-color: #ffffff;
+    font-family: "Roboto", sans-serif;
 }
 
 /* General styling */
 
 .thick-border {
-  border: 3px solid #000;
+    border: 3px solid #000;
 }
 
 .box-shadow {
-  box-shadow: 0 0.1rem 0 0.2rem #000;
+    box-shadow: 0 0.1rem 0 0.2rem #000;
 }
 
 .border-radius-sm {
-  border-radius: 1rem;
+    border-radius: 1rem;
 }
 
 /* Headings */
 
 .heading {
-  font-family: "Monofett", cursive;
-  color: #000;
+    font-family: "Monofett", cursive;
+    color: #000;
 }
 
 /* Images */
 
 .img-sm {
-  height: auto;
-  width: 15%;
+    height: auto;
+    width: 15%;
 }
 
 .img-medium {
-  height: auto;
-  width: 50%;
+    height: auto;
+    width: 50%;
 }
 
 .img-lg {
-  height: auto;
-  width: 70%;
+    height: auto;
+    width: 70%;
 }
 
 /* Navbar */
 
 .navbar-brand {
-  font-family: "Monofett", cursive;
-  font-size: 1.5rem;
+    font-family: "Monofett", cursive;
+    font-size: 1.5rem;
 }
 
 /* Overrides bootstrap class that was making dropdown 
 menu full width on smaller screen sizes */
 .navbar-nav .dropdown-menu {
-  float: left;
+    float: left;
 }
 
 .dropdown-item:active {
-  background-color: #20bdad;
+    background-color: #20bdad;
 }
 
 /* Buttons */
 
 .btn-positioning {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .push-btn {
-  border-style: none;
-  background-color: inherit;
-  color: inherit;
-  font-family: inherit;
+    border-style: none;
+    background-color: inherit;
+    color: inherit;
+    font-family: inherit;
 }
 
 .push-btn:focus {
-  transform: scale(1.01);
-  outline: none;
+    transform: scale(1.01);
+    outline: none;
 }
 
 .push-btn:active {
-  transform: scale(0.99);
+    transform: scale(0.99);
 }
 
 .glow:hover {
-  box-shadow: 0 0 0.3rem 0.3rem #20bdad;
+    box-shadow: 0 0 0.3rem 0.3rem #20bdad;
 }
 
 .pink-btn {
-  background-color: #ef6c8f;
-  color: #fff;
+    background-color: #ef6c8f;
+    color: #fff;
 }
 
 .pink-btn:hover {
-  background-color: #000;
-  color: #fff;
+    background-color: #000;
+    color: #fff;
 }
 
 .purple-btn {
-  background-color: #9038a8;
-  color: #fff;
+    background-color: #9038a8;
+    color: #fff;
 }
 
 .purple-btn:hover {
-  background-color: #000;
-  color: #fff;
+    background-color: #000;
+    color: #fff;
 }
 
 .green-btn {
-  background-color: #20bdad;
-  border-color: #20bdad;
-  color: #fff;
+    background-color: #20bdad;
+    border-color: #20bdad;
+    color: #fff;
 }
 
 .green-btn:hover {
-  background-color: #000;
-  border-color: #000;
-  color: #fff;
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
 }
 
 .btn-danger:hover {
-  background-color: #000;
-  border-color: #000;
+    background-color: #000;
+    border-color: #000;
 }
 
 .btn-w-40 {
-  width: 40%;
+    width: 40%;
 }
 
 .btn-w-30 {
-  width: 30%;
+    width: 30%;
 }
 
 /* Forms */
 
 .narrow-input-fields {
-  width: 60%;
-  margin: auto;
+    width: 60%;
+    margin: auto;
 }
 
 .form-control:focus {
-  border-color: #9038a8;
-  box-shadow: 0 0 0.2rem 0.1rem #9038a8;
+    border-color: #9038a8;
+    box-shadow: 0 0 0.2rem 0.1rem #9038a8;
 }
 
 /* Review boxes  */
@@ -152,94 +152,90 @@ menu full width on smaller screen sizes */
 }
 
 .review-box-style {
-  box-shadow: 0 0 0 0.3rem #000;
-  border-radius: 0.8rem;
-  background: rgb(230, 239, 244);
-  background: linear-gradient(
-    90deg,
-    rgba(230, 239, 244, 1) 45%,
-    rgba(213, 233, 255, 1) 57%
-  );
+    box-shadow: 0 0 0 0.3rem #000;
+    border-radius: 0.8rem;
+    background: rgb(230, 239, 244);
+    background: linear-gradient(90deg, rgba(230, 239, 244, 1) 45%, rgba(213, 233, 255, 1) 57%);
 }
 
 /* Search box section */
 
 .search-box-style {
-  border: none;
-  margin: auto;
-  width: 75%;
+    border: none;
+    margin: auto;
+    width: 75%;
 }
 
 /* Scrollbar styling  */
 
-Ï ::-webkit-scrollbar {
-  width: 0.8rem;
+::-webkit-scrollbar {
+    width: 0.8rem;
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: 0 0 1rem 0.2 #666;
-  -webkit-box-shadow: inset 0 0 6px #666;
-  border-radius: 1rem;
+    box-shadow: 0 0 1rem 0.2 #666;
+    -webkit-box-shadow: inset 0 0 6px #666;
+    border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 1rem;
-  box-shadow: 0 0 1rem 0.2 #666;
-  -webkit-box-shadow: inset 0 0 6px #666;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0.2 #666;
+    -webkit-box-shadow: inset 0 0 6px #666;
 }
 
 ::-webkit-scrollbar-corner {
-  border-radius: 1rem;
+    border-radius: 1rem;
 }
 
 ::-webkit-resizer {
-  border-radius: 2rem;
+    border-radius: 2rem;
 }
 
 /* Customized loader animation from W3Schools */
 
 .hidden {
-  display: none;
+    display: none;
 }
 
 #loader {
-  position: fixed;
-  z-index: 1021;
-  background: #f5f5f5;
-  width: 100%;
-  height: 100%;
+    position: fixed;
+    z-index: 1021;
+    background: #f5f5f5;
+    width: 100%;
+    height: 100%;
 }
 
 .spinner {
-  margin: auto;
-  position: relative;
-  top: 50%;
-  border: 1rem solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 1rem solid #ef6c8f;
-  border-right: 1rem solid #9038a8;
-  border-bottom: 1rem solid #20bdad;
-  border-left: 1rem solid #ffcccb;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    border: 1rem solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 1rem solid #ef6c8f;
+    border-right: 1rem solid #9038a8;
+    border-bottom: 1rem solid #20bdad;
+    border-left: 1rem solid #ffcccb;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

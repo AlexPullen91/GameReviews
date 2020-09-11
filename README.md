@@ -147,6 +147,7 @@ Getting started is simple:
 * [Google Chrome Developer Tools](https://developers.google.com/web/tools/chrome-devtools)
 * [Balsamiq](Balsamiq)
 * [CSS Gradient](https://cssgradient.io/)
+* [Web Formatter](https://webformatter.com/)
 
 ---
 
@@ -154,6 +155,16 @@ Getting started is simple:
 
 Testing for responsiveness and bugs throughout development was carried out with google chrome developer tools and the device toolbar to ensure compatibility on all screen sizes.
 
+HTML ran through [W3 validator](https://validator.w3.org/)
+* Everything good except some anticipated flask related issues
+
+CSS ran through [W3 validator](https://jigsaw.w3.org/css-validator/)
+* Everything good except:
+    * Two errors pertaining to webkit scroll bar
+    * Some warnings about webkit scroll bar and buttons
+
+Python ran through [PEP8 online check](http://pep8online.com/)
+* Everything good except two long lines that can't be solved
 
 ## Manual Testing
 
