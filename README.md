@@ -257,6 +257,11 @@ This test determines if the delete review function works as intended.
             genreNames.append((name['name']))
     * Seems obvious now but this provided me with an array that I could then access with jinja templating. Rinse and repeat for the other fields.
 
+* Successfully writing my two first search functions was very satisfying but whilst they remained separate the overall functionality was leaving a lot to be desired.
+    * I wanted users to be able to search for a game once and have the game returned from the API whilst also returning any reviews in the database.
+    * Moving the search review logic inside the search API function was relatively simple and slotted in amongst existing ```try:``` and ```except``` handlers along with an extra nested ```try:``` ```except```.
+    * These allowed the API search to go ahead when the search review logic would fail to locate reviews in the database.
+
 
 * I encountered an issue when working on the search API function that involved trying to grab the game image.
     * The cover.url key in the parameters of the API request would only retern a tiny thumbnail image.
