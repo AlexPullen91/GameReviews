@@ -75,7 +75,6 @@ def search_game():
             reviews = MONGO.db.reviews
             reviewList = list(reviews.find({'title_lower': f"{title_lower}"}))
             game_title = reviewList[0]['title_lower']
-
             return render_template(
                 'pages/search.html',
                 coverBig=coverBig,
@@ -115,6 +114,7 @@ def search_game():
                     release_dates.append((human['human']))
                 return render_template(
                     'pages/search.html',
+                    reviewList=reviewList,
                     coverBig=coverBig,
                     gameTitle=gameTitle,
                     genreNames=genreNames,
@@ -334,13 +334,13 @@ def logout():
     return redirect('/')
 
 
-@APP.route('/favicon.ico')
-def favicon():
-    """
-    Uses the send_from_directory module to help render favicon
-    """
-    return send_from_directory(os.path.join(APP.root_path, 'static/images'),
-                               'favicon.ico')
+# @APP.route('/favicon.ico')
+# def favicon():
+#     """
+#     Uses the send_from_directory module to help render favicon
+#     """
+#     return send_from_directory(os.path.join(APP.root_path, 'static/images'),
+#                                'favicon.ico')
 
 
 if __name__ == '__main__':

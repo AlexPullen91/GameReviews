@@ -236,6 +236,8 @@ This test determines if the delete review function works as intended.
     * The error handling process would correctly alert the user that the name is already taken but also alert them that their passwords didn't match even when they did.
     * This was solved by redirecting the user to the signup page at the end of each if statement.
 
+* 
+
 * I encountered an issue when working on the search API function that involved trying to grab the game image.
     * The cover.url key in the parameters of the API request would only retern a tiny thumbnail image.
     * This wasn't suitable for my needs so after some digging I found the info I needed in the API documentation.

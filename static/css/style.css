@@ -5,25 +5,6 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-/* .review-box-style-outer {
-  box-shadow: 0 0.1rem 0 0.6rem #000;
-  border: 2rem solid #9038a8;
-  background-color: #dbf8f8;
-} */
-
-/* .review-box-style-inner {
-    color: #fff;
-  border: 0.3rem solid #000;
-  box-shadow: 0 0.1rem 0rem 0.2rem #000;
-  background: rgb(230, 239, 244);
-  background: rgb(144, 56, 168);
-  background: linear-gradient(
-    90deg,
-    rgba(144, 56, 168, 1) 50%,
-    rgba(32, 189, 173, 1) 50%
-  );
-} */
-
 .review-info-stack {
   display: flex;
   flex-direction: column;
@@ -39,6 +20,17 @@ body {
     rgba(213, 233, 255, 1) 57%
   );
 }
+
+/* .review-box-style {
+  box-shadow: 0 0 0 0.3rem #000;
+  border-radius: 0.8rem;
+  background: rgb(230, 239, 244);
+  background: linear-gradient(
+    90deg,
+    rgba(230, 239, 244, 1) 50%,
+    rgba(213, 233, 251, 1) 50%
+  );
+} */
 
 /* General styling */
 
@@ -96,7 +88,7 @@ menu full width on smaller screen sizes */
 }
 
 .dropdown-item:active {
-    background-color: #20bdad;
+  background-color: #20bdad;
 }
 
 /* Buttons */
@@ -124,7 +116,7 @@ menu full width on smaller screen sizes */
 }
 
 .glow:hover {
-    box-shadow: 0 0 0.3rem 0.3rem #20bdad;
+  box-shadow: 0 0 0.3rem 0.3rem #20bdad;
 }
 
 .pink-btn {
