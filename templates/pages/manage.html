@@ -43,7 +43,7 @@
         {% endif %}
       {% endfor %}
 
-      {% if reviewList == [] %}
+      {% if session['username'] != reviewer['reviewed_by'] %}
       <div class="w-75 p-5 m-auto">
         <img
           src="{{url_for('static', filename='images/tetris.png')}}"

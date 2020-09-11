@@ -212,11 +212,31 @@ def manage_reviews():
     if user is not logged in they're redirected to the login page
     """
     reviews = MONGO.db.reviews
-    reviewList = list(reviews.find({'title_lower': 'title_lower'}))
-    if 'username' in session:
+    # reviewList = list(reviews.find({'title_lower': 'title_lower'}))
+    # users = MONGO.db.users
+    username = session['username']
+
+    reviewer = reviews.find_one({'reviewed_by': username})
+    # current_user = users.find_one({'name': username})
+
+    # thisuser = current_user['name']
+    # print("Reviewer list:", reviewer)
+    # print("Reviewer is:", reviewer['reviewed_by'])
+    # print("Current user:", current_user)
+    # print("this user is:", thisuser)
+    # print("session username", session['username'])
+    # print("review list:", reviewList)
+    if 'username' in session and reviewer is None:
         return render_template(
             'pages/manage.html',
-            reviewList=reviewList,
+            reviewer=reviewer,
+            username=username,
+            reviews=MONGO.db.reviews.find())
+    elif 'username' in session and reviewer['reviewed_by']:
+        return render_template(
+            'pages/manage.html',
+            reviewer=reviewer,
+            username=username,
             reviews=MONGO.db.reviews.find())
     flash("You must create an account or login first!", "noaccount")
     return redirect('login')
