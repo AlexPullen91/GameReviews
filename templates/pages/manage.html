@@ -19,9 +19,9 @@
                 <div class="list-group-item list-group-item-action review-box-style">
                     <h6 class="font-weight-normal text-dark mb-1 py-1 text-center">{{review.game_title}}</h6>
                     <div class="float-sm-left pt-2">
-                        <a href="{{url_for('get_review', review_id=review._id)}}" class="btn purple-btn m-2 rounded-pill">View</a>
-                        <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn green-btn m-2 rounded-pill">Edit</a>
-                        <a href="{{url_for('delete_review', review_id=review._id)}}" class="btn btn-danger m-2 rounded-pill">Delete</a>
+                        <a href="{{url_for('get_review', review_id=review._id)}}" class="btn purple-btn m-2 rounded-pill" role="button">View</a>
+                        <a href="{{url_for('edit_review', review_id=review._id)}}" class="btn green-btn m-2 rounded-pill" role="button">Edit</a>
+                        <a href="{{url_for('delete_review', review_id=review._id)}}" class="btn btn-danger m-2 rounded-pill" role="button">Delete</a>
                     </div>
 
                     <img src="{{url_for('static', filename='images/buttons.png')}}" alt="gamepad buttons" class="img-sm float-right d-none d-sm-block" />

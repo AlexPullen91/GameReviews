@@ -9,7 +9,7 @@
             <h1 class="pb-4 heading">Login</h1>
             <form method="POST" action="{{url_for('login')}}">
                 <div class="form-group py-1">
-                    <input type="text" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="username" placeholder="Username" aria-describedby="username" required />
+                    <input type="text" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="username" placeholder="Username" required />
                 </div>
                 <div class="form-group py-1">
                     <input type="password" class="form-control font-weight-light narrow-input-fields thick-border border-radius-sm" name="password" placeholder="Password" required />
@@ -20,7 +20,7 @@
             </form>
             <p class="pt-4 font-weight-light text-muted">Don't have an account yet?</p>
             <div class="btn-positioning btn-w-30">
-                <a href="{{url_for('signup')}}" class="btn purple-btn rounded-pill">Sign Up</a>
+                <a href="{{url_for('signup')}}" class="btn purple-btn rounded-pill" role="button">Sign Up</a>
             </div>
         </div>
         <!-- End of login form section -->
