@@ -37,8 +37,7 @@ def search_game():
     rate, review and then submit.
     If the name matches a review in the database then it also renders
     these on the same page.
-    Redirects to landing page or dashboard
-    upon encountering errors.
+    Redirects to landing page or dashboard upon encountering errors.
     """
     if request.method == 'POST':
         games_url = 'https://api-v3.igdb.com/games'
@@ -212,9 +211,13 @@ def manage_reviews():
     only lists reviews submitted by that user
     if user is not logged in they're redirected to the login page
     """
+    reviews = MONGO.db.reviews
+    reviewList = list(reviews.find({'title_lower': 'title_lower'}))
     if 'username' in session:
         return render_template(
-            'pages/manage.html', reviews=MONGO.db.reviews.find())
+            'pages/manage.html',
+            reviewList=reviewList,
+            reviews=MONGO.db.reviews.find())
     flash("You must create an account or login first!", "noaccount")
     return redirect('login')
 

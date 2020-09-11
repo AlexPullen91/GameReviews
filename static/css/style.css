@@ -10,6 +10,10 @@ body {
   flex-direction: column;
 }
 
+.rating-text {
+    font-size: 1.5rem;
+}
+
 .review-box-style {
   box-shadow: 0 0 0 0.3rem #000;
   border-radius: 0.8rem;

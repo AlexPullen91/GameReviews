@@ -42,6 +42,23 @@
         </div>
         {% endif %}
       {% endfor %}
+
+      {% if reviewList == [] %}
+      <div class="w-75 p-5 m-auto">
+        <img
+          src="{{url_for('static', filename='images/tetris.png')}}"
+          class="img-medium mx-auto d-block"
+          alt="tetris blocks"
+        />
+        <p class="font-weight-light my-2 text-center">
+          It looks like there's nothing here yet...
+        </p>
+        <p class="font-weight-light mt-1 text-center">
+          use the search bar to start your first review!
+        </p>
+        
+      </div>
+      {% endif %}
     </div>
     <!-- End of review list section -->
 

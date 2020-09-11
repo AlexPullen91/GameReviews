@@ -103,8 +103,8 @@
         >
           <div class="flex-col float-left">
             <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
-            <p class="font-italic mb-1">
-              "{{review.rating}}"
+            <p class="heading rating-text mb-1">
+              {{review.rating}}
             </p>
             <small class="font-weight-light"
               >Reviewed by:
@@ -125,13 +125,15 @@
       {% if reviewList == [] %}
       <div class="w-75 p-5 m-auto">
         <p class="font-weight-light text-center pt-5">
-          It looks like there's nothing here yet, be the first to review this
-          title!
+          It looks like there's nothing here yet...
+        </p>
+        <p class="font-weight-light text-center mt-1">
+          be the first to review this title!
         </p>
         <img
           src="{{url_for('static', filename='images/badge.png')}}"
           class="img-medium mx-auto d-block"
-          alt="droid"
+          alt="gold badge"
         />
       </div>
       {% endif %}

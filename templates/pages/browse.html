@@ -19,12 +19,12 @@
       {% include 'components/messages/added.html' %}  
 
       {% for review in reviews|reverse %}
-      <div class="list-group font-weight-light border-radius-sm my-4">
+      <div class="list-group border-radius-sm my-4">
         <a href="{{url_for('get_review', review_id=review._id)}}" class="review-box-style glow push-btn list-group-item list-group-item-action">
             <div class="flex-col float-left">
             <h6 class="font-weight-normal mb-2">{{review.game_title}}</h6>
-          <p class="font-italic mb-1">
-            "{{review.rating}}"
+          <p class="heading rating-text mb-1">
+            {{review.rating}}
           </p>
           <small class="font-weight-light">Reviewed by: <span class="font-weight-bold">{{review.reviewed_by}}</span></small>
           </div>
