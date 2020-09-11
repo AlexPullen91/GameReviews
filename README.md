@@ -166,6 +166,21 @@ CSS ran through [W3 validator](https://jigsaw.w3.org/css-validator/)
 Python ran through [PEP8 online check](http://pep8online.com/)
 * Everything good except two long lines that can't be solved
 
+
+
+Tested and working as intended on the following browsers:
+* Chrome
+* Safari
+* Firefox
+* Edge
+
+Tested and working as intended on the following devices:
+* Macbook Pro
+* iOTA Notebook
+* iPhone 10
+* iPhone 11
+* Google Pixel
+
 ## Manual Testing
 
 *Test case:* **User sign up process**
@@ -272,7 +287,7 @@ This test determines if the delete review function works as intended.
 * Writing the API search function presented a host of niggly issues that mostly centered on determining which keys or values I needed to access in order to get the right information.
     * One little headscratcher that took a while was how to get the data from a game when there was more than one genre, platform or release date.
     * After much printing() and googling I realised that because I had an array of dicts I needed to loop through it whilst specifying the key 'name'.
-    * After a bit of trial and error my eureka moment was born from this piece of code:
+    * After a bit of trial and error my eureka moment came from this piece of code:
         
             genreNames = []
             for name in genres:
