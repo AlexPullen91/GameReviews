@@ -13,7 +13,7 @@ APP = Flask(__name__)
 
 APP.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 APP.secret_key = os.environ.get("SECRET_KEY")
-API_KEY = os.environ.get("API_KEY")
+CLIENT_SECRET = os.environ.get("CLIENT_SECRET")
 
 MONGO = PyMongo(APP)
 
@@ -32,6 +32,7 @@ def landing_page():
 @APP.route('/search', methods=['POST', 'GET'])
 def search_game():
     """
+    Makes a POST request to twitch developer program for authentication,
     Makes a POST request to the IGDB API using a user inputted value and
     the data is passed into form fields in search.html ready for user to
     rate, review and then submit.
@@ -40,8 +41,22 @@ def search_game():
     Redirects to landing page or dashboard upon encountering errors.
     """
     if request.method == 'POST':
-        games_url = 'https://api-v3.igdb.com/games'
-        headers = {'user-key': API_KEY}
+
+        twitch_url = 'https://id.twitch.tv/oauth2/token?'
+        auth_params = {
+            'client_id': 'ugr2gnzhrnsn11vu1p3l78dacdmi4y',
+            'client_secret': f"{CLIENT_SECRET}",
+            'grant_type': 'client_credentials'
+        }
+        twitch_auth = requests.post(twitch_url, params=auth_params)
+        access_token = twitch_auth.json()['access_token']
+        authorization = 'Bearer ' + access_token
+
+        games_url = 'https://api.igdb.com/v4/games'
+        headers = {
+            'Client-ID': 'ugr2gnzhrnsn11vu1p3l78dacdmi4y',
+            'Authorization': authorization
+        }
         gameName = request.form.get('search')
         games_params = {
             'fields': 'name, genres.name, platforms.name, release_dates.human, cover.url',

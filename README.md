@@ -321,6 +321,9 @@ This test determines if the delete review function works as intended.
 * When reviews are submitted with any formatting this is recorded appropriately in the database but is lost when rendered by the Jinja templating.
     * By keeping ```<textarea>``` set to readonly as the container for the review text the original formatting is retained.
 
+* **As of October 26th, 2020 v3 of the IGDB API was shut down and important changes were needed to transition to v4 for GameReviews to remain functional.**
+    * Following steps outlined [here](https://api-docs.igdb.com/#upgrading-to-v4-from-v3) I registered the app with twitch, made an extra post request to enable authentication and updated the original request to integrate this. 
+
 ### Known Issues
 
 * *Currently users are still able to post reviews for a game they have already submitted a review for.* - **solved**
